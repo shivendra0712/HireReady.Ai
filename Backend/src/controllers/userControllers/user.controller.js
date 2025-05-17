@@ -7,8 +7,8 @@ const registerController = async (req, res, next) => {
     const { username, email, password } = req.body;
 
     try {
-        const existinguser = await User.findOne({ email });
-        if (existinguser) return next(new CustomError('user already exist', 409));
+        const existingUser = await User.findOne({ email });
+        if (existingUser) return next(new CustomError('user already exist', 409));
         const user = await User.create({
             username,
             email,
@@ -16,14 +16,14 @@ const registerController = async (req, res, next) => {
         });
 
         const token = await user.generateAuthToken();
-        console.log('token inside constroller --->', token);
+        console.log('token inside controller --->', token);
 
         res.cookie('token', token, {
             httpOnly: true,
             sameSite: 'none',
         });
 
-        res.status(201).json({ message: 'User created successfull', token: token });
+        res.status(201).json({ message: 'User created successful', token: token });
 
 
     }
@@ -82,7 +82,7 @@ const currentUserController = async (req, res, next) => {
 
     try {
         const user = req.user;
-        res.status(200).json({ message: 'authentication successfull ', user: user });
+        res.status(200).json({ message: 'authentication successful', user: user });
     } catch (error) {
 
     }
