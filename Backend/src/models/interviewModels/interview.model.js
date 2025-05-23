@@ -7,22 +7,79 @@ const interviewSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    startTime: {
-      type: Date,
-      default: Date.now,
+    jobTitle: {
+      type: String,
+      required: true,
+      trim: true,
     },
-    endTime: {
-      type: Date,
+    interviewType: {
+      type: String,
+      enum: ["technical", "behavioral"],
+      default: "technical",
+      required: true,
+    },
+    experience: {
+      type: Number,
+      min: 0,
+      default: 0,
+    },
+    interviewLevel: {
+      type: String,
+      enum: ["beginner", "intermediate", "advanced"],
+      default: "intermediate",
+    },
+    status: {
+      type: String,
+      enum: ["scheduled", "in_progress", "completed", "cancelled"],
+      default: "scheduled",
+    },
+    interviewDuration: {
+      type: Number, // Duration in min.
+      default: 30,
+    },
+    userInterviewDuration: {
+      type: Number, // Duration in min.
+      default: 0,
+    },
+    isCameraOn: {
+      type: Boolean,
+      default: false,
+    },
+    isMicOn: {
+      type: Boolean,
+      default: false,
     },
     overallFeedback: {
       type: String, // AI or evaluator feedback
     },
+    overallScore: {
+      type: Number,
+      min: 0,
+      max: 100,
+    },
+    interviewerName: {
+      type: String,
+      default: "AI Interviewer",
+    },
+    interviewDate:{
+        type: Date,
+    }
   },
   {
     timestamps: true,
   }
 );
 
+// // Virtual for getting all questions related to this interview
+// interviewSchema.virtual('questions', {
+//   ref: 'Question',
+//   localField: '_id',
+//   foreignField: 'sessionId'
+// });
+
+// // Set toJSON option to include virtuals
+// interviewSchema.set('toJSON', { virtuals: true });
+// interviewSchema.set('toObject', { virtuals: true });
 
 const Interview = mongoose.model("Interview", interviewSchema);
 

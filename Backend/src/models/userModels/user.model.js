@@ -15,7 +15,31 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-},{
+    totalInterview: {
+        type: Number,
+        default: 0
+    },
+    totalTime: {
+        type: Number,
+        default: 0
+    },
+    completeInterview: {
+        type: Number,
+        default: 0
+    },
+    available: {
+        type: Number,
+        default: 1
+    },
+    userInterviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Interview'
+    }],
+     userInterviewQuestions:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Question'
+    }]
+}, {
     timestamps: true,
 })
 
@@ -26,7 +50,7 @@ userSchema.pre('save', async function (next) {
 });
 
 userSchema.methods.generateAuthToken = async function () {
-    
+
     const token = jwt.sign({ id: this._id }, process.env.Secret_key, {
         expiresIn: "1h",
     });
@@ -42,7 +66,7 @@ userSchema.statics.authenticateUser = async function (email, password) {
     console.log("obj user----->", user);
     if (!user) throw new Error("User not found ");
 
-    const isMatch =await bcrypt.compare(password, user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
     console.log("pass->", isMatch);
     if (!isMatch) throw new Error("incorrect email or password ");
 
