@@ -11,7 +11,6 @@ const Feedback = () => {
                 {/* Header */}
                 <div className="flex justify-between items-center mb-8">
                     <button onClick={() => { navigate(-1) }}> <i class="ri-arrow-left-s-line"></i>Interviews</button>
-
                 </div>
                 {/* <hr className='text-white/20' /> */}
                 {/* Interview form */}
