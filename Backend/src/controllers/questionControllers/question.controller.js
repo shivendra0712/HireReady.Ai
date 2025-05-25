@@ -2,250 +2,126 @@ const Question = require("../../models/questionModels/question.model.js");
 const Interview = require("../../models/interviewModels/interview.model.js");
 const CustomError = require("../../utils/customError.js");
 
-// Create a new question
+
 const createQuestionController = async (req, res, next) => {
   try {
-    // Check if the interview exists
-    if (req.body.sessionId) {
-      const interview = await Interview.findById(req.body.sessionId);
-      if (!interview) {
-        return res.status(404).json({ error: "Interview not found" });
-      }
+    const { interviewId, aiQuestion } = req.body;
+    const user = req.user;
+
+    if (!aiQuestion && !interviewId) {
+      return next(new CustomError('All fields is required', 400))
     }
 
-    // If questionNumber is not provided, find the next available number
-    if (!req.body.questionNumber && req.body.sessionId) {
-      const lastQuestion = await Question.findOne(
-        { sessionId: req.body.sessionId },
-        {},
-        { sort: { questionNumber: -1 } }
-      );
+    const interview = await Interview.findById(interviewId);
 
-      req.body.questionNumber = lastQuestion ? lastQuestion.questionNumber + 1 : 1;
+    if (!interview) {
+      return next(new CustomError('Interview not found', 400))
     }
 
-    // Set startTime if not provided
-    if (!req.body.startTime) {
-      req.body.startTime = new Date();
+    const question = await Question.create({
+      userId: user._id,
+      interviewId: interview._id,
+      aiQuestion: aiQuestion
+    })
+
+    if (!question) {
+      return next(new CustomError('question not found', 400));
     }
 
-    // Create the new question
-    const newQuestion = await Question.create(req.body);
-    res.status(201).json(newQuestion);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
+    console.log(interview);
 
-// Get all questions with filtering and sorting
-const viewAllQuestionsController = async (req, res, next) => {
-  try {
-    const {
-      sessionId,
-      userId,
-      category,
-      role,
-      difficulty,
-      status,
-      sort = 'questionNumber'
-    } = req.query;
+    // interview.userInterviewQuestions.push(question._id)
+    // await interview.save()
 
-    // Build filter object based on query parameters
-    const filter = {};
-    if (sessionId) filter.sessionId = sessionId;
-    if (userId) filter.userId = userId;
-    if (category) filter.category = category;
-    if (role) filter.role = role;
-    if (difficulty) filter.difficulty = difficulty;
-    if (status) filter.status = status;
+    res.status(201).json({ message: 'Questions create successfully', data: question });
 
-    // Find questions with filters and sort
-    const questions = await Question.find(filter)
-      .sort(sort)
-      .lean();
-
-    res.status(200).json(questions);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    next(new CustomError(error.message, 500));
   }
 };
 
 // Get question by ID
 const viewQuestionController = async (req, res, next) => {
   try {
-    // Extract ID from params, ensuring the colon is handled
-    const questionId = req.params.id.startsWith(':')
-      ? req.params.id.substring(1)
-      : req.params.id;
+    const { id } = req.params;
 
-    // Find the question and populate interview data
-    const question = await Question.findById(questionId)
-      .populate('sessionId', 'jobTitle interviewType status');
+    const question = await Question.findById(id);
 
-    if (!question) return res.status(404).json({ error: "Question not found" });
+    if (!question) {
+      return next(new CustomError('Question not found', 404));
+    }
+    res.status(200).json({ message: 'question', data: question });
 
-    res.status(200).json(question);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    next(new CustomError(error.message, 500));
   }
 };
 
 // Update question answer and related fields
 const updateQuestionAnswerController = async (req, res, next) => {
   try {
-    // Extract ID from params, ensuring the colon is handled
-    const questionId = req.params.id.startsWith(':')
-      ? req.params.id.substring(1)
-      : req.params.id;
 
-    // Find the current question
-    const question = await Question.findById(questionId);
-    if (!question) return res.status(404).json({ error: "Question not found" });
+    const { id } = req.params;
 
-    // If providing an answer, update status and set endTime
-    if (req.body.userAnswer && question.status === 'pending') {
-      req.body.status = 'answered';
-      req.body.endTime = new Date();
-
-      // Calculate answer duration if startTime exists
-      if (question.startTime) {
-        const startTime = new Date(question.startTime);
-        const endTime = new Date(req.body.endTime);
-        req.body.answerDuration = Math.floor((endTime - startTime) / 1000); // Duration in seconds
-      }
+    const question = await Question.findById(id);
+    if (!question) {
+      return next(new CustomError('Question not found', 404));
     }
 
-    // If providing AI feedback, update status
-    if (req.body.aiFeedback && question.status === 'answered') {
-      req.body.status = 'evaluated';
-    }
+    const { userAnswer } = req.body;
 
-    // Update the question
     const updated = await Question.findByIdAndUpdate(
-      questionId,
-      req.body,
+      id, {
+      userAnswer
+    },
       { new: true }
     );
 
-    res.status(200).json(updated);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Skip a question
-const skipQuestionController = async (req, res, next) => {
-  try {
-    // Extract ID from params, ensuring the colon is handled
-    const questionId = req.params.id.startsWith(':')
-      ? req.params.id.substring(1)
-      : req.params.id;
-
-    // Update the question status to skipped
-    const updated = await Question.findByIdAndUpdate(
-      questionId,
-      {
-        status: 'skipped',
-        endTime: new Date(),
-        ...req.body // Allow additional updates
-      },
-      { new: true }
-    );
-
-    if (!updated) return res.status(404).json({ error: "Question not found" });
-
-    res.status(200).json(updated);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Delete a question
-const deleteQuestionController = async (req, res, next) => {
-  try {
-    // Extract ID from params, ensuring the colon is handled
-    const questionId = req.params.id.startsWith(':')
-      ? req.params.id.substring(1)
-      : req.params.id;
-
-    // Delete the question
-    const deleted = await Question.findByIdAndDelete(questionId);
-
-    if (!deleted) return res.status(404).json({ error: "Question not found" });
-
-    // If this was part of an interview, reorder remaining questions
-    if (deleted.sessionId) {
-      // Get all questions for this interview
-      const questions = await Question.find({
-        sessionId: deleted.sessionId,
-        questionNumber: { $gt: deleted.questionNumber }
-      });
-
-      // Update question numbers for all subsequent questions
-      for (const question of questions) {
-        await Question.updateOne(
-          { _id: question._id },
-          { $inc: { questionNumber: -1 } }
-        );
-      }
+    if (!updated) {
+      return next(new CustomError('Question not found', 404));
     }
 
-    res.status(200).json({
-      message: "Question deleted successfully",
-      deletedQuestion: deleted
-    });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(200).json({ message: 'UserAnswer updated successfully', data: updated });
+  } catch (error) {
+    next(new CustomError(error.message, 500));
   }
 };
 
 // Generate AI feedback for a question
 const generateFeedbackController = async (req, res, next) => {
   try {
-    // Extract ID from params, ensuring the colon is handled
-    const questionId = req.params.id.startsWith(':')
-      ? req.params.id.substring(1)
-      : req.params.id;
 
-    // Find the question
-    const question = await Question.findById(questionId);
-    if (!question) return res.status(404).json({ error: "Question not found" });
+    const { id } = req.params;
 
-    // Check if question has been answered
-    if (question.status !== 'answered') {
-      return res.status(400).json({
-        error: "Cannot generate feedback for a question that hasn't been answered"
-      });
+    const question = await Question.findById(id);
+    if (!question) {
+      return next(new CustomError('Question not found', 404));
     }
 
-    // In a real implementation, this would call an AI service
-    // For now, we'll simulate with a placeholder
-    const feedback = `This is simulated AI feedback for the answer: "${question.userAnswer}"`;
-    const score = Math.floor(Math.random() * 41) + 60; // Random score between 60-100
+     const { aiAnswer } = req.body;
 
-    // Update the question with feedback
     const updated = await Question.findByIdAndUpdate(
-      questionId,
-      {
-        aiFeedback: feedback,
-        score: score,
-        status: 'evaluated'
-      },
+      id, {
+      aiAnswer
+    },
       { new: true }
     );
 
+    if (!updated) {
+      return next(new CustomError('Question not found', 404));
+    }
+
+    res.status(200).json({ message: 'AiAnswer updated  successfully', data: updated });
+
     res.status(200).json(updated);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+     next(new CustomError(error.message, 500));
   }
 };
 
 module.exports = {
   createQuestionController,
-  viewAllQuestionsController,
   viewQuestionController,
   updateQuestionAnswerController,
-  skipQuestionController,
-  deleteQuestionController,
   generateFeedbackController
 }
