@@ -7,23 +7,18 @@ const questionSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    sessionId: {
+    interviewId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Interview",
       required: true,
     }, // link to which interview this question belongs
     questionNumber: {
       type: Number,
-      
+      default:0
     },
     aiQuestion: {
       type: [String],
       default:[]
-    },
-    category: {
-      type: String,
-      enum: ["technical", "behavioral"],
-      required: true,
     },
     userAnswer: {
       type: [String], // User's recorded answer
@@ -33,7 +28,8 @@ const questionSchema = new mongoose.Schema(
       type: String, // URL to audio file if recorded
     },
     aiAnswer: {
-      type: String, // GPT's explanation or model answer
+      type: [String], // GPT's explanation or model answer
+      default:[]
     },
     aiFeedback: {
       type: String, // GPT's feedback on userAnswer
@@ -43,9 +39,6 @@ const questionSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
-// Index for faster queries
-questionSchema.index({ sessionId: 1, questionNumber: 1 });
 
 const Question = mongoose.model("Question", questionSchema);
 

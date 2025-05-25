@@ -22,11 +22,13 @@ const interviewSchema = new mongoose.Schema(
       type: Number,
       min: 0,
       default: 0,
+      required:true
     },
     interviewLevel: {
       type: String,
       enum: ["beginner", "intermediate", "advanced"],
       default: "intermediate",
+      required:true
     },
     status: {
       type: String,
@@ -63,6 +65,10 @@ const interviewSchema = new mongoose.Schema(
     },
     interviewDate:{
         type: Date,
+    }, 
+    Questions:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Question'
     }
   },
   {
