@@ -1,12 +1,13 @@
 import axios from "./axiosConfig"
 
-export const signUpService = async (data) => {
+export const registerService = async (data) => {
   try {
     const res = await axios.post('/auth/register', data);
     return res;
   }
   catch (error) {
-    console.log(error);
+    console.log("Error ----> " , error.response.data.message);
+    
   }
 };
 
@@ -16,26 +17,27 @@ export const logInService = async (data) => {
     return res;
   }
   catch(error) {
-    console.log(error);
+     console.log("Error ----> " , error.response.data.message);
   }
 }
 
-export const currentUserServices = async () =>{
+export const currentUserService = async () =>{
   try{
     const {data} = await axios.get('/auth/current-user');
-    console.log(data);
+    // console.log(data);
+    return data;
   }
   catch(error){
-    console.log('error-> ')
+     console.log("Error ----> " , error.response.data.message);
   }
 }
 
-// export const logOutService = async () => {
-//   try {
-//     const res = await axios.post('/auth/logout');
-//     return res;
-//   }
-//   catch(error) {
-//     console.log(error);
-//   }
-// }
+export const logOutService = async () => {
+  try {
+    const res = await axios.post('/auth/logout');
+    return res;
+  }
+  catch(error) {
+     console.log("Error ----> " , error.response.data.message);
+  }
+}

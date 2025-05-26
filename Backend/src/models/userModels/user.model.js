@@ -31,14 +31,11 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 1
     },
-    userInterviews:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Interview'
+    userInterviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Interview'
     }],
-     userInterviewQuestions:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Question'
-    }]
+
 }, {
     timestamps: true,
 })
@@ -74,3 +71,4 @@ userSchema.statics.authenticateUser = async function (email, password) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+

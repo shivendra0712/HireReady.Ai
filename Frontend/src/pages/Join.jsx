@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from 'axios';
+import {currentUserService} from '../API/authService'
+import {viewInterviewByIdService} from '../API/interviewService'
 
 const Join = () => {
   const { interviewId } = useParams();
@@ -19,8 +20,41 @@ const Join = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [interview, setInterview] = useState(null);
   const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(false)
-  const [secondLevelCheckTogger, setSecondLevelCheckTogger] = useState(false)
   const [interviewerName, setInterviewerName] = useState('abc')
+
+
+   useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const response = await viewInterviewByIdService(); // ✅ calling API
+          const data = response.user; // depends on your API response structure
+          console.log("view interview data -> ",data);
+         
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+      fetchUserData();
+    }, []);
+
+
+  
+  useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const response = await currentUserService(); 
+          const data = response.user; 
+            // console.log(data);
+          userName(data.username);
+
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+  
+      fetchUserData();
+    }, []);
+
 
   // Function to initialize media devices
   const initializeMedia = async (video = true, audio = true) => {
@@ -167,7 +201,7 @@ const Join = () => {
       setIsLoading(true);
 
       // Call API to update interview status
-      await axios.put(`http://localhost:5000/api/interview/start/${interviewId}`, {
+      await axio.put(`http://localhost:5000/api/interview/start/${interviewId}`, {
         isCameraOn,
         isMicOn
       }, {
@@ -177,7 +211,8 @@ const Join = () => {
           // 'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
-      firstLevelCheckTogger(true)
+
+      setFirstLevelCheckTogger(true)
       setIsInterviewStarted(true);
       
     } catch (error) {
@@ -334,14 +369,7 @@ const Join = () => {
         <div className="w-full  flex-1 flex items-center justify-center gap-10">
 
           <div className="w-[40%] max-h-2xl aspect-video bg-[#27272A] rounded-lg overflow-hidden relative">
-            {/* Video element - always present but may not show anything */}
-            {/* <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              muted={!isMicOn}
-              className={`w-full h-full object-cover ${isCameraOn ? 'block' : 'hidden'}`}
-            /> */}
+          
 
             {/* Placeholder when camera is off */}
             {!isCameraOn && (
@@ -350,41 +378,6 @@ const Join = () => {
                   <p className="text-lg">{userName}</p>
                   {/* <p className="text-sm text-gray-400">Camera is currently off</p> */}
                 </div>
-
-                {/* Setup buttons when no media is initialized */}
-                {/* {!localStreamRef.current && (
-                  <div className="flex flex-col space-y-4 items-center">
-                    <p className="text-gray-300 mb-2">Please set up your devices for the interview</p>
-
-                    {isLoading ? (
-                      <div className="flex flex-col items-center">
-                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mb-4"></div>
-                        <p className="text-gray-300">Requesting device permissions...</p>
-                      </div>
-                    ) : (
-                      <div className="flex flex-wrap gap-3 justify-center">
-                        <button
-                          onClick={() => initializeMedia(true, false)}
-                          disabled={isLoading}
-                          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                          Enable Camera Only
-                        </button>
-                        <button
-                          onClick={() => initializeMedia(false, true)}
-                          disabled={isLoading}
-                          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                          Enable Microphone Only
-                        </button>
-                        <button
-                          onClick={() => initializeMedia(true, true)}
-                          disabled={isLoading}
-                          className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                          Enable Both
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                )} */}
               </div>
             )}
 
@@ -395,94 +388,7 @@ const Join = () => {
               </div>
             )}
 
-            {/* Media controls */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-              {/* Camera toggle button */}
-              {/* <button
-                onClick={toggleCamera}
-                disabled={isLoading}
-                className={`${isCameraOn ? "bg-green-600" : "bg-gray-800"} hover:bg-opacity-90 p-3 rounded-full relative ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                {isLoading ? (
-                  <div className="animate-spin h-6 w-6 border-2 border-white rounded-full border-t-transparent"></div>
-                ) : (
-                  <>
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                      />
-                    </svg>
-                    {!isCameraOn && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-0.5 h-8 bg-red-500 transform rotate-45 rounded-full"></div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </button> */}
-
-              {/* Microphone toggle button */}
-              {/* <button
-                onClick={toggleMicrophone}
-                disabled={isLoading}
-                className={`${isMicOn ? "bg-green-600" : "bg-gray-800"} hover:bg-opacity-90 p-3 rounded-full relative ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                {isLoading ? (
-                  <div className="animate-spin h-6 w-6 border-2 border-white rounded-full border-t-transparent"></div>
-                ) : (
-                  <>
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                      />
-                    </svg>
-                    {!isMicOn && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-0.5 h-8 bg-red-500 transform rotate-45 rounded-full"></div>
-                      </div>
-                    )}
-                  </>
-                )}
-              </button> */}
-
-              {/* Interview control button */}
-              {/* {!isInterviewStarted ? (
-                <button
-                  onClick={startInterview}
-                  disabled={(!isCameraOn && !isMicOn) || isLoading}
-                  className={`font-medium py-2 px-4 rounded-md ${(isCameraOn || isMicOn) && !isLoading
-                    ? "bg-green-500 hover:bg-green-600 text-white"
-                    : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                    }`}>
-                  {isLoading ? "Please wait..." : "Start Interview"}
-                </button>
-              ) : !isInterviewEnded ? (
-                <button
-                  onClick={endInterview}
-                  disabled={isLoading}
-                  className={`bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded-md ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                  End Interview
-                </button>
-              ) : (
-                <button
-                  onClick={goToReport}
-                  className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md">
-                  View Report
-                </button>
-              )} */}
-            </div>
+            
             
           </div>
 
@@ -552,41 +458,6 @@ const Join = () => {
                     <p className="text-lg">{userName}</p>
                     <p className="text-sm text-gray-400">Camera is currently off</p>
                   </div>
-
-                  {/* Setup buttons when no media is initialized */}
-                  {!localStreamRef.current && (
-                    <div className="flex flex-col space-y-4 items-center">
-                      <p className="text-gray-300 mb-2">Please set up your devices for the interview</p>
-
-                      {isLoading ? (
-                        <div className="flex flex-col items-center">
-                          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mb-4"></div>
-                          <p className="text-gray-300">Requesting device permissions...</p>
-                        </div>
-                      ) : (
-                        <div className="flex flex-wrap gap-3 justify-center">
-                          <button
-                            onClick={() => initializeMedia(true, false)}
-                            disabled={isLoading}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Camera Only
-                          </button>
-                          <button
-                            onClick={() => initializeMedia(false, true)}
-                            disabled={isLoading}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Microphone Only
-                          </button>
-                          <button
-                            onClick={() => initializeMedia(true, true)}
-                            disabled={isLoading}
-                            className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Both
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  )}
                 </div>
               )}
 

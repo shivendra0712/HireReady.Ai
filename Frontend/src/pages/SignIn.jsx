@@ -12,10 +12,21 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm();
 
+  const  navigateHandler = () =>{
+      navigate('/');
+  } 
+
   const onSubmit =async (data) => {
     const response = await logInService(data);
     console.log(data); // You can integrate your login API here
-    console.log(response.data); 
+    try{
+      console.log(response.data);
+      navigateHandler();
+
+    }catch(error){
+
+    }
+    
   };
 
   return (
@@ -68,9 +79,9 @@ export default function LoginForm() {
 
         <p className="text-sm text-gray-400 text-center">
           Don't have an account?{" "}
-          <a href="/signup" className="text-green-400 hover:underline">
+          <button onClick={()=> navigate('/signup')} className="text-green-400 hover:underline">
             Sign up
-          </a>
+          </button>
         </p>
       </div>
     </div>

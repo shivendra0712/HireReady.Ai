@@ -12,10 +12,22 @@ export default function SignupForm() {
     formState: { errors },
   } = useForm();
 
+  const  navigateHandler = () =>{
+      navigate('/');
+  } 
+
   const onSubmit = async (data) => {
     const response = await registerService(data);
     console.log("Signup Data:", data); // Integrate with signup API
-    console.log("Signup data response", response.data);
+    try{
+      console.log("Signup data response", response.data);
+       navigateHandler();
+
+    }
+    catch(error){
+
+    }
+    
   };
 
   return (
@@ -86,9 +98,9 @@ export default function SignupForm() {
 
         <p className="text-sm text-gray-400 text-center">
           Already have an account?{" "}
-          <a href="login" className="text-green-400 hover:underline">
+          <button onClick={()=> navigate('/login')} className="text-green-400 hover:underline">
             Login
-          </a>
+          </button>
         </p>
       </div>
     </div>
