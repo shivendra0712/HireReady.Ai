@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Feed = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white">
       {/* Navbar */}
@@ -27,7 +31,7 @@ const Feed = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex md:gap-14">
-          <a href="#features" className="text-base font-medium hover:text-white/90">
+          <a href="#features"  className="text-base font-medium hover:text-white/90">
             Features
           </a>
           <a href="#pricing" className="text-base font-medium hover:text-white/90">
@@ -36,17 +40,19 @@ const Feed = () => {
           <a href="#testimonials" className="text-base font-medium hover:text-white/90">
             Testimonials
           </a>
-        </div>
-
-        {/* Dashboard Button */}
-        <div>
-          <a
-            href="/dashboard"
-            className="flex items-center text-white text-base font-medium hover:bg-white/15 py-2 px-6 hover:rounded-lg outline-none"
+          <button
+            onClick={()=> navigate('/dashboard')}
+            className="flex items-center text-white text-base font-medium outline-none"
           >
             Dashboard
-            <i className="ri-arrow-right-line text-lg mx-1"></i>
-          </a>
+            {/* <i className="ri-arrow-right-line text-lg mx-1"></i> */}
+          </button>
+        </div>
+
+        {/* profile Button */}
+        <div>
+            {/* <div className="w-14 h-14 bg-amber-500 rounded-full"></div> */}
+            <button onClick={()=>{ navigate('login') }} className="bg-[#BEF264] hover:bg-green-500 text-black font-semibold py-2 px-6 rounded-lg ">LogIn</button>
         </div>
       </nav>
 
@@ -103,12 +109,12 @@ const Feed = () => {
           </div>
 
           {/* CTA Button */}
-          <a href="/dashboard">
-            <button className="bg-green-500 hover:bg-green-600 text-black font-semibold py-3 px-8 rounded-xl inline-flex items-center">
+         
+            <button onClick={()=>navigate('/dashboard')} className="bg-[#bef264d6] hover:bg-green-500 text-black font-semibold py-2 px-6 rounded-lg inline-flex items-center">
               Create Interview
               <i className="ri-arrow-right-line text-lg mx-1"></i>
             </button>
-          </a>
+         
         </div>
       </div>
     </div>

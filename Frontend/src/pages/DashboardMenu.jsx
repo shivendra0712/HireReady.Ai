@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const DashboardMenu = () => {
+
+   const navigate = useNavigate();
+
   return (
     <div className='w-full h-full'>
          {/* Sidebar */}
@@ -22,16 +26,16 @@ const DashboardMenu = () => {
             <p className="text-gray-400 text-sm mb-2 font-medium">Main</p>
             <ul>
               <li className="">
-                <a href="/dashboard" className="flex items-center text-gray-200 hover:text-white font-medium outline-none">
+                <div onClick={()=> navigate('/dashboard')} className="flex items-center text-gray-200 hover:text-white font-medium outline-none">
                   <img className='scale-70' src="/images/img1.png" alt="" />
                   Progress
-                </a>
+                </div>
               </li>
               <li className="">
-                <a href="/dashboard/interviews" className="flex items-center text-gray-200 hover:text-white font-medium">
+                <div onClick={()=> navigate('/dashboard/interviews')} className="flex items-center text-gray-200 hover:text-white font-medium">
                   <img className='scale-70' src="/images/img2.png" alt="" />
                   Interviews
-                </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -40,25 +44,25 @@ const DashboardMenu = () => {
             <p className="text-gray-400 text-sm mb-2 font-medium">Exposure</p>
             <ul>
               <li className="mb-2">
-                <a href="#" className="flex items-center text-gray-400 hover:text-white text-sm">
+                <div  className="flex items-center text-gray-400 hover:text-white text-sm">
                    <img className='scale-70' src="/images/img3.png" alt="" />
                   Jobs
                   <span className="ml-2 text-xs bg-gray-800 text-gray-400 px-2 py-0.5 rounded">Coming soon</span>
-                </a>
+                </div>
               </li>
               <li className="mb-2 ">
-                <a href="#" className="flex  items-center text-gray-400 hover:text-white text-sm">
+                <div  className="flex  items-center text-gray-400 hover:text-white text-sm">
                    <img className='scale-70' src="/images/img4.png" alt="" />
                   Resume builder
                   <span className="ml-2 text-xs bg-gray-800 text-gray-400 px-1 py-0.5 rounded">Coming soon</span>
-                </a>
+                </div>
               </li>
               <li className="mb-2">
-                <a href="#" className="flex items-center text-gray-400 hover:text-white text-sm">
+                <div  className="flex items-center text-gray-400 hover:text-white text-sm">
                   <img className='scale-70' src="/images/img5.png" alt="" />
                   Leaderboard
                   <span className="ml-2 text-xs bg-gray-800 text-gray-400 px-1 py-0.5 rounded">Coming soon</span>
-                </a>
+                </div>
               </li>
             </ul>
           </div>
@@ -66,14 +70,14 @@ const DashboardMenu = () => {
 
         {/* Footer links */}
         <div className="mt-auto">
-          <a href="#" className="flex items-center  text-gray-200 hover:text-white font-medium">
+          <div  className="flex items-center  text-gray-200 hover:text-white font-medium">
             <img className='scale-70' src="/images/img6.png" alt="" />
             Feedback
-          </a>
-          <a href="#" className="flex items-center text-gray-200 hover:text-white font-medium">
+          </div>
+          <div  className="flex items-center text-gray-200 hover:text-white font-medium">
             <img className='scale-70' src="/images/img7.png" alt="" />
             Help
-          </a>
+          </div>
         </div>
 
         {/* User profile */}

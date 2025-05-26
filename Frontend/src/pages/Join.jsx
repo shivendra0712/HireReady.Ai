@@ -554,7 +554,7 @@ const Join = () => {
                   </div>
 
                   {/* Setup buttons when no media is initialized */}
-                  {!localStreamRef.current && (
+                  {/* {!localStreamRef.current && (
                     <div className="flex flex-col space-y-4 items-center">
                       <p className="text-gray-300 mb-2">Please set up your devices for the interview</p>
 
@@ -586,7 +586,7 @@ const Join = () => {
                         </div>
                       )}
                     </div>
-                  )}
+                  )} */}
                 </div>
               )}
 
