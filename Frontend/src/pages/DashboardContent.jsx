@@ -19,6 +19,7 @@ useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await currentUserService(); // ✅ calling API
+<<<<<<< HEAD
         // const data = response.user; // depends on your API response structure
           console.log(response);
         // setName(data.username);
@@ -28,6 +29,17 @@ useEffect(() => {
         // setAvailableInterviews(data.available);
       } catch (error) {
         console.log("Error fetching user data:", error);
+=======
+        const data = response.user; // depends on your API response structure
+          console.log(data);
+        setName(data.username);
+        setTotalInterviews(data.totalInterview);
+        setTotalTimeSpent(data.totalTime);
+        setCompletedInterviews(data.completeInterview);
+        setAvailableInterviews(data.available);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+>>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
       }
     };
 

@@ -12,7 +12,11 @@ const Interview = () => {
     const response = await createInterviewService(data);
     console.log(response);
     
+<<<<<<< HEAD
     // navigate('/interview/join/1');
+=======
+    navigate('/interview/join/1');
+>>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
   };
 
  
