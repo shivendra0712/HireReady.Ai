@@ -5,7 +5,8 @@ const cacheClient = require('../services/cache.services.js')
 
 
 const authMiddleware = async (req,res,next)=>{
-    const {token} = req.cookies;
+    let {token} = req.cookies;
+    console.log("token h : ", token)
 
     try{
         if(!token) return next(new CustomError('Unauthorized user!',401));
@@ -17,6 +18,7 @@ const authMiddleware = async (req,res,next)=>{
 
         const decode = jwt.verify(token ,process.env.Secret_key);
         console.log('decoded ---->', decode);
+        
         const user = await User.findById(decode.id);
 
         if(!user) return next(new CustomError('user not found',401));
