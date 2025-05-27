@@ -63,13 +63,14 @@ const interviewSchema = new mongoose.Schema(
       type: String,
       default: "AI Interviewer",
     },
+    Questions:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Question',
+    },
     interviewDate:{
         type: Date,
     }, 
-    Questions:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Question'
-    }
+    
   },
   {
     timestamps: true,

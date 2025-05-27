@@ -2,16 +2,11 @@ const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
     interviewId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Interview",
       required: true,
-    }, // link to which interview this question belongs
+    },
     questionNumber: {
       type: Number,
       default:0
@@ -21,18 +16,18 @@ const questionSchema = new mongoose.Schema(
       default:[]
     },
     userAnswer: {
-      type: [String], // User's recorded answer
+      type: [String], 
       default:[]
     },
     userAnswerAudio: {
-      type: String, // URL to audio file if recorded
+      type: String, 
     },
     aiAnswer: {
-      type: [String], // GPT's explanation or model answer
+      type: [String], 
       default:[]
     },
     aiFeedback: {
-      type: String, // GPT's feedback on userAnswer
+      type: String,
     },
   },
   {
