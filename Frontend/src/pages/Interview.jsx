@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import {createInterviewService} from '../API/interviewService.js'
+import {createQuestionService} from '../API/questionService.js'
 
 const Interview = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -10,25 +11,25 @@ const Interview = () => {
   const onSubmit =async (data) => {
     console.log('Form data:', data);
     const response = await createInterviewService(data);
-    console.log(response);
+    let interviewData = {
+            interviewId:response.data.data._id
+    }
+    console.log(interviewData);
+    const questionResponse = await createQuestionService(interviewData);
+
+    console.log(questionResponse)
+    // console.log(response.data.data);
     
-<<<<<<< HEAD
-    // navigate('/interview/join/1');
-=======
-    navigate('/interview/join/1');
->>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
+    navigate(`/interview/join/${response.data.data._id}`);
   };
 
- 
   return (
     <div className="flex w-full h-full bg-[#18181B] rounded-2xl px-20">
       <div className="flex-1 p-8 overflow-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold">Create an interview</h1>
           <div className="flex items-center space-x-4">
-            <div className="text-red-500 text-xs bg-[#2E1D1F] py-1 px-2 font-medium rounded-lg">
-              <span className="font-bold">0</span> interviews left
-            </div>
+          
             <button className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-md text-sm">
               Buy more interviews
             </button>
@@ -116,7 +117,7 @@ const Interview = () => {
           {/* Continue button */}
           <div className="mt-8">
             <button
-              type="submit"
+              type="submit" 
               className="bg-[#BEF264] hover:bg-green-500 text-black text-sm font-medium py-2 px-6 rounded-md"
             >
               Continue

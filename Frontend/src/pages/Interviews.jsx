@@ -1,10 +1,6 @@
 import React, { useState  , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { currentUserService } from '../API/authService'
-<<<<<<< HEAD
-import {viewAllInterviewService} from '../API/interviewService'
-=======
->>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
 
 
 const Interviews = () => {
@@ -21,80 +17,6 @@ const Interviews = () => {
   const [createdDates, setCreatedDates] = useState(['3 weeks ago']);
 
 
-<<<<<<< HEAD
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //       const response = await viewAllInterviewService(); // ✅ calling API
-  //       const data = response.user; // depends on your API response structure
-  //       console.log("user all interviews data -> ",data);
-        
-  //     } catch (error) {
-  //       console.error("Error fetching user data:", error);
-  //     }
-  //   };
-  //   fetchUserData();
-  // }, []);
-
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //       const response = await currentUserService(); // ✅ calling API
-  //       const data = response.user; // depends on your API response structure
-  //       console.log("inter total interview data -> ",data);
-  //       setTotalInterviews(data.totalInterview);
-  //     } catch (error) {
-  //       console.error("Error fetching user data:", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-
-
-
-  const interviewData = interviewers.map((interviewer, index) => (
-    <div
-      key={index}
-      className="grid grid-cols-6 gap-4 items-center text-sm border-t border-gray-700 pt-4"
-    >
-      <div className="flex items-center gap-2">
-        <span>{interviewer}</span>
-      </div>
-      <div className="font-semibold text-white">{jobTitles[index]}</div>
-      <div className="text-white">{types[index]}</div>
-      <div>
-        <span className="bg-green-700 text-green-100 text-xs px-3 py-1 rounded-md">
-          {statuses[index]}
-        </span>
-      </div>
-      <div className="text-white">{createdDates[index]}</div>
-      <div>
-        <button
-          onClick={() => navigate('/dashboard/interviews/feedback')}
-          className="text-white"
-        >
-          Feedback
-        </button>
-      </div>
-    </div>
-  ))
-
-  return (
-    <div className="w-full h-full bg-[#18181B] rounded-2xl px-20">
-      <div className="flex-1 p-8 overflow-auto">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-xl font-medium">Interviews</h1>
-          <button
-            onClick={() => navigate('/dashboard/interviews/interview-create')}
-            className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-md text-sm"
-          >
-            Create Interview
-          </button>
-        </div>
-
-=======
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -150,7 +72,6 @@ const Interviews = () => {
           </button>
         </div>
 
->>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
         {/* Table Header */}
         {
           totalInterviews === 0 ? (<div className='flex justify-center items-center'>

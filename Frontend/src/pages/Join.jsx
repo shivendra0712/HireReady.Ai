@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {currentUserService} from '../API/authService'
-import {viewInterviewByIdService} from '../API/interviewService'
+import {viewInterviewByIdService , startInterviewByIdService , endInterviewByIdService} from '../API/interviewService'
 
 const Join = () => {
   const { interviewId } = useParams();
@@ -19,9 +19,8 @@ const Join = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [interview, setInterview] = useState(null);
-  const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(false)
+  const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(true)
   const [interviewerName, setInterviewerName] = useState('abc')
-
 
    useEffect(() => {
       const fetchUserData = async () => {
@@ -201,16 +200,7 @@ const Join = () => {
       setIsLoading(true);
 
       // Call API to update interview status
-      await axio.put(`http://localhost:5000/api/interview/start/${interviewId}`, {
-        isCameraOn,
-        isMicOn
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          // Add authorization header if needed
-          // 'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+      await startInterviewByIdService(interviewId);
 
       setFirstLevelCheckTogger(true)
       setIsInterviewStarted(true);
@@ -229,16 +219,7 @@ const Join = () => {
       setIsLoading(true);
 
       // Call API to update interview status
-      await axios.put(`http://localhost:5000/api/interview/end/${interviewId}`, {
-        overallFeedback: "Interview completed successfully",
-        overallScore: 85 // Example score
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          // Add authorization header if needed
-          // 'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+      await endInterviewByIdService(interviewId);
 
       setIsInterviewEnded(true);
 
@@ -305,13 +286,7 @@ const Join = () => {
 
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:5000/api/interview/view/${interviewId}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            // Add authorization header if needed
-            // 'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-        });
+        const response = viewInterviewByIdService(interviewId);
 
         const interviewData = response.data;
         setInterview(interviewData);
@@ -458,44 +433,6 @@ const Join = () => {
                     <p className="text-lg">{userName}</p>
                     <p className="text-sm text-gray-400">Camera is currently off</p>
                   </div>
-<<<<<<< HEAD
-=======
-
-                  {/* Setup buttons when no media is initialized */}
-                  {/* {!localStreamRef.current && (
-                    <div className="flex flex-col space-y-4 items-center">
-                      <p className="text-gray-300 mb-2">Please set up your devices for the interview</p>
-
-                      {isLoading ? (
-                        <div className="flex flex-col items-center">
-                          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500 mb-4"></div>
-                          <p className="text-gray-300">Requesting device permissions...</p>
-                        </div>
-                      ) : (
-                        <div className="flex flex-wrap gap-3 justify-center">
-                          <button
-                            onClick={() => initializeMedia(true, false)}
-                            disabled={isLoading}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Camera Only
-                          </button>
-                          <button
-                            onClick={() => initializeMedia(false, true)}
-                            disabled={isLoading}
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Microphone Only
-                          </button>
-                          <button
-                            onClick={() => initializeMedia(true, true)}
-                            disabled={isLoading}
-                            className="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md disabled:opacity-50">
-                            Enable Both
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  )} */}
->>>>>>> 5c8e2942e1892e8be3649848de49682990283c24
                 </div>
               )}
 
