@@ -17,7 +17,8 @@ const createController = async (req, res, next) => {
       jobTitle,
       interviewType,
       experience,
-      interviewLevel
+      interviewLevel,
+      
     });
 
     if (!interview) {

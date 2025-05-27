@@ -5,10 +5,12 @@ const CustomError = require("../../utils/customError.js");
 
 const createQuestionController = async (req, res, next) => {
   try {
-    const { interviewId, aiQuestion } = req.body;
+    const { interviewId } = req.body;
+    console.log("create question contoller interviewId", interviewId);
+
     const user = req.user;
 
-    if (!aiQuestion && !interviewId) {
+    if (!interviewId) {
       return next(new CustomError('All fields is required', 400))
     }
 
@@ -19,9 +21,8 @@ const createQuestionController = async (req, res, next) => {
     }
 
     const question = await Question.create({
-      userId: user._id,
       interviewId: interview._id,
-      aiQuestion: aiQuestion
+     
     })
 
     if (!question) {
