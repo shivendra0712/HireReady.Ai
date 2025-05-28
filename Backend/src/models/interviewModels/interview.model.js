@@ -63,7 +63,7 @@ const interviewSchema = new mongoose.Schema(
       type: String,
       default: "AI Interviewer",
     },
-    Questions:{
+    interviewQuestion:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Question',
     },

@@ -12,7 +12,7 @@ export const createQuestionService = async (data)=>{
 
 export const viewQuestionByIdService = async (id)=>{
     try{
-        const res = await axios.get(`/question/view/:${id}`);
+        const res = await axios.get(`/question/view/${id}`);
          return res;
     }
     catch(error){
@@ -22,7 +22,7 @@ export const viewQuestionByIdService = async (id)=>{
 
 export const updateAnswerByIdService = async (id)=>{
     try{
-        const res = await axios.put(`/question/update-answer/:${id}`);
+        const res = await axios.put(`/question/update-answer/${id}`);
          return res;
     }
     catch(error){

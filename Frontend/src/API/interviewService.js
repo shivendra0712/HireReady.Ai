@@ -22,7 +22,9 @@ export const viewAllInterviewService = async () => {
 
 export const viewInterviewByIdService = async (id) => {
     try {
-        const res = await axios.get(`/interview/view/:${id}`);
+        console.log('interview is in service ----->',id)
+        const res = await axios.get(`/interview/view/${id}`);
+        // console.log("response of interview ",res.data.data);
         return res;
     }
     catch (error) {
@@ -32,7 +34,7 @@ export const viewInterviewByIdService = async (id) => {
 
 export const startInterviewByIdService = async (id) => {
     try {
-        const res = await axios.put(`/interview/start/:${id}`);
+        const res = await axios.put(`/interview/start/${id}`);
         return res;
     }
     catch (error) {
@@ -42,7 +44,7 @@ export const startInterviewByIdService = async (id) => {
 
 export const endInterviewByIdService = async () => {
     try {
-        const res = await axios.put(`/interview/end/:${id}`);
+        const res = await axios.put(`/interview/end/${id}`);
         return res;
     }
     catch (error) {
