@@ -22,17 +22,15 @@ const createQuestionController = async (req, res, next) => {
 
     const question = await Question.create({
       interviewId: interview._id,
-     
     })
 
     if (!question) {
       return next(new CustomError('question not found', 400));
     }
 
-    console.log(interview);
+    interview.interviewQuestion = question._id;
+    await interview.save();
 
-    // interview.userInterviewQuestions.push(question._id)
-    // await interview.save()
 
     res.status(201).json({ message: 'Questions create successfully', data: question });
 

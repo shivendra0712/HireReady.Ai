@@ -26,11 +26,12 @@ const createController = async (req, res, next) => {
     }
     const user = await req.user;
 
+    
 
     // const newuser = await User.findById(user._id)
 
     user.userInterviews.push(interview._id)
-    await user.save()
+    await user.save();
 
     res.status(201).json({ message: 'Interview create successfully', data: interview });
 
@@ -38,6 +39,7 @@ const createController = async (req, res, next) => {
     next(new CustomError(error.message, 500));
   }
 };
+
 
 
 // Get all interviews with filtering options
@@ -71,7 +73,8 @@ const viewInterviewController = async (req, res, next) => {
   try {
     // Extract ID from params, ensuring the colon is handled
     const { id } = req.params;
-    console.log(id)
+    console.log("interview view by id in be ------------->",id)
+
     const user = await req.user;
     // const newuser = await User.findById(user._id)
 
