@@ -5,12 +5,15 @@ import {viewInterviewByIdService , startInterviewByIdService , endInterviewByIdS
 
 const Join = () => {
   const { interviewId } = useParams();
+
+  // console.log('this is a interview id in join ----->', interviewId);
+
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const localStreamRef = useRef(null);
 
-  const [userName, setUserName] = useState("Shivendra Patel");
-  const [jobTitle, setJobTitle] = useState("Frontend Developer");
+  const [userName, setUserName] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [isMicOn, setIsMicOn] = useState(false);
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
@@ -19,32 +22,33 @@ const Join = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [interview, setInterview] = useState(null);
-  const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(true)
+  const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(false)
   const [interviewerName, setInterviewerName] = useState('abc')
 
    useEffect(() => {
-      const fetchUserData = async () => {
+      const fetchInterviewData = async () => {
         try {
-          const response = await viewInterviewByIdService(); // ✅ calling API
-          const data = response.user; // depends on your API response structure
-          console.log("view interview data -> ",data);
+          const response = await viewInterviewByIdService(interviewId); // ✅ calling API
+          const data = response.data.data; // depends on your API response structure
+          console.log("view interview by id service data -> ", data);
+          setJobTitle(data.jobTitle)
+          setInterviewerName(data.interviewerName)
+
          
         } catch (error) {
           console.error("Error fetching user data:", error);
         }
       };
-      fetchUserData();
+      fetchInterviewData();
     }, []);
 
-
-  
   useEffect(() => {
       const fetchUserData = async () => {
         try {
           const response = await currentUserService(); 
           const data = response.user; 
-            // console.log(data);
-          userName(data.username);
+            console.log(data);
+          setUserName(data.username);
 
         } catch (error) {
           console.error("Error fetching user data:", error);
@@ -201,6 +205,7 @@ const Join = () => {
 
       // Call API to update interview status
       await startInterviewByIdService(interviewId);
+      
 
       setFirstLevelCheckTogger(true)
       setIsInterviewStarted(true);
