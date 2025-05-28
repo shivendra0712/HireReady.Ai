@@ -136,3 +136,210 @@
 2025-05-26T17:29:39.431Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
 2025-05-26T17:30:16.184Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
 2025-05-26T17:30:23.496Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:37:21.129Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:50:48.907Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:50:50.178Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:50:52.628Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:50:56.928Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:50:57.625Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T17:51:20.926Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-26T18:06:19.150Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-27T10:24:44.223Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-27T10:26:46.738Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-27T10:26:56.778Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-05-27T10:27:27.196Z error:500 - option sameSite is invalid - POST - /api/auth/login - ::1
+2025-05-27T10:27:30.228Z error:500 - option sameSite is invalid - POST - /api/auth/login - ::1
+2025-05-27T10:27:38.192Z error:500 - option sameSite is invalid - POST - /api/auth/login - ::1
+2025-05-27T10:27:42.359Z error:500 - option sameSite is invalid - POST - /api/auth/login - ::1
+2025-05-27T10:35:41.989Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:47:13.165Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:49:58.917Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:50:51.885Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:55:02.874Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:57:01.884Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:57:09.872Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:58:02.103Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:59:03.898Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:59:04.885Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T10:59:06.867Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:01:59.885Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:03.894Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:07.900Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:34.894Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:38.882Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:42.888Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:02:42.963Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:13:42.598Z error:500 - Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:id - ::1
+2025-05-27T11:52:22.702Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:52:24.585Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:52:29.479Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:52:31.744Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:52:34.068Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:52:40.907Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T11:53:15.906Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T11:53:15.918Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:00:17.557Z error:500 - Interview validation failed: Questions: Cast to ObjectId failed for value "true" (type boolean) at path "Questions" because of "BSONError" - POST - /api/interview/create - ::1
+2025-05-27T13:00:17.698Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:00:17.704Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:09:22.171Z error:500 - Interview validation failed: Questions: Cast to ObjectId failed for value "true" (type boolean) at path "Questions" because of "BSONError" - POST - /api/interview/create - ::1
+2025-05-27T13:09:22.286Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:09:22.299Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:12:21.356Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:12:21.391Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:18:42.067Z error:500 - Interview validation failed: Questions: Cast to ObjectId failed for value "true" (type boolean) at path "Questions" because of "BSONError" - POST - /api/interview/create - ::1
+2025-05-27T13:18:42.224Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:18:42.235Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:21:00.565Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:21:00.597Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:21:18.587Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:21:18.608Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:23:39.999Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:23:40.013Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::ffff:127.0.0.1
+2025-05-27T13:23:56.369Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::ffff:127.0.0.1
+2025-05-27T13:23:56.377Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:29:09.268Z error:500 - Interview validation failed: Questions: Cast to ObjectId failed for value "" (type string) at path "Questions" because of "BSONError" - POST - /api/interview/create - ::1
+2025-05-27T13:29:09.400Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:29:09.414Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:42:02.908Z error:500 - Interview validation failed: Questions: Cast to ObjectId failed for value "abc" (type string) at path "Questions" because of "BSONError" - POST - /api/interview/create - ::1
+2025-05-27T13:42:03.012Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:42:03.028Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:42:30.667Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:42:30.687Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:44:36.787Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:44:36.802Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:45:25.138Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:45:25.151Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T13:46:15.252Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:46:15.263Z error:500 - Cast to ObjectId failed for value ":6835c227d5340e4f69e00538" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835c227d5340e4f69e00538 - ::1
+2025-05-27T13:47:03.855Z error:500 - All fields is required - POST - /api/question/create - ::1
+2025-05-27T13:47:03.957Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:47:03.981Z error:500 - Cast to ObjectId failed for value ":6835c257d5340e4f69e0053f" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835c257d5340e4f69e0053f - ::1
+2025-05-27T13:49:42.897Z error:500 - Cast to ObjectId failed for value ":6835c2f6d5340e4f69e00547" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835c2f6d5340e4f69e00547 - ::1
+2025-05-27T13:49:42.901Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:54:50.715Z error:500 - aiQuestion is not defined - POST - /api/question/create - ::1
+2025-05-27T13:54:50.842Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T13:54:50.848Z error:500 - Cast to ObjectId failed for value ":6835c42aef2ac73dbe4e3fe0" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835c42aef2ac73dbe4e3fe0 - ::1
+2025-05-27T16:22:08.053Z error:500 - jwt expired - GET - /api/interview/view/:undefined - ::1
+2025-05-27T16:22:08.073Z error:500 - jwt expired - GET - /api/interview/view/:6835c42aef2ac73dbe4e3fe0 - ::1
+2025-05-27T16:22:08.084Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T16:22:26.831Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T17:24:07.587Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T17:24:07.601Z error:500 - Cast to ObjectId failed for value ":6835f537f413b95576d81399" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835f537f413b95576d81399 - ::1
+2025-05-27T17:29:35.510Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T17:29:35.524Z error:500 - Cast to ObjectId failed for value ":6835f67f00157baa97538707" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835f67f00157baa97538707 - ::1
+2025-05-27T17:32:58.813Z error:500 - Cast to ObjectId failed for value ":6835f74a00157baa97538712" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835f74a00157baa97538712 - ::1
+2025-05-27T17:32:58.815Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T17:34:58.751Z error:500 - Cast to ObjectId failed for value ":6835f7c200157baa9753871d" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835f7c200157baa9753871d - ::1
+2025-05-27T17:34:58.756Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T17:38:42.018Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T17:38:42.046Z error:500 - Cast to ObjectId failed for value ":6835c42aef2ac73dbe4e3fe0" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:6835c42aef2ac73dbe4e3fe0 - ::1
+2025-05-27T18:03:19.757Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:03:19.772Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:05:11.488Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:05:11.502Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:07:05.708Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:07:05.726Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:11:32.625Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:11:32.645Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:12:07.303Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:12:07.319Z error:500 - Cast to ObjectId failed for value ":1" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:31:03.887Z error:500 - jwt expired - POST - /api/interview/create - ::1
+2025-05-27T18:31:04.003Z error:500 - jwt expired - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:31:04.008Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T18:31:04.012Z error:500 - jwt expired - GET - /api/interview/view/:1 - ::1
+2025-05-27T18:31:12.872Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T18:31:13.603Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-27T18:31:51.767Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:31:51.773Z error:500 - Cast to ObjectId failed for value ":68360517c64c44918392b5a3" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68360517c64c44918392b5a3 - ::1
+2025-05-27T18:35:35.045Z error:500 - Cannot read properties of undefined (reading 'push') - POST - /api/question/create - ::1
+2025-05-27T18:35:35.182Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:35:35.198Z error:500 - Cast to ObjectId failed for value ":683605f6c008f960c4f7662a" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:683605f6c008f960c4f7662a - ::1
+2025-05-27T18:38:37.829Z error:500 - Cannot read properties of undefined (reading 'push') - POST - /api/question/create - ::1
+2025-05-27T18:38:37.958Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:38:37.975Z error:500 - Cast to ObjectId failed for value ":683606adbc14187b52b866f2" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:683606adbc14187b52b866f2 - ::1
+2025-05-27T18:44:03.610Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-27T18:44:03.632Z error:500 - Cast to ObjectId failed for value ":683607f3206b49231accd572" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:683607f3206b49231accd572 - ::1
+2025-05-28T01:49:43.371Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:49:43.385Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:06.464Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:06.468Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:12.441Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:12.449Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:16.458Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:16.466Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:17.446Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:17.457Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:20.466Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:20.470Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:25.463Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:25.468Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:30.473Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:30.480Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:31.423Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:31.434Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:36.500Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:36.508Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:42.457Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:42.467Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T01:57:45.453Z error:500 - Cast to ObjectId failed for value ":undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:undefined - ::1
+2025-05-28T01:57:45.460Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:03:19.440Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:03:19.524Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:03:57.451Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:03:57.537Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:04:02.497Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:04:02.572Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:11.476Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:11.561Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:14.465Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:14.543Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:15.472Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:15.552Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:17.468Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:17.547Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:20.453Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:07:20.524Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:11:14.449Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:11:14.528Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:12:43.496Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:12:43.568Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:36:50.734Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:36:50.753Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:36.599Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:36.691Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:43.402Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:43.476Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:47.397Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:47.481Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:50.434Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:50.515Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:51.404Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:51.488Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:58.420Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:38:58.494Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:01.481Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:01.555Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:06.439Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:06.528Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:10.444Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:10.520Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:11.447Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:11.529Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:29.405Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:29.488Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:47.448Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:39:47.528Z error:500 - Cast to ObjectId failed for value ":68366bb79607af2f4a732383" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68366bb79607af2f4a732383 - ::1
+2025-05-28T02:42:47.797Z error:500 - Cast to ObjectId failed for value ":68367827cb5cc407cb2c4a3e" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68367827cb5cc407cb2c4a3e - ::1
+2025-05-28T02:42:47.890Z error:500 - Cast to ObjectId failed for value ":68367827cb5cc407cb2c4a3e" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68367827cb5cc407cb2c4a3e - ::1
+2025-05-28T02:47:47.407Z error:500 - Interview not found - GET - /api/interview/view/6831ac1a2913ea7f95aed4d7 - ::1
+2025-05-28T02:47:56.963Z error:500 - Interview not found - GET - /api/interview/view/6831ac1a2913ea7f95aed4d7 - ::1
+2025-05-28T02:48:11.049Z error:500 - All fields is required - POST - /api/question/create - ::1
+2025-05-28T02:49:54.448Z error:500 - jwt expired - GET - /api/interview/view/68367827cb5cc407cb2c4a3e - ::1
+2025-05-28T02:49:54.454Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-28T02:49:54.519Z error:500 - jwt expired - GET - /api/interview/view/68367827cb5cc407cb2c4a3e - ::1
+2025-05-28T02:50:25.517Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-28T02:50:26.129Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-05-28T02:51:58.729Z error:500 - Cast to ObjectId failed for value ":68367a13cb5cc407cb2c4a53" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68367a13cb5cc407cb2c4a53 - ::1
+2025-05-28T02:51:58.800Z error:500 - Cast to ObjectId failed for value ":68367a13cb5cc407cb2c4a53" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/:68367a13cb5cc407cb2c4a53 - ::1
+2025-05-28T07:57:26.612Z error:500 - jwt expired - GET - /api/interview/view/6836adb044d25f7f80ac7b68 - ::1
+2025-05-28T07:57:26.615Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
