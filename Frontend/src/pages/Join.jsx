@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {currentUserService} from '../API/authService'
-import {viewInterviewByIdService , startInterviewByIdService , endInterviewByIdService} from '../API/interviewService'
+import { currentUserService } from '../API/authService'
+import { viewInterviewByIdService, startInterviewByIdService, endInterviewByIdService } from '../API/interviewService'
 
 const Join = () => {
   const { interviewId } = useParams();
@@ -18,45 +18,48 @@ const Join = () => {
   const [isMicOn, setIsMicOn] = useState(false);
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [isInterviewEnded, setIsInterviewEnded] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [userDuration, setUserDuration] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [interview, setInterview] = useState(null);
   const [firstLevelCheckTogger, setFirstLevelCheckTogger] = useState(false)
-  const [interviewerName, setInterviewerName] = useState('abc')
+  const [interviewerName, setInterviewerName] = useState('')
+  const [status, setStatus] = useState('scheduled');
 
-   useEffect(() => {
-      const fetchInterviewData = async () => {
-        try {
-          const response = await viewInterviewByIdService(interviewId); // ✅ calling API
-          const data = response.data.data; // depends on your API response structure
-          console.log("view interview by id service data -> ", data);
-          setJobTitle(data.jobTitle)
-          setInterviewerName(data.interviewerName)
 
-         
-        } catch (error) {
-          console.error("Error fetching user data:", error);
-        }
-      };
-      fetchInterviewData();
-    }, []);
 
   useEffect(() => {
-      const fetchUserData = async () => {
-        try {
-          const response = await currentUserService(); 
-          const data = response.user; 
-            console.log(data);
-          setUserName(data.username);
+    const fetchInterviewData = async () => {
+      try {
+        const response = await viewInterviewByIdService(interviewId); // ✅ calling API
+        const data = response.data.data; // depends on your API response structure
+        console.log("view interview by id service data -> ", data);
+        setJobTitle(data.jobTitle)
+        setInterviewerName(data.interviewerName)
 
-        } catch (error) {
-          console.error("Error fetching user data:", error);
-        }
-      };
-  
-      fetchUserData();
-    }, []);
+
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchInterviewData();
+  }, []);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await currentUserService();
+        const data = response.user;
+        console.log(data);
+        setUserName(data.username);
+
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
 
   // Function to initialize media devices
@@ -202,14 +205,14 @@ const Join = () => {
 
     try {
       setIsLoading(true);
-
       // Call API to update interview status
-      await startInterviewByIdService(interviewId);
       
-
+      console.log("check the status inprogress ", status)
+      await startInterviewByIdService(interviewId, { isCameraOn, isMicOn, status: 'in_progress' });
+      setStatus('in_progress')
       setFirstLevelCheckTogger(true)
       setIsInterviewStarted(true);
-      
+
     } catch (error) {
       console.error("Error starting interview:", error);
       setErrorMessage(error.response?.data?.error || error.message || "Failed to start interview");
@@ -224,8 +227,10 @@ const Join = () => {
       setIsLoading(true);
 
       // Call API to update interview status
-      await endInterviewByIdService(interviewId);
-
+     
+      console.log("check the status completed ", status)
+      await endInterviewByIdService(interviewId, { userDuration, status:'completed' });
+      setStatus('completed');
       setIsInterviewEnded(true);
 
       // Stop all media tracks
@@ -244,6 +249,7 @@ const Join = () => {
       // Reset states
       setIsCameraOn(false);
       setIsMicOn(false);
+      navigate('/dashboard/interviews')
     } catch (error) {
       console.error("Error ending interview:", error);
       setErrorMessage(error.response?.data?.error || error.message || "Failed to end interview");
@@ -257,7 +263,7 @@ const Join = () => {
     let timer;
     if (isInterviewStarted && !isInterviewEnded) {
       timer = setInterval(() => {
-        setElapsedTime((prev) => prev + 1);
+        setUserDuration((prev) => prev + 1);
       }, 1000);
     }
 
@@ -291,7 +297,7 @@ const Join = () => {
 
       try {
         setIsLoading(true);
-        const response = viewInterviewByIdService(interviewId);
+        const response =await viewInterviewByIdService(interviewId);
 
         const interviewData = response.data;
         setInterview(interviewData);
@@ -328,13 +334,6 @@ const Join = () => {
     return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   };
 
-  const goToReport = () => {
-    navigate(`/interview/report/${interviewId}`);
-  };
-
-  const goToHome = () => {
-    navigate("/dashboard");
-  };
 
   return (
     <div>
@@ -343,65 +342,39 @@ const Join = () => {
         {/* Main content */}
         <div className="w-full flex  bg-[#27272A] py-3 px-6 rounded-lg justify-between items-center">
           <h1>Job Title: {jobTitle}</h1>
-          <button className="bg-[#5B5B63] rounded-lg py-1 px-3">Interview Ended</button>
+          <button onClick={endInterview} className="bg-[#5B5B63] rounded-lg py-1 px-3">Interview Ended</button>
 
         </div>
         <div className="w-full  flex-1 flex items-center justify-center gap-10">
 
           <div className="w-[40%] max-h-2xl aspect-video bg-[#27272A] rounded-lg overflow-hidden relative">
-          
 
-            {/* Placeholder when camera is off */}
-            {!isCameraOn && (
+
+            {/* Placeholder when camera is on */}
+            {isCameraOn && (
               <div className="w-full h-full flex  flex-col  justify-end">
                 <div className=" mb-4 ml-4">
-                  <p className="text-lg">{userName}</p>
+                  <p className="text-lg text-white">{userName}</p>
                   {/* <p className="text-sm text-gray-400">Camera is currently off</p> */}
                 </div>
               </div>
             )}
-
-            {/* Error message display */}
-            {errorMessage && (
-              <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-red-500 bg-opacity-90 text-white px-4 py-2 rounded-md max-w-md text-center">
-                {errorMessage}
-              </div>
-            )}
-
-            
-            
           </div>
 
           <div className="w-[40%] max-w-2xl aspect-video bg-[#27272A] rounded-lg overflow-hidden relative">
-             <div className="w-full h-full flex  flex-col  justify-end">
-                <div className=" mb-4 ml-4">
-                  <p className="text-lg">{interviewerName}</p>
-                  {/* <p className="text-sm text-gray-400">Camera is currently off</p> */}
-                </div>
-                </div>
+            <div className="w-full h-full flex  flex-col  justify-end">
+              <div className=" mb-4 ml-4">
+                <p className="text-lg">{interviewerName}</p>
+                {/* <p className="text-sm text-gray-400">Camera is currently off</p> */}
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
         <div className="p-4 bg-[#18181B] flex justify-between items-center">
           <div className="text-gray-300">
-            {isInterviewStarted ? formatTime(elapsedTime) : "00:00"}
-          </div>
-          <div className="flex space-x-4">
-            <button
-              onClick={goToHome}
-              className="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-md">
-              Home
-            </button>
-            <button
-              onClick={goToReport}
-              className={`font-medium py-2 px-4 rounded-md ${isInterviewEnded
-                ? "bg-green-500 hover:bg-green-600 text-white"
-                : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                }`}
-              disabled={!isInterviewEnded}>
-              Go to interview report
-            </button>
+            {isInterviewStarted ? formatTime(userDuration) : "00:00"}
           </div>
           <div className="w-6 h-6">
             <svg
@@ -441,12 +414,7 @@ const Join = () => {
                 </div>
               )}
 
-              {/* Error message display */}
-              {errorMessage && (
-                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-red-500 bg-opacity-90 text-white px-4 py-2 rounded-md max-w-md text-center">
-                  {errorMessage}
-                </div>
-              )}
+
 
               {/* Media controls */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
@@ -540,9 +508,9 @@ const Join = () => {
           </div>
           <div className="p-4 bg-[#18181B] flex justify-between items-center">
             <div className="text-gray-300">
-              {isInterviewStarted ? formatTime(elapsedTime) : "25 :00"}
+              {isInterviewStarted ? formatTime(userDuration) : "30 :00"}
             </div>
-            
+
             <div className="w-6 h-6">
               <svg
                 className="w-6 h-6 text-gray-400"
