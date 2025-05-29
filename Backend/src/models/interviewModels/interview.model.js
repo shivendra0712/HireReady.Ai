@@ -39,7 +39,7 @@ const interviewSchema = new mongoose.Schema(
       type: Number, // Duration in min.
       default: 30,
     },
-    userInterviewDuration: {
+    userDuration: {
       type: Number, // Duration in min.
       default: 0,
     },

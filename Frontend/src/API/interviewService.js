@@ -32,9 +32,11 @@ export const viewInterviewByIdService = async (id) => {
     }
 }
 
-export const startInterviewByIdService = async (id) => {
+export const startInterviewByIdService = async (id , data) => {
     try {
-        const res = await axios.put(`/interview/start/${id}`);
+        console.log("start interview",data);
+
+        const res = await axios.put(`/interview/start/${id}` , data);
         return res;
     }
     catch (error) {
@@ -42,9 +44,10 @@ export const startInterviewByIdService = async (id) => {
     }
 }
 
-export const endInterviewByIdService = async () => {
+export const endInterviewByIdService = async (id , data) => {
     try {
-        const res = await axios.put(`/interview/end/${id}`);
+        console.log("end interview",data);
+        const res = await axios.put(`/interview/end/${id}` , data);
         return res;
     }
     catch (error) {

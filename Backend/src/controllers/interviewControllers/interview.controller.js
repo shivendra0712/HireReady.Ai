@@ -145,6 +145,8 @@ const endInterviewController = async (req, res, next) => {
 
     const { status, interviewDuration } = req.body;
 
+    // console.log("status in be ---->",status)
+
     const updated = await Interview.findByIdAndUpdate(
       id,
       {
