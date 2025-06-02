@@ -109,24 +109,29 @@ const Join = () => {
   };
 
   const toggleMicrophone = async () => {
-    if (isLoading) return;
-    setIsLoading(true);
-    try {
-      if (isMicOn) {
-        localStreamRef.current?.getAudioTracks().forEach(track => track.stop());
-        if (isCameraOn) await initializeMedia(true, false);
-        else {
-          videoRef.current.srcObject = null;
-          localStreamRef.current = null;
-          setIsMicOn(false);
-        }
-      } else await initializeMedia(isCameraOn, true);
-    } catch (error) {
-      setErrorMessage(`Error toggling microphone: ${error.message}`);
-    } finally {
-      setIsLoading(false);
+  if (isLoading) return;
+  setIsLoading(true);
+  try {
+    if (localStreamRef.current) {
+      const audioTracks = localStreamRef.current.getAudioTracks();
+      if (audioTracks.length > 0) {
+        audioTracks[0].enabled = !isMicOn;
+        setIsMicOn(!isMicOn);
+      } else if (!isMicOn) {
+        // mic was off, and no track found — get new audio track and add
+        const newStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const newAudioTrack = newStream.getAudioTracks()[0];
+        localStreamRef.current.addTrack(newAudioTrack);
+        setIsMicOn(true);
+      }
     }
-  };
+  } catch (error) {
+    setErrorMessage(`Error toggling microphone: ${error.message}`);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const startInterview = async () => {
     if (!(isCameraOn || isMicOn)) {
@@ -206,7 +211,7 @@ const Join = () => {
               ref={videoRef}
               autoPlay
               playsInline
-              muted={!isMicOn}
+              // muted={!isMicOn}
               className={`w-full h-full object-cover ${isCameraOn ? 'block' : 'hidden'}`}
             />
 
@@ -310,8 +315,8 @@ const Join = () => {
           {!isInterviewStarted ? (
             <button
               onClick={startInterview}
-              disabled={(!isCameraOn && !isMicOn) || isLoading}
-              className={`font-medium py-2 px-4 rounded-lg block ${(isCameraOn || isMicOn) && !isLoading
+              disabled={(!isCameraOn ) || isLoading}
+              className={`font-medium py-2 px-4 rounded-lg block ${(isCameraOn) && !isLoading
                 ? "bg-green-500 hover:bg-green-600 text-white"
                 : "bg-gray-700 text-gray-400 cursor-not-allowed"
                 }`}>
