@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { currentUserService } from '../API/authService';
 import { viewInterviewByIdService, startInterviewByIdService, endInterviewByIdService } from '../API/interviewService';
+import { viewQuestionByIdService , updateAnswerByIdService } from "../API/questionService";
 
 const Join = () => {
   const { interviewId } = useParams();
@@ -23,6 +24,7 @@ const Join = () => {
   const [togger, setTogger] = useState(false);
   const [interviewerName, setInterviewerName] = useState("");
   const [status, setStatus] = useState("scheduled");
+  const [questionId, setQuestionId] = useState('')
 
 
   useEffect(() => {
@@ -35,6 +37,8 @@ const Join = () => {
         setInterview(data);
         setJobTitle(data.jobTitle);
         setInterviewerName(data.interviewerName);
+        setQuestionId(data.interviewQuestion);
+        console.log('created interview ------------------------------------> ', data)
 
         if (data.status === 'in_progress') {
           setIsInterviewStarted(true);
@@ -50,6 +54,23 @@ const Join = () => {
     };
     fetchInterviewData();
   }, [interviewId]);
+  
+
+  useEffect(()=>{
+    const  viewQuestionById = async ()=>{
+      try{
+          const response = await viewQuestionByIdService(questionId);
+          console.log('viewQuestionById  ------>' , response.data.data);
+      }
+      catch(error){
+        setErrorMessage(error || "Failed to load interview");
+      }
+    } 
+
+    viewQuestionById();
+  },[questionId])
+
+  console.log(questionId);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -155,6 +176,7 @@ const Join = () => {
     try {
       setIsLoading(true);
       await endInterviewByIdService(interviewId, { userDuration, status: 'completed' });
+      await updateAnswerByIdService(questionId , userAnswer);
       setStatus('completed');
       setIsInterviewEnded(true);
       localStreamRef.current?.getTracks().forEach(track => track.stop());
