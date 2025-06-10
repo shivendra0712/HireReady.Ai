@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Interview'
     }],
+    userPayments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Payment'
+    }],
 
 }, {
     timestamps: true,
