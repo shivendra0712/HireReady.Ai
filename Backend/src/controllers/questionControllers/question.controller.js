@@ -1,43 +1,71 @@
 const Question = require("../../models/questionModels/question.model.js");
 const Interview = require("../../models/interviewModels/interview.model.js");
 const CustomError = require("../../utils/customError.js");
-
+const { useGemini } = require('../../services/googleGemini.js');
 
 const createQuestionController = async (req, res, next) => {
   try {
     const { interviewId } = req.body;
-    console.log("create question contoller interviewId", interviewId);
-
-    const user = req.user;
+    console.log("create question controller interviewId", interviewId);
 
     if (!interviewId) {
-      return next(new CustomError('All fields is required', 400))
+      return next(new CustomError('All fields are required', 400));
     }
 
     const interview = await Interview.findById(interviewId);
-
     if (!interview) {
-      return next(new CustomError('Interview not found', 400))
+      return next(new CustomError('Interview not found', 400));
     }
 
+    // Create empty question
     const question = await Question.create({
       interviewId: interview._id,
-    })
+    });
 
     if (!question) {
-      return next(new CustomError('question not found', 400));
+      return next(new CustomError('Question creation failed', 400));
     }
 
+    const { jobTitle, experience, interviewType, interviewLevel } = interview;
+
+    // Generate AI Questions
+    const interviewQuestions = async (jobTitle, experience, interviewType, interviewLevel, questionId) => {
+      const interviewQuestionsAiOutput = await useGemini(jobTitle, experience, interviewType, interviewLevel);
+
+      const rawString = `${interviewQuestionsAiOutput}`;
+      const geminiQuestions = rawString
+        .trim()
+        .split(/\d+\.\s+/)
+        .filter(Boolean)
+        .map(q => q.trim());
+
+      console.log("Generated Gemini Questions:", geminiQuestions);
+
+      // Update the question document
+      const updatedQuestion = await Question.findById(questionId);
+      updatedQuestion.aiQuestion = geminiQuestions; // directly assign array
+      await updatedQuestion.save();
+
+      console.log("Saved Updated Question:", updatedQuestion);
+    };
+
+    // ❗ Await this
+    await interviewQuestions(jobTitle, experience, interviewType, interviewLevel, question._id);
+
+    // Link to interview
     interview.interviewQuestion = question._id;
     await interview.save();
 
+    res.status(201).json({ message: 'Questions created successfully', data: question });
 
-    res.status(201).json({ message: 'Questions create successfully', data: question });
-
+    
   } catch (error) {
     next(new CustomError(error.message, 500));
   }
 };
+
+
+
 
 // Get question by ID
 const viewQuestionController = async (req, res, next) => {
@@ -97,7 +125,7 @@ const generateFeedbackController = async (req, res, next) => {
       return next(new CustomError('Question not found', 404));
     }
 
-     const { aiAnswer } = req.body;
+    const { aiAnswer } = req.body;
 
     const updated = await Question.findByIdAndUpdate(
       id, {
@@ -114,7 +142,7 @@ const generateFeedbackController = async (req, res, next) => {
 
     res.status(200).json(updated);
   } catch (error) {
-     next(new CustomError(error.message, 500));
+    next(new CustomError(error.message, 500));
   }
 };
 
