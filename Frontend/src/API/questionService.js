@@ -20,9 +20,9 @@ export const viewQuestionByIdService = async (id)=>{
     }
 }
 
-export const updateAnswerByIdService = async (id)=>{
+export const updateAnswerByIdService = async (id , data)=>{
     try{
-        const res = await axios.put(`/question/update-answer/${id}`);
+        const res = await axios.put(`/question/update-answer/${id}` , data);
          return res;
     }
     catch(error){

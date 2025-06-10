@@ -14,7 +14,7 @@ const interviewSchema = new mongoose.Schema(
     },
     interviewType: {
       type: String,
-      enum: ["technical", "behavioral"],
+      enum: ["technical", "behaviour"],
       default: "technical",
       required: true,
     },
@@ -70,6 +70,7 @@ const interviewSchema = new mongoose.Schema(
     interviewDate:{
         type: Date,
     }, 
+    
     
   },
   {
