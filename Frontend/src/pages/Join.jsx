@@ -3,13 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { currentUserService } from '../API/authService';
 import { viewInterviewByIdService, startInterviewByIdService, endInterviewByIdService } from '../API/interviewService';
-import { viewQuestionByIdService , updateAnswerByIdService } from "../API/questionService";
+import { viewQuestionByIdService, updateAnswerByIdService } from "../API/questionService";
 
 const Join = () => {
   const { interviewId } = useParams();
   const navigate = useNavigate();
   const videoRef = useRef(null);
   const localStreamRef = useRef(null);
+  const recognitionRef = useRef(null);
 
   const [userName, setUserName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -25,6 +26,9 @@ const Join = () => {
   const [interviewerName, setInterviewerName] = useState("");
   const [status, setStatus] = useState("scheduled");
   const [questionId, setQuestionId] = useState('')
+  const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]); // already exists
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userAnswersInFrontend, setUserAnswersInFrontend] = useState([]);
 
 
   useEffect(() => {
@@ -43,7 +47,7 @@ const Join = () => {
         if (data.status === 'in_progress') {
           setIsInterviewStarted(true);
         } else if (data.status === 'completed') {
-          setIsInterviewStarted(true);
+          setIsInterviewStarted(false);
           setIsInterviewEnded(true);
         }
       } catch (error) {
@@ -54,23 +58,26 @@ const Join = () => {
     };
     fetchInterviewData();
   }, [interviewId]);
-  
 
-  useEffect(()=>{
-    const  viewQuestionById = async ()=>{
-      try{
-          const response = await viewQuestionByIdService(questionId);
-          console.log('viewQuestionById  ------>' , response.data.data);
+  
+  useEffect(() => {
+    const viewQuestionById = async () => {
+      try {
+        const response = await viewQuestionByIdService(questionId);
+        const { aiQuestion } = response.data.data;
+        setAiQuestionsInFrontend(aiQuestion);
+        console.log('aiQuestion  ------>', aiQuestion);
+        console.log("aiQuestionInFrontend --->", aiQuestionsInFrontend);
       }
-      catch(error){
+      catch (error) {
         setErrorMessage(error || "Failed to load interview");
       }
-    } 
+    }
 
     viewQuestionById();
-  },[questionId])
+  }, [questionId])
 
-  console.log(questionId);
+
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -84,6 +91,106 @@ const Join = () => {
     };
     fetchUserData();
   }, []);
+
+
+  const speakQuestion = (text, callback) => {
+  const synth = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.onend = callback;
+  synth.speak(utterance);
+};
+
+const startSpeechRecognition = () => {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = 'en-US';
+
+  recognitionRef.current = recognition;
+
+  recognition.start();
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    console.log("User said:", transcript);
+
+    // ✅ Prevent multiple answers
+    setUserAnswersInFrontend(prev => {
+      const alreadyAnswered = prev.length > currentQuestionIndex;
+      if (!alreadyAnswered) {
+        return [...prev, transcript];
+      }
+      return prev;
+    });
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+  };
+};
+
+// console.log(aiQuestionsInFrontend)
+// 📢 Jab interview start ho tab question bolna
+useEffect(() => {
+  if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
+
+  if (currentQuestionIndex < aiQuestionsInFrontend.length) {
+    const question = aiQuestionsInFrontend[currentQuestionIndex];
+    speakQuestion(question, () => {
+      // Wait until mic is turned on
+      console.log("Waiting for mic to be turned on...");
+    });
+  } else {
+    endInterview();
+  }
+}, [isInterviewStarted, currentQuestionIndex, isInterviewEnded, isMicOn]);
+
+// 🎤 Jab mic on ho tab speech recognition chalu karo
+// useEffect(() => {
+//   if (!isInterviewStarted || isInterviewEnded) return;
+
+//   if (isMicOn) {
+//     console.log("Mic is ON. Start listening...");
+//     startSpeechRecognition();
+//   }
+// }, [isMicOn]);
+
+useEffect(() => {
+  if (!isInterviewStarted || isInterviewEnded) return;
+
+  if (isMicOn && recognitionRef.current === null) {
+    startSpeechRecognition();
+  }
+}, [isMicOn]);
+
+
+// 🛑 Jab mic off ho to answer save karo & agla question lo
+// useEffect(() => {
+//   if (!isInterviewStarted || isInterviewEnded) return;
+
+//   if (!isMicOn && recognitionRef.current) {
+//     recognitionRef.current.stop();
+//     recognitionRef.current = null;
+
+//     // Agla question ke liye move karo
+//     setCurrentQuestionIndex(prev => prev + 1);
+//   }
+// }, [isMicOn]);
+
+useEffect(() => {
+  if (!isInterviewStarted || isInterviewEnded) return;
+
+  if (!isMicOn && recognitionRef.current) {
+    recognitionRef.current.stop();
+    recognitionRef.current = null;
+
+    setCurrentQuestionIndex(prev => prev + 1);
+  }
+}, [isMicOn]);
+
+
 
   const initializeMedia = async (video = true, audio = true) => {
     try {
@@ -130,28 +237,28 @@ const Join = () => {
   };
 
   const toggleMicrophone = async () => {
-  if (isLoading) return;
-  setIsLoading(true);
-  try {
-    if (localStreamRef.current) {
-      const audioTracks = localStreamRef.current.getAudioTracks();
-      if (audioTracks.length > 0) {
-        audioTracks[0].enabled = !isMicOn;
-        setIsMicOn(!isMicOn);
-      } else if (!isMicOn) {
-        // mic was off, and no track found — get new audio track and add
-        const newStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const newAudioTrack = newStream.getAudioTracks()[0];
-        localStreamRef.current.addTrack(newAudioTrack);
-        setIsMicOn(true);
+    if (isLoading) return;
+    setIsLoading(true);
+    try {
+      if (localStreamRef.current) {
+        const audioTracks = localStreamRef.current.getAudioTracks();
+        if (audioTracks.length > 0) {
+          audioTracks[0].enabled = !isMicOn;
+          setIsMicOn(!isMicOn);
+        } else if (!isMicOn) {
+          // mic was off, and no track found — get new audio track and add
+          const newStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          const newAudioTrack = newStream.getAudioTracks()[0];
+          localStreamRef.current.addTrack(newAudioTrack);
+          setIsMicOn(true);
+        }
       }
+    } catch (error) {
+      setErrorMessage(`Error toggling microphone: ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    setErrorMessage(`Error toggling microphone: ${error.message}`);
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
 
   const startInterview = async () => {
@@ -165,6 +272,9 @@ const Join = () => {
       setStatus('in_progress');
       setTogger(true);
       setIsInterviewStarted(true);
+      setIsInterviewEnded(false);
+      setCurrentQuestionIndex(0);
+      setUserAnswersInFrontend([]);
     } catch (error) {
       setErrorMessage(error.response?.data?.error || "Failed to start interview");
     } finally {
@@ -176,9 +286,11 @@ const Join = () => {
     try {
       setIsLoading(true);
       await endInterviewByIdService(interviewId, { userDuration, status: 'completed' });
-      await updateAnswerByIdService(questionId , userAnswer);
+      await updateAnswerByIdService(questionId, userAnswersInFrontend);
       setStatus('completed');
       setIsInterviewEnded(true);
+      setIsInterviewStarted(false);
+      console.log("Interview completed. Final Answers:", userAnswersInFrontend);
       localStreamRef.current?.getTracks().forEach(track => track.stop());
       videoRef.current.srcObject = null;
       localStreamRef.current = null;
@@ -337,7 +449,7 @@ const Join = () => {
           {!isInterviewStarted ? (
             <button
               onClick={startInterview}
-              disabled={(!isCameraOn ) || isLoading}
+              disabled={(!isCameraOn) || isLoading}
               className={`font-medium py-2 px-4 rounded-lg block ${(isCameraOn) && !isLoading
                 ? "bg-green-500 hover:bg-green-600 text-white"
                 : "bg-gray-700 text-gray-400 cursor-not-allowed"
