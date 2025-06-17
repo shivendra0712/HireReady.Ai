@@ -22,6 +22,8 @@ export const viewQuestionByIdService = async (id)=>{
 
 export const updateAnswerByIdService = async (id , data)=>{
     try{
+
+        console.log('userquestins and useranswers data  -->>>>>>' , data);
         const res = await axios.put(`/question/update-answer/${id}` , data);
          return res;
     }
