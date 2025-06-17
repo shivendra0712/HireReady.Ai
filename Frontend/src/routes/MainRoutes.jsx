@@ -1,15 +1,15 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Feed from '../pages/Feed.jsx'
-import Interview from '../pages/Interview.jsx'
+import Interview from '../pages/user/Interview.jsx'
 // import Interview from '../pages/Interview.jsx'
-import Interviews from '../pages/Interviews.jsx'
-import Join from '../pages/Join.jsx'
-import DashboardMenu from '../pages/DashboardMenu.jsx'
-import Dashboard from '../pages/Dashboard.jsx'
-import Feedback from '../pages/Feedback.jsx'
-import LoginForm from '../pages/SignIn.jsx'
-import SignupForm from '../pages/SignUp.jsx'
+import Interviews from '../pages/user/Interviews.jsx'
+import Join from '../pages/user/Join.jsx'
+import DashboardMenu from '../pages/user/DashboardMenu.jsx'
+import Dashboard from '../pages/user/Dashboard.jsx'
+import Feedback from '../pages/user/Feedback.jsx'
+import LoginForm from '../pages/user/SignIn.jsx'
+import SignupForm from '../pages/user/SignUp.jsx'
 
 const Layout = () => (
     <div className="w-screen h-screen flex bg-[#09090B] text-white">
