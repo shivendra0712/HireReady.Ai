@@ -2,7 +2,9 @@ import MainRoutes from "./routes/MainRoutes.jsx";
 
 const App = () => {
   return (
-    <MainRoutes/>
+    <div className="w-screen h-screen overflow-x-hidden">
+      <MainRoutes />
+    </div>
   );
 };
 
