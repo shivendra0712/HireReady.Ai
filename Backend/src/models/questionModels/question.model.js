@@ -15,13 +15,15 @@ const questionSchema = new mongoose.Schema(
       type: [String],
       default:[]
     },
+     userQuestion: {
+      type: [String], 
+      default:[]
+    },
     userAnswer: {
       type: [String], 
       default:[]
     },
-    userAnswerAudio: {
-      type: String, 
-    },
+    
     aiAnswer: {
       type: [String], 
       default:[]

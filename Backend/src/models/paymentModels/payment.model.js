@@ -14,7 +14,7 @@ const paymentSchema = new mongoose.Schema({
         enum: ["Pending", "Completed", "Cancelled"],
         default: "Pending",
     },
-    razorpayOrderId: { type: String },
+    // razorpayOrderId: { type: String },
 
     paymentDetails: {
         payment_id: { type: String },

@@ -2,6 +2,7 @@ const Question = require("../../models/questionModels/question.model.js");
 const Interview = require("../../models/interviewModels/interview.model.js");
 const CustomError = require("../../utils/customError.js");
 const { useGemini } = require('../../services/googleGemini.js');
+const { aiAnswerGemini } = require("../../services/aiAnswerGemini.js");
 
 const createQuestionController = async (req, res, next) => {
   try {
@@ -58,7 +59,7 @@ const createQuestionController = async (req, res, next) => {
 
     res.status(201).json({ message: 'Questions created successfully', data: question });
 
-    
+
   } catch (error) {
     next(new CustomError(error.message, 500));
   }
@@ -95,18 +96,57 @@ const updateQuestionAnswerController = async (req, res, next) => {
       return next(new CustomError('Question not found', 404));
     }
 
-    const { userAnswer } = req.body;
+    const { userAnswersInFrontend, userQuestionsInFrontend } = req.body;
+
+    console.log('userAnswer and userQuestion in backend ------> ', userAnswersInFrontend, userQuestionsInFrontend);
 
     const updated = await Question.findByIdAndUpdate(
       id, {
-      userAnswer
+      userQuestion: userQuestionsInFrontend,
+      userAnswer: userAnswersInFrontend
     },
       { new: true }
     );
-
     if (!updated) {
       return next(new CustomError('Question not found', 404));
     }
+
+    //  console.log('updated questions and answer -------------> ', updated);
+    const { userQuestion, userAnswer, aiAnswer } = updated;
+
+    const aiAnswerGenerate = async (question, answer) => {
+      return await aiAnswerGemini(question, answer); // Gemini se feedback laa raha hai
+    };
+
+    const newAiAnswers = [];
+
+    for (let i = 0; i < userQuestion.length; i++) {
+      const question = userQuestion[i];
+      const answer = userAnswer[i] || ""; // Agar answer missing hai toh empty string
+
+      try {
+        const feedback = await aiAnswerGenerate(question, answer);
+        console.log("Updated interview with single answer feedback:", feedback);
+        newAiAnswers.push(feedback);
+      } catch (error) {
+        console.error(`Error on question ${i}:`, error);
+        newAiAnswers.push("Error generating feedback");
+      }
+    }
+
+    const cleanedAiAnswers = newAiAnswers.map(answer =>
+      answer.replace(/\n/g, ' ').trim()
+    );
+
+    console.log("Updated interview with newAiAnswers feedback:", cleanedAiAnswers);
+    // Ab updated object me set karo:
+    updated.aiAnswer = cleanedAiAnswers;
+
+    // Optionally update in DB:
+    await updated.save(); // if it's a mongoose document
+
+    console.log("Updated interview with AI feedback:", updated);
+
 
     res.status(200).json({ message: 'UserAnswer updated successfully', data: updated });
   } catch (error) {
