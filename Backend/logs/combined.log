@@ -1,2 +1,102 @@
 2025-06-17T06:44:03.538Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
 2025-06-17T06:52:22.464Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-17T16:12:17.002Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T05:19:14.432Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:20:09.212Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:20:15.525Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:22:15.244Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:22:18.758Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:22:22.012Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-18T05:26:50.266Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-18T05:27:37.197Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-18T05:27:38.242Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-18T05:27:39.363Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-18T05:52:08.584Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:52:30.502Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:52:40.626Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:52:50.735Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:53:02.574Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:53:15.523Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:53:28.520Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:53:38.830Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:00.545Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:10.633Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:20.735Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:29.576Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:30.815Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:41.081Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:54:50.866Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:55:12.517Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T05:55:12.519Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:55:18.305Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T05:55:18.310Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:55:28.959Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view/685250eb02165b0dfc6c6b8b - ::1
+2025-06-18T05:55:28.964Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:55:37.082Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T05:55:39.079Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:59:41.494Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T05:59:41.496Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:59:51.610Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T05:59:51.612Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:59:58.931Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T05:59:58.962Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T06:04:58.590Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
+2025-06-18T06:04:58.613Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T06:13:33.515Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T06:13:38.462Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
+2025-06-18T06:15:33.872Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:37.646Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:39.311Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:41.020Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:41.025Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:42.325Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T06:15:43.898Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
+2025-06-18T07:21:24.928Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-18T07:21:24.948Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T07:21:27.206Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-18T07:21:27.211Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T07:21:40.870Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T07:21:44.794Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T07:21:46.308Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-18T07:21:46.310Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T07:21:47.529Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T08:24:57.504Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T08:24:57.518Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-18T09:11:46.436Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:12:06.542Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:12:43.466Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:12:46.466Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:06.554Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:07.428Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:09.453Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:11.623Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:20.473Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:34.451Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:13:40.437Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:14:20.508Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:15:25.955Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:16:09.697Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:16:38.426Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:16:56.524Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:19:10.490Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:21:17.317Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:21:32.855Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:23:19.779Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:23:26.590Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:24:05.452Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:25:10.031Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:25:30.426Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:25:30.427Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:25:36.442Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:25:36.443Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:25:37.287Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
+2025-06-18T09:25:37.291Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:25:45.942Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-18T09:25:45.945Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-18T09:26:17.789Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:27:09.459Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:27:34.448Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:27:54.473Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:31:57.792Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:32:37.038Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-18T09:33:44.675Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
