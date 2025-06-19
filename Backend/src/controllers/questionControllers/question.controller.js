@@ -155,32 +155,19 @@ const updateQuestionAnswerController = async (req, res, next) => {
 };
 
 // Generate AI feedback for a question
-const generateFeedbackController = async (req, res, next) => {
+const feedbackController = async (req, res, next) => {
   try {
 
     const { id } = req.params;
 
     const question = await Question.findById(id);
+
     if (!question) {
       return next(new CustomError('Question not found', 404));
     }
 
-    const { aiAnswer } = req.body;
+    res.status(200).json({ message: 'question feedback', data: question });
 
-    const updated = await Question.findByIdAndUpdate(
-      id, {
-      aiAnswer
-    },
-      { new: true }
-    );
-
-    if (!updated) {
-      return next(new CustomError('Question not found', 404));
-    }
-
-    res.status(200).json({ message: 'AiAnswer updated  successfully', data: updated });
-
-    res.status(200).json(updated);
   } catch (error) {
     next(new CustomError(error.message, 500));
   }
@@ -190,5 +177,5 @@ module.exports = {
   createQuestionController,
   viewQuestionController,
   updateQuestionAnswerController,
-  generateFeedbackController
+  feedbackController
 }
