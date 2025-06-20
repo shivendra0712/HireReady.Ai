@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema({
+    razorpayOrderId: { type: String },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
@@ -14,14 +15,12 @@ const paymentSchema = new mongoose.Schema({
         enum: ["Pending", "Completed", "Cancelled"],
         default: "Pending",
     },
-    // razorpayOrderId: { type: String },
-
     paymentDetails: {
         payment_id: { type: String },
         order_id: { type: String },
         signature: { type: String },
     },
-   },
+},
     {
         timestamps: true,
     }
