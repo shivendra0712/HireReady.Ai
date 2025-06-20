@@ -19,16 +19,16 @@ const registerController = async (req, res, next) => {
         console.log('token inside controller --->', token);
 
         res.cookie('token', token, {
-      httpOnly: true,      
-      secure: false,       
-      sameSite: 'lax',   
-    
-    });
+            httpOnly: true,
+            secure: false,
+            sameSite: 'lax',
 
-    let cookie = req.cookies;
+        });
 
-    console.log(cookie)
-    
+        let cookie = req.cookies;
+
+        console.log(cookie)
+
         res.status(201).json({ message: 'User created successful', token: token });
 
 
@@ -52,7 +52,7 @@ const loginController = async (req, res, next) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure:false,
+            secure: false,
             sameSite: "lax",
         });
         console.log("save cookie ")
@@ -93,7 +93,7 @@ const currentUserController = async (req, res, next) => {
         const user = req.user;
         res.status(200).json({ message: 'authentication successful', user: user });
     } catch (error) {
-
+        next(new CustomError(error.message, 500))
     }
 }
 
