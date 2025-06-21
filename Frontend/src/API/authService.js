@@ -24,7 +24,6 @@ export const logInService = async (data) => {
 export const currentUserService = async () =>{
   try{
     const {data} = await axios.get('/auth/current-user');
-    // console.log(data);
     return data;
   }
   catch(error){
