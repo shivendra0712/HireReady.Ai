@@ -13,6 +13,7 @@ export const createInterviewService = async (data) => {
 export const viewAllInterviewService = async () => {
     try {
         const res = await axios.get('/interview/view-all');
+        console.log(res);
          return res;
     }
     catch (error) {
