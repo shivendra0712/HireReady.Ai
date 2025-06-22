@@ -8,10 +8,13 @@ import Section6 from "./Section6";
 import Section7 from "./Section7";
 import Section8 from "./Section8";
 import Section9 from "./Section9";
+import Section10 from "./Section10";
+import Section11 from "./Section11";
+
 
 const Feed = () => {
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black min-h-screen text-white px-30">
+    <div className="bg-gradient-to-b from-[#14111A] to-black min-h-screen text-white lg:px-30">
       <Section1 />
       <Section2 />
       <Section3 />
@@ -21,6 +24,8 @@ const Feed = () => {
       <Section7 />
       <Section8 />
       <Section9 />
+      <Section10 />
+      <Section11 />
     </div>
   );
 };
