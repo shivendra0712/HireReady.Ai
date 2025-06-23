@@ -1,67 +1,137 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { viewFeedbackByIdService } from '../../API/questionService';
+import { viewInterviewByIdService } from '../../API/interviewService';
+import DashboardNav from './DashboardNav';
 
 const Feedback = () => {
+    const [feedbackdata, setFeedbackdata] = useState(null)
+    const [interviewData, setInterviewData] = useState(null)
     const navigate = useNavigate();
+    const { id } = useParams();
+    console.log(id);
 
-    // Separate states for each value
-    const [question, setQuestion] = useState("Hello, Shivendra! Welcome to your mock interview. I'm Liam, and I'm really excited to have this opportunity to chat with you today. I want this to be a friendly and supportive environment where you can showcase your skills and experiences. To start us off, could you please introduce yourself? Just click the mic icon to begin speaking, and then click it again when you're done.");
+    useEffect(() => {
+        const feedbackData = async () => {
+            try {
+                const { data } = await viewFeedbackByIdService(id); // ✅ calling API
+                setFeedbackdata(data.data);
+                console.log("user interview feedback data -> ", data);
 
-    const [answer, setAnswer] = useState("Hi, I'm Shivendra and I'm searching for job in United States. That's all about me.");
+                // setTotalInterviews(data.totalInterview);
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+            }
+        };
+        feedbackData();
+    }, []);
 
-    const [feedback, setFeedback] = useState("Shivendra, thank you for your introduction. While you provided a brief response, it would be beneficial to include more details about your background, skills, and experiences to give a fuller picture of who you are. This will help potential employers understand your qualifications and what you can bring to their organization. For next time, consider mentioning your educational background, any relevant work experience, and specific skills or interests that relate to the job you're seeking. This will make your introduction more engaging and informative.");
+    const interviewId = feedbackdata?.interviewId;
+    console.log(interviewId);
+
+    useEffect(() => {
+        const interviewData = async () => {
+            try {
+                const { data } = await viewInterviewByIdService(interviewId); // ✅ calling API
+                setInterviewData(data.data);
+                console.log("user interview data -> ", data);
+
+                // setTotalInterviews(data.totalInterview);
+            } catch (error) {
+                console.error("Error fetching user interview data:", error);
+            }
+        };
+        interviewData();
+
+    }, [interviewId]);
+
+    console.log(interviewData);
+
+
+
+    const interviewFeedback = feedbackdata?.userQuestion?.map((question, index) => (
+        <div key={index} className="mb-6 p-4 border border-gray-700 rounded-lg bg-[#1E1E1E]">
+
+            <div>
+                <p className="font-semibold text-white">Question {index + 1} :</p>
+                <p className="text-gray-300 mt-1">{question}</p>
+            </div>
+
+            <div className="mt-4">
+                <p className="font-semibold text-white">Your Answer:</p>
+                <p className="text-gray-400 mt-1">{feedbackdata?.userAnswer?.[index] || 'Not Answered'}</p>
+            </div>
+
+            <div className="mt-4">
+                <p className="font-semibold text-lime-400">AI Feedback:</p>
+                <p className="text-gray-300 mt-1">{feedbackdata?.aiAnswer?.[index] || 'No feedback available'}</p>
+            </div>
+
+        </div>
+    ));
+
+    const timeHandler = (isoDate) => {
+        const date = new Date(isoDate).toLocaleDateString('en-CA');
+        return date;
+    }
+
 
     return (
-        <div className="flex w-full h-full bg-[#18181B] rounded-2xl px-20">
+        <div className=" w-full h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20">
             {/* Main content */}
-            <div className="flex-1 p-8 overflow-auto">
+
+             <DashboardNav />
+
+            <div style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
+            }} className="h-full flex-1 px-2 py-8 overflow-y-auto ">
                 {/* Header */}
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between items-center mb-8 text-lg">
                     <button onClick={() => { navigate(-1) }}>
                         <i className="ri-arrow-left-s-line"></i> Interviews
                     </button>
                 </div>
 
-                {/* Interview Info */}
-                <div className="mb-8 flex flex-col">
-                    <div className="flex items-center">
-                        <h2 className="text-xl font-semibold mb-2">Frontend Developer</h2>
-                        <div className='ml-4'>
-                            <span className="bg-green-700 text-green-100 text-xs px-3 py-1 rounded-md">
-                                Completed
-                            </span>
-                        </div>
-                    </div>
 
-                    <div className="flex gap-10 text-white">
-                        <div>Experience Level</div>
-                        <div>Experience</div>
-                        <div>Date</div>
+                <div className=" w-full overflow-x-auto overflow-y-hidden">
+                    <div className="min-w-[800px] overflow-x-auto">
+                        {/* Table Header */}
+                        <div className="grid grid-cols-6  gap-20 auto-cols-fr text-sm text-[#7194aae2] font-medium my-2 break-words">
+                            {/* <div>Interviewer</div> */}
+                            <div>Job Title</div>
+                            <div className="w-[100px]">Experience (in years)</div>
+                            <div>Difficulty Level</div>
+                            <div>Created</div>
+                            <div>Status</div>
+
+                        </div>
+                        <div
+                            key={interviewData?._id}
+                            className="grid grid-cols-6 gap-4 items-center text-sm border-t border-gray-700 py-4"
+                        >
+                            <div className="flex items-center gap-2 text-white font-medium">
+                                <span>{interviewData?.jobTitle}</span>
+                            </div>
+                            <div className="font-medium text-white">{interviewData?.experience}</div>
+                            <div className="font-medium text-white ">{interviewData?.interviewLevel}</div>
+                            <div className="text-white">{timeHandler(interviewData?.interviewDate)}</div>
+                            <div>
+                                <span className="font-medium  bg-[#252B1A] text-[#BEF264] px-2 py-1 rounded cursor-pointer ">
+                                    {interviewData?.status}
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 {/* Interview Q&A */}
-                <div>
+                <div className='mt-8'>
                     <h2 className="text-lg font-semibold mb-2">Interview Conversation</h2>
 
-                    <div className="bg-[#1E1E1E] text-white p-6 rounded-lg shadow-md mx-auto mt-4 border border-gray-700 space-y-4">
-                        {/* Question */}
-                        <div>
-                            <p className="font-semibold text-white">Question: 1</p>
-                            <p className="text-gray-300 mt-1">{question}</p>
-                        </div>
-
-                        {/* Answer */}
-                        <div>
-                            <p className="font-semibold text-white">Answer</p>
-                            <p className="text-gray-400 mt-1">{answer}</p>
-                        </div>
-
-                        {/* Feedback */}
-                        <div>
-                            <p className="font-semibold text-lime-400">Feedback</p>
-                            <p className="text-gray-300 mt-1">{feedback}</p>
-                        </div>
+                    <div className=" text-white  rounded-lg shadow-md mx-auto mt-4  space-y-4">
+                        {interviewFeedback}
                     </div>
                 </div>
             </div>
