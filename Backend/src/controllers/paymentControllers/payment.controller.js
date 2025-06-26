@@ -2,6 +2,9 @@ const Payment = require('../../models/paymentModels/payment.model.js');
 const instance = require('../../services/payment.service.js');
 const CustomError = require('../../utils/customError.js');
 const crypto = require("crypto");
+const { paymentConfirmationTemplate } = require('../../utils/emailTemplate.js');
+const { sendMail } = require('../../utils/email.js');
+
 
 exports.processPaymentController = async (req, res, next) => {
   try {
@@ -51,9 +54,10 @@ exports.verifyPaymentController = async (req, res, next) => {
     const generatedSignature = hmac.digest("hex");
 
     const isValid = generatedSignature === razorpay_signature;
-
+    
+    let paymentdata;
     if (isValid) {
-      await Payment.findOneAndUpdate(
+      paymentdata = await Payment.findOneAndUpdate(
         { razorpayOrderId: razorpay_order_id },
         {
           status: "Completed",
@@ -65,7 +69,20 @@ exports.verifyPaymentController = async (req, res, next) => {
         }
       );
 
+      // console.log("paymentdata.totalPrice  --->", paymentdata.totalPrice , "req.user.username ---->" , req.user.username);
       
+      const emailTemplate = paymentConfirmationTemplate(
+       req.user.username,
+       paymentdata.totalPrice
+     );
+ 
+     await sendMail(
+       "shivendrapatel01250@gmail.com",
+       "Payment Completed",
+       emailTemplate
+     );
+      
+
 
       return res.status(200).json({ data: true, message: "Payment verified successfully" });
     } else {
