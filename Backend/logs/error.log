@@ -1,102 +1,140 @@
-2025-06-17T06:44:03.538Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-17T06:52:22.464Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-17T16:12:17.002Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T05:19:14.432Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:20:09.212Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:20:15.525Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:22:15.244Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:22:18.758Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:22:22.012Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
-2025-06-18T05:26:50.266Z error:500 - user not found - GET - /api/auth/current-user - ::1
-2025-06-18T05:27:37.197Z error:500 - user not found - GET - /api/auth/current-user - ::1
-2025-06-18T05:27:38.242Z error:500 - user not found - GET - /api/auth/current-user - ::1
-2025-06-18T05:27:39.363Z error:500 - user not found - GET - /api/auth/current-user - ::1
-2025-06-18T05:52:08.584Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:52:30.502Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:52:40.626Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:52:50.735Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:53:02.574Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:53:15.523Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:53:28.520Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:53:38.830Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:00.545Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:10.633Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:20.735Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:29.576Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:30.815Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:41.081Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:54:50.866Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:55:12.517Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T05:55:12.519Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:55:18.305Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T05:55:18.310Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:55:28.959Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view/685250eb02165b0dfc6c6b8b - ::1
-2025-06-18T05:55:28.964Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:55:37.082Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T05:55:39.079Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:59:41.494Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T05:59:41.496Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:59:51.610Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T05:59:51.612Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:59:58.931Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T05:59:58.962Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T06:04:58.590Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/interview/view-all - ::1
-2025-06-18T06:04:58.613Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T06:13:33.515Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T06:13:38.462Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - GET - /api/auth/current-user - ::1
-2025-06-18T06:15:33.872Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:37.646Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:39.311Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:41.020Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:41.025Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:42.325Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T06:15:43.898Z error:500 - Operation `users.findOne()` buffering timed out after 10000ms - POST - /api/auth/login - ::1
-2025-06-18T07:21:24.928Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
-2025-06-18T07:21:24.948Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T07:21:27.206Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
-2025-06-18T07:21:27.211Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T07:21:40.870Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T07:21:44.794Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T07:21:46.308Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
-2025-06-18T07:21:46.310Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T07:21:47.529Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T08:24:57.504Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T08:24:57.518Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
-2025-06-18T09:11:46.436Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:12:06.542Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:12:43.466Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:12:46.466Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:06.554Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:07.428Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:09.453Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:11.623Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:20.473Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:34.451Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:13:40.437Z error:500 - Interview not found - GET - /api/interview/view/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:14:20.508Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:15:25.955Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:16:09.697Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:16:38.426Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:16:56.524Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:19:10.490Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:21:17.317Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:21:32.855Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:23:19.779Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:23:26.590Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:24:05.452Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:25:10.031Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:25:30.426Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:25:30.427Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:25:36.442Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:25:36.443Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:25:37.287Z error:500 - jwt expired - GET - /api/question/feedback/68524e7e02165b0dfc6c6b77 - ::1
-2025-06-18T09:25:37.291Z error:500 - jwt expired - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:25:45.942Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
-2025-06-18T09:25:45.945Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
-2025-06-18T09:26:17.789Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:27:09.459Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:27:34.448Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:27:54.473Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:31:57.792Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:32:37.038Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
-2025-06-18T09:33:44.675Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:26:05.655Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-21T11:26:31.848Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:35:18.910Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:40:03.976Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:46:39.285Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:47:33.036Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:50:40.288Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:55:05.791Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:56:52.998Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:57:48.194Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T11:58:26.218Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T12:07:00.307Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T12:08:49.124Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T12:28:19.655Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T12:29:53.919Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T12:32:55.173Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T12:53:57.650Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T12:53:57.772Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T13:02:14.686Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T13:31:26.983Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T13:32:16.113Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T16:00:12.873Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-21T16:22:51.020Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T16:56:19.108Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-21T17:27:36.579Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T17:41:40.843Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-21T17:41:40.846Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-21T18:12:17.768Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-22T06:46:08.648Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T11:35:36.082Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T12:22:21.293Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T12:23:16.027Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T12:23:22.039Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T12:24:01.978Z error:500 - User unauthorized - POST - /api/auth/logout - ::1
+2025-06-25T13:59:50.088Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:03:21.930Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:03:30.873Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:03:40.125Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:03:48.200Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:03:57.424Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:06:27.676Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T14:24:59.011Z error:500 - Cannot destructure property 'username' of 'req.body' as it is undefined. - PATCH - /api/auth/update - ::1
+2025-06-25T14:35:13.995Z error:500 - Cannot destructure property 'username' of 'req.body' as it is undefined. - PATCH - /api/auth/update - ::1
+2025-06-25T14:42:46.680Z error:500 - Cannot destructure property 'username' of 'req.body' as it is undefined. - PATCH - /api/auth/update - ::1
+2025-06-25T14:49:06.575Z error:500 - Cannot destructure property 'username' of 'req.body' as it is undefined. - PATCH - /api/auth/update - ::1
+2025-06-25T15:13:24.131Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-25T15:13:24.134Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:24.395Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:25.407Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-25T15:13:25.410Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:50.024Z error:500 - jwt expired - PATCH - /api/auth/update - ::1
+2025-06-25T15:13:50.029Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:50.040Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-25T15:13:50.107Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:56.993Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:58.000Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:13:58.009Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-25T15:17:34.174Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-25T15:18:22.700Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-25T15:18:36.967Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T10:12:15.224Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T10:18:25.006Z error:500 - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle - PATCH - /api/auth/update - ::1
+2025-06-26T10:20:25.870Z error:500 - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle - PATCH - /api/auth/update - ::1
+2025-06-26T10:26:59.359Z error:500 - Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle - PATCH - /api/auth/update - ::1
+2025-06-26T10:28:11.587Z error:500 - User.findone is not a function - PATCH - /api/auth/update - ::1
+2025-06-26T10:36:14.202Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:37:27.398Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:38:44.887Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:42:05.575Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:42:43.587Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:43:21.515Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T10:44:03.297Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:49:14.119Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:52:27.672Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T10:54:08.633Z error:500 - Cannot destructure property 'email' of 'req.body' as it is undefined. - DELETE - /api/auth/delete - ::1
+2025-06-26T11:07:12.342Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-26T11:09:56.039Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T11:27:14.472Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T11:28:24.528Z error:500 - incorrect email or password  - POST - /api/auth/login - ::1
+2025-06-26T11:28:24.536Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T11:28:52.795Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T11:29:33.918Z error:500 - user not found - GET - /api/auth/current-user - ::1
+2025-06-26T12:34:16.232Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:34:22.657Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:34:24.377Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:34:29.076Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:34:36.481Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:34:43.536Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T12:36:53.482Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T12:36:57.973Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-26T12:36:57.976Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T12:37:20.392Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T12:37:53.821Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-26T12:38:10.824Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-26T12:39:02.556Z error:500 - Payment verification failed - POST - /api/payment/verify - ::1
+2025-06-26T12:44:17.118Z error:500 - Payment verification failed - POST - /api/payment/verify - ::1
+2025-06-26T12:47:54.692Z error:500 - Payment verification failed - POST - /api/payment/verify - ::1
+2025-06-26T13:40:21.414Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T13:40:23.288Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-06-26T13:40:28.993Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T13:40:32.652Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T13:40:36.596Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-26T16:39:10.017Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T16:40:13.222Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-26T16:40:33.034Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-26T17:03:55.614Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-26T17:43:53.531Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:44:33.689Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:44:38.745Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:45:17.130Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:45:22.070Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:45:24.093Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:46:13.624Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:19.429Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:22.061Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:24.092Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:28.067Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:29.723Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:32.027Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-26T17:48:37.101Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-27T05:43:06.181Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-27T05:47:44.494Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T05:48:59.972Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-27T07:19:24.586Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T07:27:00.411Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-27T07:28:37.477Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T07:45:22.454Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T09:19:32.914Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
