@@ -64,6 +64,58 @@ const loginController = async (req, res, next) => {
     }
 };
 
+const updateController = async (req, res, next) => {
+
+    try {
+
+        const { username, email } = req.body;
+
+        if (!email || !username) {
+            return next(new CustomError("Email and username are required", 400));
+        }
+        console.log(username, email);
+
+        const updatedUser = await User.findOneAndUpdate(
+            { email },
+            { username },
+            { new: true }
+        );
+
+        if (!User) {
+            next(new CustomError(error.message, 400));
+        }
+
+        res.status(200).json({ message: "User Updated Succefully", user: updatedUser });
+    }
+    catch (error) {
+        next(new CustomError(error.message, 500));
+    }
+};
+
+const deleteController = async (req, res, next) => {
+    try {
+        
+        const { email } = req.body;
+        console.log('User email', email);
+
+        if (!email) {
+            return next(new CustomError("Email is required", 400));
+        }
+
+        const deletedUser = await User.findOneAndDelete({ email }, { new: true });
+
+        if (!deletedUser) {
+            return next(new CustomError("User not found", 404));
+        }
+        console.log('User deleted');
+        res.status(200).json({ message: "User deleted successfully" });
+    }
+    catch (error) {
+        next(new CustomError(error.message, 500));
+    }
+};
+
+
 
 const logoutController = async (req, res, next) => {
     const { token } = req.cookies;
@@ -74,7 +126,7 @@ const logoutController = async (req, res, next) => {
             token,
             'blocklisted',
             'EX',
-            3600
+            86400
         );
 
         res.clearCookie('token');
@@ -98,4 +150,4 @@ const currentUserController = async (req, res, next) => {
 }
 
 
-module.exports = { registerController, loginController, logoutController, currentUserController };
+module.exports = { registerController, loginController, logoutController, currentUserController, updateController, deleteController };
