@@ -40,3 +40,25 @@ export const logOutService = async () => {
      console.log("Error ----> " , error.response.data.message);
   }
 }
+
+export const updateService = async (data) => {
+  try {
+    const res = await axios.patch('/auth/update', data);
+    return res;
+  }
+  catch(error) {
+     console.log("Error ----> " , error.response.data.message);
+  }
+}
+
+export const deleteService = async (data) => {
+  try {
+     console.log("data in delete --->", data);
+    const res = await axios.delete('/auth/delete' , {data:data});
+    return res;
+  }
+  catch(error) {
+     console.log("Error ----> " , error.response.data.message);
+  }
+}
+

@@ -5,40 +5,40 @@ const Section7 = () => {
 
     const [users, setUsers] = useState([
         {
-            name: "Shivendra Patel",
+            name: "Anjali Sharma",
             jobTitle: "MERN Stack Developer",
-            imgUrl: "https://example.com/user1.jpg",
+            imgUrl: "/images/user1.png",
             review: "HireReady.ai played a crucial role in my interview preparation. The realistic simulations and personalized feedback were invaluable. Thank you!"
         },
         {
-            name: "Anjali Sharma",
+            name: "Akhil Dangi",
             jobTitle: "Frontend Engineer",
-            imgUrl: "https://example.com/user2.jpg",
+            imgUrl: "/images/user4.png",
             review: "Using HireReady.ai was a game-changer for me. It helped me boost my confidence and improve my interview skills. Highly recommended!"
         },
         {
-            name: "Kavita Joshi",
-            jobTitle: "React Native Developer",
-            imgUrl: "https://example.com/user6.jpg",
+            name: "Devraj Rathor",
+            jobTitle: "Full Stack Developer",
+            imgUrl: "/images/user6.png",
             review: "HireReady.ai is a must-have tool for anyone preparing for interviews. The comprehensive preparation resources were invaluable in my success."
         },
             {
-            name: "Pooja Desai",
-            jobTitle: "Full Stack Developer",
-            imgUrl: "https://example.com/user4.jpg",
+            name: "Devendra Dhote",
+            jobTitle: "DevOps Engineer",
+            imgUrl: "/images/user2.png",
             review: "HireReady.ai is the secret weapon every job seeker needs. The combination of industry-specific questions and real-time performance analysis gave me insights I couldn't have gained elsewhere. It's not just practice; it's strategic preparation."
         },
           {
-            name: "Sarthak Mehra",
-            jobTitle: "DevOps Engineer",
-            imgUrl: "https://example.com/user5.jpg",
+            name: "Shruti Agrawal",
+            jobTitle: "React Native Developer",
+            imgUrl: "/images/user5.png",
             review: "HireReady.ai transformed my interview preparation experience. The AI-powered mock interviews and detailed feedback helped me identify my weaknesses and improve significantly."
         },
        
         {
             name: "Rohit Verma",
             jobTitle: "Backend Developer",
-            imgUrl: "https://example.com/user3.jpg",
+            imgUrl: "/images/user3.png",
             review: "HireReady.ai helped me boost my interview skills and confidence. The AI-driven mock interviews were incredibly realistic, and the instant feedback helped me refine my responses. Thanks to HireReady.ai, I walked into my interviews with confidence and landed my dream job!"
         },
      

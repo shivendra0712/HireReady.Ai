@@ -16,7 +16,9 @@ const Feedback = () => {
             try {
                 const { data } = await viewFeedbackByIdService(id); // ✅ calling API
                 setFeedbackdata(data.data);
-                console.log("user interview feedback data -> ", data);
+                console.log("user interview feedback data -> ", data 
+                    
+                );
 
                 // setTotalInterviews(data.totalInterview);
             } catch (error) {
@@ -95,12 +97,12 @@ const Feedback = () => {
 
 
                 <div className=" w-full overflow-x-auto overflow-y-hidden">
-                    <div className="min-w-[800px] overflow-x-auto">
+                    <div className="w-[900px] lg:w-[1000px] overflow-x-auto ">
                         {/* Table Header */}
-                        <div className="grid grid-cols-6  gap-20 auto-cols-fr text-sm text-[#7194aae2] font-medium my-2 break-words">
-                            {/* <div>Interviewer</div> */}
+                        <div className="w-full grid grid-cols-6  gap-4  text-sm text-[#7194aae2] font-medium my-2 break-words">
+                          
                             <div>Job Title</div>
-                            <div className="w-[100px]">Experience (in years)</div>
+                            <div>Experience (in years)</div>
                             <div>Difficulty Level</div>
                             <div>Created</div>
                             <div>Status</div>
@@ -108,7 +110,7 @@ const Feedback = () => {
                         </div>
                         <div
                             key={interviewData?._id}
-                            className="grid grid-cols-6 gap-4 items-center text-sm border-t border-gray-700 py-4"
+                            className="grid grid-cols-6 gap-4  text-sm border-t border-gray-700 py-4"
                         >
                             <div className="flex items-center gap-2 text-white font-medium">
                                 <span>{interviewData?.jobTitle}</span>

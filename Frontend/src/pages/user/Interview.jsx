@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import {createInterviewService} from '../../API/interviewService.js'
 import {createQuestionService} from '../../API/questionService.js'
+import DashboardNav from './DashboardNav.jsx';
 
 const Interview = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,20 +25,23 @@ const Interview = () => {
   };
 
   return (
-    <div className="flex w-full h-full bg-[#18181B] rounded-2xl px-20">
-      <div className="flex-1 p-8 overflow-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold">Create an interview</h1>
+    <div className="w-full min-h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20">
+      
+        <DashboardNav />
+
+      <div className="flex-1 py-8 px-2 overflow-auto">
+        <div className="flex flex-col md:flex-row justify-between gap-4 items-between md:items-center mb-8">
+          <h1 className="text-2xl font-semibold">Create an interview</h1>
           <div className="flex items-center space-x-4">
           
-            <button className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-md text-sm">
+            <button className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-md text-sm outline-none">
               Buy more interviews
             </button>
           </div>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Interview details</h2>
+          <h2 className="text-xl font-medium mb-2">Interview details</h2>
           <p className="text-gray-400 mb-6">Give the job details you want to apply for</p>
 
           {/* Job title */}
@@ -82,7 +86,7 @@ const Interview = () => {
                   defaultChecked
                   className="form-radio text-green-500 focus:ring-green-500"
                 />
-                <span className="ml-2">Technical</span>
+                <span className="ml-2 font-medium">Technical</span>
               </label>
 
               <label className="flex items-center text-sm">
@@ -92,7 +96,7 @@ const Interview = () => {
                   {...register("interviewType")}
                   className="form-radio text-green-500 focus:ring-green-500"
                 />
-                <span className="ml-2">Behaviour</span>
+                <span className="ml-2 font-medium">Behaviour</span>
               </label>
             </div>
             {errors.interviewType && <p className="text-red-500 text-xs">Please select interview type</p>}
@@ -116,12 +120,12 @@ const Interview = () => {
 
           {/* Continue button */}
           <div className="mt-8">
-            <button
-              type="submit" 
-              className="bg-[#BEF264] hover:bg-green-500 text-black text-sm font-medium py-2 px-6 rounded-md"
-            >
-              Continue
-            </button>
+              <button
+                type="submit" 
+                className="bg-[#BEF264] hover:bg-green-500 text-black text-sm font-medium py-2 px-6 rounded-md"
+              >
+                Continue
+              </button>
           </div>
         </form>
       </div>

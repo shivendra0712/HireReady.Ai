@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { logInService } from "../../API/authService";
+import { useDispatch } from "react-redux";
+import { asyncLogIn } from "../../store/actions/userAction";
 
 export default function LoginForm() {
-
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -12,27 +14,20 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm();
 
-  const  navigateHandler = () =>{
-      navigate('/');
-  } 
+  const navigateHandler = () => {
+    navigate('/');
+  }
 
-  const onSubmit =async (data) => {
-    const response = await logInService(data);
-    console.log(data); // You can integrate your login API here
-    try{
-      console.log(response.data);
-      navigateHandler();
-
-    }catch(error){
-
-    }
-    
-  };
+  const onSubmit = (data) => {
+    dispatch(asyncLogIn(data));
+    navigateHandler();
+  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 px-4">
-      <div className="w-full max-w-md bg-[#1F1F2E] text-white rounded-xl shadow-2xl p-8 space-y-6">
-        <h2 className="text-3xl font-bold text-center">Login to Your Account</h2>
+    <div className="min-h-screen flex items-center justify-center bg-[#18191B] px-4">
+      <div className="w-full max-w-md bg-[#252629] text-white rounded-xl shadow-2xl p-8 space-y-6">
+        <h2 className="text-2xl font-semibold  text-center">Welcome to HireReady.Ai <br /><span  className="text-base font-medium  text-center text-white/70">Login to start your journey with us</span> </h2>
+      
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Email Field */}
           <div>
@@ -71,7 +66,7 @@ export default function LoginForm() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 transition duration-200 py-2 rounded-lg font-semibold"
+            className="w-full flex justify-center bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-lg text-sm  items-center transition-all duration-200 outline-none cursor-pointer"
           >
             Login
           </button>
@@ -79,7 +74,7 @@ export default function LoginForm() {
 
         <p className="text-sm text-gray-400 text-center">
           Don't have an account?{" "}
-          <button onClick={()=> navigate('/signup')} className="text-green-400 hover:underline">
+          <button onClick={() => navigate('/signup')} className="text-green-400  font-medium cursor-pointer">
             Sign up
           </button>
         </p>

@@ -26,8 +26,8 @@ const Join = () => {
   const [interviewerName, setInterviewerName] = useState("");
   const [status, setStatus] = useState("scheduled");
   const [questionId, setQuestionId] = useState('');
-  const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]); // already exists
-  const [userQuestionsInFrontend, setUserQuestionsInFrontend] = useState([]); 
+  const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]); 
+  const [userQuestionsInFrontend, setUserQuestionsInFrontend] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswersInFrontend, setUserAnswersInFrontend] = useState([]);
   const [hasAnswerCaptured, setHasAnswerCaptured] = useState(false);
@@ -62,7 +62,7 @@ const Join = () => {
     fetchInterviewData();
   }, [interviewId]);
 
-  
+
   useEffect(() => {
     const viewQuestionById = async () => {
       try {
@@ -97,181 +97,181 @@ const Join = () => {
 
 
   const speakQuestion = (text, callback) => {
-  const synth = window.speechSynthesis;
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.onend = callback;
-  synth.speak(utterance);
-};
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.onend = callback;
+    synth.speak(utterance);
+  };
 
 
-// const startSpeechRecognition = () => {
-//   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-//   const recognition = new SpeechRecognition();
-//   recognition.continuous = false;
-//   recognition.interimResults = false;
-//   recognition.lang = 'en-US';
+  // const startSpeechRecognition = () => {
+  //   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  //   const recognition = new SpeechRecognition();
+  //   recognition.continuous = false;
+  //   recognition.interimResults = false;
+  //   recognition.lang = 'en-US';
 
-//   recognitionRef.current = recognition;
+  //   recognitionRef.current = recognition;
 
-//   recognition.start();
+  //   recognition.start();
 
-//   recognition.onresult = (event) => {
-//     const userAnswer = event.results[0][0].transcript;
-//     setUserAnswersInFrontend(prev => [...prev, userAnswer]);
-//   };
-//   console.log(" user give the answer that save in the frontend ---------------> ",userAnswersInFrontend);
+  //   recognition.onresult = (event) => {
+  //     const userAnswer = event.results[0][0].transcript;
+  //     setUserAnswersInFrontend(prev => [...prev, userAnswer]);
+  //   };
+  //   console.log(" user give the answer that save in the frontend ---------------> ",userAnswersInFrontend);
 
-//   recognition.onerror = (event) => {
-//     console.error("Speech recognition error:", event.error);
-//   };
-// };
-
-
-
-// useEffect(() => {
-//   if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
-
-//   if (currentQuestionIndex < aiQuestionsInFrontend.length) {
-//     const question = aiQuestionsInFrontend[currentQuestionIndex];
-//     speakQuestion(question, () => {
-//       console.log("Question spoken. Waiting for mic to be turned on...");
-//     });
-//   } else {
-//     endInterview();
-//   }
-// }, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
+  //   recognition.onerror = (event) => {
+  //     console.error("Speech recognition error:", event.error);
+  //   };
+  // };
 
 
 
+  // useEffect(() => {
+  //   if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
 
-// useEffect(() => {
-//   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
-
-//   if (recognitionRef.current === null) {
-//     startSpeechRecognition();
-//   }
-// }, [isMicOn]);
-
-
-
-// useEffect(() => {
-//   if (!isInterviewStarted || isInterviewEnded) return;
-
-//   if (!isMicOn && recognitionRef.current) {
-//     recognitionRef.current.stop();
-//     recognitionRef.current = null;
-
-//     // Save last spoken result here if not already saved
-//     // Advance to next question
-//     setCurrentQuestionIndex(prev => prev + 1);
-//   }
-// }, [isMicOn]);
+  //   if (currentQuestionIndex < aiQuestionsInFrontend.length) {
+  //     const question = aiQuestionsInFrontend[currentQuestionIndex];
+  //     speakQuestion(question, () => {
+  //       console.log("Question spoken. Waiting for mic to be turned on...");
+  //     });
+  //   } else {
+  //     endInterview();
+  //   }
+  // }, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
 
 
 
-// 1. Question bolne ke liye — sirf ek baar
-useEffect(() => {
-  if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
 
-  if (currentQuestionIndex < aiQuestionsInFrontend.length) {
-    const question = aiQuestionsInFrontend[currentQuestionIndex];
+  // useEffect(() => {
+  //   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
 
-    setUserQuestionsInFrontend(prev => {
-      if (prev.length <= currentQuestionIndex) {
-        return [...prev, question];
+  //   if (recognitionRef.current === null) {
+  //     startSpeechRecognition();
+  //   }
+  // }, [isMicOn]);
+
+
+
+  // useEffect(() => {
+  //   if (!isInterviewStarted || isInterviewEnded) return;
+
+  //   if (!isMicOn && recognitionRef.current) {
+  //     recognitionRef.current.stop();
+  //     recognitionRef.current = null;
+
+  //     // Save last spoken result here if not already saved
+  //     // Advance to next question
+  //     setCurrentQuestionIndex(prev => prev + 1);
+  //   }
+  // }, [isMicOn]);
+
+
+
+  // 1. Question bolne ke liye — sirf ek baar
+  useEffect(() => {
+    if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
+
+    if (currentQuestionIndex < aiQuestionsInFrontend.length) {
+      const question = aiQuestionsInFrontend[currentQuestionIndex];
+
+      setUserQuestionsInFrontend(prev => {
+        if (prev.length <= currentQuestionIndex) {
+          return [...prev, question];
+        }
+        return prev;
+      });
+
+
+      // Disable mic here if active (just in case)
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
       }
-      return prev;
-    });
 
-    
-    // Disable mic here if active (just in case)
-    if (recognitionRef.current) {
+      speakQuestion(question, () => {
+        console.log("Question spoken. Now user can turn mic ON.");
+        // ⚠️ Mic ko yahi start mat karo
+      });
+    } else {
+      endInterview();
+    }
+  }, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
+
+  // 2. Jab mic ON ho, tabhi start recognition — lekin question dobara mat bolo
+  // useEffect(() => {
+  //   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
+
+  //   if (recognitionRef.current === null) {
+  //     console.log("Mic turned on. Starting recognition...");
+  //     startSpeechRecognition();
+  //   }
+  // }, [isMicOn]);
+
+
+  useEffect(() => {
+    if (isMicOn && recognitionRef.current === null) {
+      console.log("Mic ON, starting recognition...");
+
+      // Mute speakers if needed
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+      }
+      startSpeechRecognition();
+    }
+  }, [isMicOn]);
+
+
+  // 3. Jab mic OFF ho, answer record ho chuka hai, next question pe jao
+  useEffect(() => {
+    if (!isInterviewStarted || isInterviewEnded) return;
+
+    if (!isMicOn && recognitionRef.current) {
+      console.log("Mic turned off. Stopping recognition and moving to next question...");
       recognitionRef.current.stop();
       recognitionRef.current = null;
+
+      // ✅ If no answer captured, push empty string
+      setUserAnswersInFrontend(prev => {
+        if (!hasAnswerCaptured) {
+          return [...prev, ""];
+        }
+        return prev;
+      });
+
+      // Reset captured flag
+      setHasAnswerCaptured(false);
+
+      // Go to next question
+      setCurrentQuestionIndex(prev => prev + 1);
     }
-
-    speakQuestion(question, () => {
-      console.log("Question spoken. Now user can turn mic ON.");
-      // ⚠️ Mic ko yahi start mat karo
-    });
-  } else {
-    endInterview();
-  }
-}, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
-
-// 2. Jab mic ON ho, tabhi start recognition — lekin question dobara mat bolo
-// useEffect(() => {
-//   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
-
-//   if (recognitionRef.current === null) {
-//     console.log("Mic turned on. Starting recognition...");
-//     startSpeechRecognition();
-//   }
-// }, [isMicOn]);
-
-
-useEffect(() => {
-  if (isMicOn && recognitionRef.current === null) {
-    console.log("Mic ON, starting recognition...");
-
-    // Mute speakers if needed
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-    }
-    startSpeechRecognition();
-  }
-}, [isMicOn]);
-
-
-// 3. Jab mic OFF ho, answer record ho chuka hai, next question pe jao
-useEffect(() => {
-  if (!isInterviewStarted || isInterviewEnded) return;
-
-  if (!isMicOn && recognitionRef.current) {
-    console.log("Mic turned off. Stopping recognition and moving to next question...");
-    recognitionRef.current.stop();
-    recognitionRef.current = null;
-
-    // ✅ If no answer captured, push empty string
-    setUserAnswersInFrontend(prev => {
-      if (!hasAnswerCaptured) {
-        return [...prev, ""];
-      }
-      return prev;
-    });
-
-    // Reset captured flag
-    setHasAnswerCaptured(false);
-
-    // Go to next question
-    setCurrentQuestionIndex(prev => prev + 1);
-  }
-}, [isMicOn]);
+  }, [isMicOn]);
 
 
 
-const startSpeechRecognition = () => {
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition();
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.lang = 'en-US';
+  const startSpeechRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
 
-  recognitionRef.current = recognition;
+    recognitionRef.current = recognition;
 
-  recognition.start();
+    recognition.start();
 
-  recognition.onresult = (event) => {
-    const userAnswer = event.results[0][0].transcript;
-    console.log("Answer captured: ", userAnswer);
-    setUserAnswersInFrontend(prev => [...prev, userAnswer]);
-    setHasAnswerCaptured(true);
+    recognition.onresult = (event) => {
+      const userAnswer = event.results[0][0].transcript;
+      console.log("Answer captured: ", userAnswer);
+      setUserAnswersInFrontend(prev => [...prev, userAnswer]);
+      setHasAnswerCaptured(true);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+    };
   };
-
-  recognition.onerror = (event) => {
-    console.error("Speech recognition error:", event.error);
-  };
-};
 
 
   const initializeMedia = async (video = true, audio = true) => {
@@ -368,11 +368,11 @@ const startSpeechRecognition = () => {
     try {
       setIsLoading(true);
       await endInterviewByIdService(interviewId, { userDuration, status: 'completed' });
-       console.log(' userAnswersInFrontend by user --------> ' , userAnswersInFrontend);
-       console.log(' userQuestionInFrontend by user --------> ' , userQuestionsInFrontend);
-      const response =   await updateAnswerByIdService(questionId, {userQuestionsInFrontend , userAnswersInFrontend});
-      
-      console.log('response by backend userAnswersInFrontend by user --------> ' , response.data.data);
+      console.log(' userAnswersInFrontend by user --------> ', userAnswersInFrontend);
+      console.log(' userQuestionInFrontend by user --------> ', userQuestionsInFrontend);
+      const response = await updateAnswerByIdService(questionId, { userQuestionsInFrontend, userAnswersInFrontend });
+
+      console.log('response by backend userAnswersInFrontend by user --------> ', response.data.data);
       setStatus('completed');
       setIsInterviewEnded(true);
       setIsInterviewStarted(false);
@@ -416,21 +416,23 @@ const startSpeechRecognition = () => {
 
   return (
     <div>
-      <div className="beforeInterview Div flex flex-col w-screen h-screen bg-[#18181B] text-white py-6 px-8">
+      <div className="beforeInterview Div flex flex-col w-screen min-h-screen bg-[#18181B] text-white px-6 py-4 lg:px-2">
+        
 
-        {togger ? (<div className="w-full flex  bg-[#27272A] py-3 px-6 rounded-lg justify-between items-center">
+
+        {togger ? (<div className="w-full flex  bg-[#27272A] py-3 px-6 rounded-lg justify-between items-center my-4">
           <h1>Job Title: {jobTitle}</h1>
           {/* <button onClick={endInterview} className="bg-[#5B5B63] rounded-lg py-1 px-3">Interview Ended</button> */}
 
         </div>) : ""}
 
-        <div className="flex-1 flex items-center justify-center gap-10">
-          <div className="leftDiv w-[24rem] h-[24rem] max-w-xl max-h-2xl aspect-video bg-[#242427] rounded-lg overflow-hidden relative">
+        <div className="flex-1 flex flex-col md:flex-row lg:flex-row items-center justify-center gap-10">
+          <div className="leftDiv w-[16rem] h-[10rem] lg:w-[24rem] lg:h-[24rem] max-w-xl max-h-2xl aspect-video bg-[#242427] rounded-lg overflow-hidden relative">
             {/* Video element - always present but may not show anything */}
             <video
               ref={videoRef}
               autoPlay
-              playsInline
+              
               // muted={!isMicOn}
               className={`w-full h-full object-cover ${isCameraOn ? 'block' : 'hidden'}`}
             />
@@ -489,8 +491,8 @@ const startSpeechRecognition = () => {
 
           </div>
           {togger ? (
-            <div className="rightDiv w-[24rem] h-[24rem] max-w-xl max-h-2xl aspect-video bg-[#242427] rounded-lg overflow-hidden relative flex justify-center items-center">
-              <div className="w-30 h-30  rounded-full">
+            <div className="rightDiv w-[16rem] h-[10rem] lg:w-[24rem] lg:h-[24rem] max-w-xl max-h-2xl aspect-video bg-[#242427] rounded-lg overflow-hidden relative flex justify-center items-center">
+              <div className="w-20 h-20 lg:w-30 lg:h-30  rounded-full">
                 <img className="w-full h-full bg-cover rounded-full" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
               </div>
               <div className="absolute left-4 bottom-4"> <p className="text-base">{interviewerName}</p></div>
@@ -558,7 +560,7 @@ const startSpeechRecognition = () => {
           )}
         </div>
 
-        <div className="p-4 bg-[#18181B] flex justify-between items-center">
+        <div className="p-1 lg:p-4 bg-[#18181B] flex justify-between items-center">
           <div className="text-gray-300">
             {isInterviewStarted ? formatTime(userDuration) : "30 :00"}
           </div>
