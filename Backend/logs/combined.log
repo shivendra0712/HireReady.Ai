@@ -137,3 +137,4 @@
 2025-06-27T07:27:00.411Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
 2025-06-27T07:28:37.477Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
 2025-06-27T07:45:22.454Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T09:19:32.914Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
