@@ -18,7 +18,7 @@ const createController = async (req, res, next) => {
       interviewType,
       experience,
       interviewLevel,
-      
+
     });
 
     if (!interview) {
@@ -26,7 +26,7 @@ const createController = async (req, res, next) => {
     }
     const user = await req.user;
 
-    
+
 
     // const newuser = await User.findById(user._id)
 
@@ -73,7 +73,7 @@ const viewInterviewController = async (req, res, next) => {
   try {
     // Extract ID from params, ensuring the colon is handled
     const { id } = req.params;
-    console.log("interview view by id in be ------------->",id)
+    console.log("interview view by id in be ------------->", id)
 
     const user = await req.user;
     // const newuser = await User.findById(user._id)
@@ -136,14 +136,10 @@ const endInterviewController = async (req, res, next) => {
   try {
     const { id } = req.params;
     console.log(id)
+
     const user = await req.user;
-    // const newuser = await User.findById(user._id)
 
-    // if (!newuser) {
-    //   return next(new CustomError('user is not found', 404));
-    // }
-
-    const { status, interviewDuration } = req.body;
+    const { status, userDuration } = req.body;
 
     // console.log("status in be ---->",status)
 
@@ -151,7 +147,7 @@ const endInterviewController = async (req, res, next) => {
       id,
       {
         status,
-        interviewDuration,
+        userDuration,
         interviewDate: Date()
       },
       { new: true }
@@ -160,7 +156,16 @@ const endInterviewController = async (req, res, next) => {
     if (!updated) {
       return next(new CustomError('Interview not found', 404));
     }
-    
+    console.log("end interview -----> ", user)
+
+    user.totalTime += updated.userDuration;
+    user.totalInterview += 1;
+    user.completeInterview += 1;
+    user.available -= 1;
+    await user.save();
+
+    console.log("end interview -----> ", user)
+
     res.status(200).json({ message: 'Interview ended successfully', data: updated });
 
   } catch (error) {
