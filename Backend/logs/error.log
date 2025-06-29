@@ -138,3 +138,32 @@
 2025-06-27T07:28:37.477Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
 2025-06-27T07:45:22.454Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
 2025-06-27T09:19:32.914Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T10:44:13.774Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T10:53:13.929Z error:500 - user.totalTime.push is not a function - PUT - /api/interview/end/685e77e7a9c07667546a1939 - ::1
+2025-06-27T11:00:48.138Z error:500 - user.totalTime.push is not a function - PUT - /api/interview/end/685e79b3055ca1c6c07a72dd - ::1
+2025-06-27T11:09:57.508Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T11:13:58.533Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T11:15:10.314Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T11:16:21.603Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T11:16:21.612Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-27T11:16:24.352Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-27T11:16:24.353Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T11:16:39.454Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T11:56:03.231Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T12:03:47.116Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-06-27T12:20:50.555Z error:500 - jwt expired - GET - /api/interview/view-all - ::1
+2025-06-27T12:20:50.563Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T12:21:10.464Z error:500 - jwt expired - GET - /api/auth/current-user - ::1
+2025-06-27T12:23:10.859Z error:500 - Unauthorized user! - GET - /api/auth/current-user - ::1
+2025-06-27T12:34:26.236Z error:500 - Cannot destructure property 'jobTitle' of 'req.body' as it is undefined. - POST - /api/interview/create - ::1
+2025-06-27T12:34:27.560Z error:500 - Cannot destructure property 'jobTitle' of 'req.body' as it is undefined. - POST - /api/interview/create - ::1
+2025-06-27T12:34:28.502Z error:500 - Cannot destructure property 'jobTitle' of 'req.body' as it is undefined. - POST - /api/interview/create - ::1
+2025-06-27T12:34:30.445Z error:500 - Cannot destructure property 'jobTitle' of 'req.body' as it is undefined. - POST - /api/interview/create - ::1
+2025-06-27T12:34:55.432Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:34:56.118Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:34:56.309Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:34:57.316Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:35:39.249Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:39:45.808Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:39:49.048Z error:500 - Interview validation failed: interviewType: `technical` is not a valid enum value for path `interviewType`., interviewLevel: `beginner` is not a valid enum value for path `interviewLevel`. - POST - /api/interview/create - ::1
+2025-06-27T12:44:01.107Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
