@@ -1,6 +1,5 @@
 import React, { useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { currentUserService } from '../../API/authService' 
 import DashboardNav from './DashboardNav';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,31 +12,10 @@ const DashboardContent = () => {
   const [totalTimeSpent, setTotalTimeSpent] = useState(user.totalTime);
   const [completedInterviews, setCompletedInterviews] = useState(user.completeInterview);
   const [availableInterviews, setAvailableInterviews] = useState(user.available);
-//   const [percentFromLastWeek, setPercentFromLastWeek] = useState("0%");
-//   const [completionRate, setCompletionRate] = useState("100%");
+
 
 console.log(totalInterviews , availableInterviews)
 
-// useEffect(() => {
-//     const fetchUserData = async () => {
-//       try {
-//         const response = await currentUserService(); // ✅ calling API
-//         const data = response.user; // depends on your API response structure
-//           console.log(response);
-//         setName(data.username);
-//         setTotalInterviews(data.totalInterview);
-//         setTotalTimeSpent(data.totalTime);
-//         setCompletedInterviews(data.completeInterview);
-//         setAvailableInterviews(data.available);
-//       } catch (error) {
-//         console.log("Error fetching user data:", error);
-//       }
-//     };
-
-//     fetchUserData();
-//   }, []);
-
-  
 
   return (
     <div className='w-full min-h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20'>
@@ -59,11 +37,10 @@ console.log(totalInterviews , availableInterviews)
                 Create Interview
               </button>
             </div>
-          </div>
-
+          </div>  
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <OverviewCard title="Total interviews" value={totalInterviews} />
-            <OverviewCard title="Total time spent" value={totalTimeSpent}  />
+            <OverviewCard title="Total time spent" value={`${totalTimeSpent} min`} />
             <OverviewCard title="Completed interviews" value={completedInterviews}  />
             <OverviewCard title="Available interviews" value={availableInterviews} note="Free credit" />
           </div>
