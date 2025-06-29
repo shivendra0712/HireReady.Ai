@@ -5,6 +5,7 @@ import PageNotFound from '../pages/PageNotFound.jsx'
 import ProfileDetails from '../pages/user/ProfileDetails.jsx';
 import FeedbackDetails from '../pages/user/FeedbackDetails.jsx';
 import HelpDetails from '../pages/user/HelpDetails.jsx';
+import PricingPage from '../pages/user/PricingPage.jsx';
 const Interview = lazy(() => import('../pages/user/Interview.jsx'));
 const Interviews = lazy(() => import('../pages/user/Interviews.jsx'));
 const Join = lazy(() => import('../pages/user/Join.jsx'));
@@ -42,10 +43,12 @@ const MainRoutes = () => {
             <Route path="/interview/join/:interviewId" element={<Join />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="*" element={<PageNotFound />} />
         </Routes>
     )
 }
+
 
 export default MainRoutes
 
