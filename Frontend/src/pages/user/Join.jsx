@@ -24,7 +24,7 @@ const Join = () => {
   const [interview, setInterview] = useState(null);
   const [togger, setTogger] = useState(false);
   const [interviewerName, setInterviewerName] = useState("");
-  const [status, setStatus] = useState("scheduled");
+  const [status, setStatus] = useState("Scheduled");
   const [questionId, setQuestionId] = useState('');
   const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]); 
   const [userQuestionsInFrontend, setUserQuestionsInFrontend] = useState([]);
@@ -350,8 +350,8 @@ const Join = () => {
     }
     try {
       setIsLoading(true);
-      await startInterviewByIdService(interviewId, { isCameraOn, isMicOn, status: 'in_progress' });
-      setStatus('in_progress');
+      await startInterviewByIdService(interviewId, { isCameraOn, isMicOn, status: 'In_progress' });
+      setStatus('In_progress');
       setTogger(true);
       setIsInterviewStarted(true);
       setIsInterviewEnded(false);
@@ -367,13 +367,13 @@ const Join = () => {
   const endInterview = async () => {
     try {
       setIsLoading(true);
-      await endInterviewByIdService(interviewId, { userDuration, status: 'completed' });
+      await endInterviewByIdService(interviewId, { userDuration, status: 'Completed' });
       console.log(' userAnswersInFrontend by user --------> ', userAnswersInFrontend);
       console.log(' userQuestionInFrontend by user --------> ', userQuestionsInFrontend);
       const response = await updateAnswerByIdService(questionId, { userQuestionsInFrontend, userAnswersInFrontend });
 
       console.log('response by backend userAnswersInFrontend by user --------> ', response.data.data);
-      setStatus('completed');
+      setStatus('Completed');
       setIsInterviewEnded(true);
       setIsInterviewStarted(false);
       console.log("Interview completed. Final Answers:", userAnswersInFrontend);

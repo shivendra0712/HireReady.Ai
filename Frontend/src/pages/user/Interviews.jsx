@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { currentUserService } from '../../API/authService'
 import { viewAllInterviewService } from '../../API/interviewService';
 import DashboardNav from './DashboardNav';
+import { useSelector } from 'react-redux';
 
 
 const Interviews = () => {
   const navigate = useNavigate();
-  const [totalInterviews, setTotalInterviews] = useState(1);
+   const { user } = useSelector((state) => state.userReducer);
+  const [totalInterviews, setTotalInterviews] = useState(user.totalInterview);
   const [interviews, setInterviews] = useState(null);
 
   useEffect(() => {
@@ -69,7 +71,7 @@ const Interviews = () => {
               <h1>No interview yet?</h1>
             </div>
           ) : (
-            <div className=" w-full overflow-x-auto overflow-y-hidden">
+            <div className=" w-full overflow-x-auto overflow-y-hidden lg:overflow-y-auto bg">
               <div className="min-w-[800px]">
                 {/* Table Header */}
                 <div className="grid grid-cols-6  gap-4 text-sm text-[#7194aae2] font-medium my-2">
