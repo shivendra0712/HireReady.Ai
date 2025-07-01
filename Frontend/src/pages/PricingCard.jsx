@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { processPaymentService, verifyPaymentService } from "../API/paymentService";
-// import { processPaymentService, verifyPaymentService } from "../services/paymentServices";
+
 
 
 const PricingCard = (props) => {
@@ -24,6 +24,7 @@ const PricingCard = (props) => {
           razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_signature: response.razorpay_signature,
+          available:interviewNumber
         });
 
         alert(verifyRes.data.message);

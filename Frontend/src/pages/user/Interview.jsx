@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { createInterviewService } from '../../API/interviewService.js'
 import { createQuestionService } from '../../API/questionService.js'
-import DashboardNav from './DashboardNav.jsx';
+const DashboardNav = lazy(()=> import('./DashboardNav.jsx')) 
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -34,7 +34,7 @@ const Interview = () => {
     const questionResponse = await createQuestionService(interviewData);
 
     console.log(questionResponse)
-    // console.log(response.data.data);
+  
 
     navigate(`/interview/join/${response.data.data._id}`);
   };

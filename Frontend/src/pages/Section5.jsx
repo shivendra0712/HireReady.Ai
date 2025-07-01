@@ -1,6 +1,7 @@
 import React from 'react'
 import Section5Right from './Section5Right'
 import Section5Left from './Section5Left'
+// const ProfileDetails = lazy(()=> import()) 
 
 const Section5 = () => {
   return (

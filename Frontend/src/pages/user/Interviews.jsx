@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { currentUserService } from '../../API/authService'
 import { viewAllInterviewService } from '../../API/interviewService';
-import DashboardNav from './DashboardNav';
+const DashboardNav = lazy(()=> import('./DashboardNav')) 
 import { useSelector } from 'react-redux';
 
 
 const Interviews = () => {
   const navigate = useNavigate();
    const { user } = useSelector((state) => state.userReducer);
-  const [totalInterviews, setTotalInterviews] = useState(user.totalInterview);
+  const [totalInterviews, setTotalInterviews] = useState(user?.totalInterview);
   const [interviews, setInterviews] = useState(null);
 
   useEffect(() => {
@@ -50,11 +50,11 @@ const Interviews = () => {
   }
  
   return (
-    <div className="w-full  min-h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20">
+    <div className="w-full  h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20">
       <DashboardNav />
-      <div className="flex-1 py-8 overflow-auto">
+      <div style={{scrollbarWidth: 'none',msOverflowStyle: 'none',}} className="h-full flex-1 px-2 py-8 overflow-y-auto ">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-8 text-lg">
           <h1 className="text-xl font-medium">Interviews</h1>
           <button
             onClick={() => navigate('/dashboard/interviews/interview-create')}
@@ -66,12 +66,12 @@ const Interviews = () => {
 
         {/* Table Header */}
         {
-          totalInterviews === 0 ? (
+          user?.totalInterview === 0 ? (
             <div className='flex justify-center items-center'>
               <h1>No interview yet?</h1>
             </div>
           ) : (
-            <div className=" w-full overflow-x-auto overflow-y-hidden lg:overflow-y-auto bg">
+            <div className="w-full overflow-x-auto overflow-y-hidden">
               <div className="min-w-[800px]">
                 {/* Table Header */}
                 <div className="grid grid-cols-6  gap-4 text-sm text-[#7194aae2] font-medium my-2">

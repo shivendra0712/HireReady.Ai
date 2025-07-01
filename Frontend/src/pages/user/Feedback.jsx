@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { viewFeedbackByIdService } from '../../API/questionService';
 import { viewInterviewByIdService } from '../../API/interviewService';
-import DashboardNav from './DashboardNav';
+const DashboardNav = lazy(() => import('./DashboardNav'))
 
 const Feedback = () => {
     const [feedbackdata, setFeedbackdata] = useState(null)
@@ -16,11 +16,10 @@ const Feedback = () => {
             try {
                 const { data } = await viewFeedbackByIdService(id); // ✅ calling API
                 setFeedbackdata(data.data);
-                console.log("user interview feedback data -> ", data 
-                    
+                console.log("user interview feedback data -> ", data
+
                 );
 
-                // setTotalInterviews(data.totalInterview);
             } catch (error) {
                 console.error("Error fetching user data:", error);
             }
@@ -82,12 +81,9 @@ const Feedback = () => {
         <div className=" w-full h-full lg:p-2 bg-[#18181B] lg:rounded-2xl  px-6 py-4 lg:px-20">
             {/* Main content */}
 
-             <DashboardNav />
+            <DashboardNav />
 
-            <div style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-            }} className="h-full flex-1 px-2 py-8 overflow-y-auto ">
+            <div style={{scrollbarWidth: 'none',msOverflowStyle: 'none',}} className="h-full flex-1 px-2 py-8 overflow-y-auto ">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-8 text-lg">
                     <button onClick={() => { navigate(-1) }}>
@@ -100,7 +96,7 @@ const Feedback = () => {
                     <div className="w-[900px] lg:w-[1000px] overflow-x-auto ">
                         {/* Table Header */}
                         <div className="w-full grid grid-cols-6  gap-4  text-sm text-[#7194aae2] font-medium my-2 break-words">
-                          
+
                             <div>Job Title</div>
                             <div>Experience (in years)</div>
                             <div>Difficulty Level</div>

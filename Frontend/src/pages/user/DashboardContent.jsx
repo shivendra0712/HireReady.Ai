@@ -1,7 +1,8 @@
-import React, { useState ,useEffect } from 'react';
+import React, { useState ,useEffect, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import DashboardNav from './DashboardNav';
+const DashboardNav = lazy(()=> import('./DashboardNav')) 
 import { useDispatch, useSelector } from 'react-redux';
+import { asyncCurrentUser } from '../../store/actions/userAction';
 
 const DashboardContent = () => {
   
@@ -15,6 +16,13 @@ const DashboardContent = () => {
 
 
 console.log(totalInterviews , availableInterviews)
+
+const dispatch = useDispatch();
+  
+  
+  useEffect(() => {
+      dispatch(asyncCurrentUser());
+  }, []);
 
 
   return (

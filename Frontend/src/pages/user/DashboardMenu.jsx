@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
-import Profile from './Profile';
+const Profile = lazy(() => import('./Profile'))
+import { useDispatch } from 'react-redux';
 
 const DashboardMenu = () => {
 
   const navigate = useNavigate();
-  
+  const dispatch = useDispatch();
+
+  const feedbackHandler = () => {
+    navigate('/dashboard/feedback-details');
+  }
+  const helpHandler = () => {
+    navigate('/dashboard/help-details');
+  }
+
 
   return (
     <>
@@ -72,11 +81,11 @@ const DashboardMenu = () => {
 
           {/* Footer links */}
           <div className="mt-auto">
-            <div className="flex items-center  text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
+            <div  onClick={feedbackHandler}  className="flex items-center  text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
               <img className='scale-70' src="/images/img6.png" alt="" />
               Feedback
             </div>
-            <div className="flex items-center text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
+            <div  onClick={helpHandler} className="flex items-center text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
               <img className='scale-70' src="/images/img7.png" alt="" />
               Help
             </div>

@@ -1,5 +1,6 @@
-import React from 'react';
-import Section8 from '.././Section8'; // ✅ path sahi rakhna
+import React, { lazy } from 'react';
+// import Section8 from '.././Section8'; // ✅ path sahi rakhna
+const Section8 = lazy(()=> import('.././Section8')) 
 
 const PricingPage = () => {
   return (

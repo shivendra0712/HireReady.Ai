@@ -1,6 +1,7 @@
 import React from 'react'
 import CartSection3 from './CartSection3'
 
+
 const Section3 = () => {
 
   return (

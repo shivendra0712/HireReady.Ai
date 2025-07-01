@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PhoneScreenProfile from './PhoneScreenProfile';
+const PhoneScreenProfile = lazy(()=> import('./PhoneScreenProfile')) 
 
 const DashboardNav = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -9,7 +9,14 @@ const DashboardNav = () => {
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
-    
+
+    const feedbackHandler = () => {
+    navigate('/dashboard/feedback-details');
+  }
+  const helpHandler = () => {
+    navigate('/dashboard/help-details');
+  }
+
 
     return (
         <div className="relative lg:hidden w-full  ">
@@ -104,11 +111,11 @@ const DashboardNav = () => {
 
                         {/* Footer links */}
                         <div className="mt-auto">
-                            <div className="flex items-center  text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
+                            <div  onClick={feedbackHandler}  className="flex items-center  text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
                                 <img className='scale-70' src="/images/img6.png" alt="" />
                                 Feedback
                             </div>
-                            <div className="flex items-center text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
+                            <div  onClick={helpHandler}  className="flex items-center text-sm text-gray-200 hover:text-white font-medium hover:bg-[#161617] hover:rounded-md ">
                                 <img className='scale-70' src="/images/img7.png" alt="" />
                                 Help
                             </div>

@@ -11,14 +11,14 @@ const Join = () => {
   const videoRef = useRef(null);
   const localStreamRef = useRef(null);
   const recognitionRef = useRef(null);
-
   const [userName, setUserName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [isCameraOn, setIsCameraOn] = useState(false);
   const [isMicOn, setIsMicOn] = useState(false);
   const [isInterviewStarted, setIsInterviewStarted] = useState(false);
   const [isInterviewEnded, setIsInterviewEnded] = useState(false);
-  const [userDuration, setUserDuration] = useState(0);
+  // const [userDuration, setUserDuration] = useState(0);
+  const [secondsElapsed, setSecondsElapsed] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [interview, setInterview] = useState(null);
@@ -26,14 +26,13 @@ const Join = () => {
   const [interviewerName, setInterviewerName] = useState("");
   const [status, setStatus] = useState("Scheduled");
   const [questionId, setQuestionId] = useState('');
-  const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]); 
+  const [aiQuestionsInFrontend, setAiQuestionsInFrontend] = useState([]);
   const [userQuestionsInFrontend, setUserQuestionsInFrontend] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswersInFrontend, setUserAnswersInFrontend] = useState([]);
   const [hasAnswerCaptured, setHasAnswerCaptured] = useState(false);
 
-
-
+  
   useEffect(() => {
     const fetchInterviewData = async () => {
       if (!interviewId) return;
@@ -99,74 +98,12 @@ const Join = () => {
   const speakQuestion = (text, callback) => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);
+    utterance.volume = 1; // Volume: 0.0 to 1.0
+    utterance.rate = 1;   // Speed: 0.1 to 10
+    utterance.pitch = 1;  // Pitch: 0 to 2
     utterance.onend = callback;
     synth.speak(utterance);
   };
-
-
-  // const startSpeechRecognition = () => {
-  //   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  //   const recognition = new SpeechRecognition();
-  //   recognition.continuous = false;
-  //   recognition.interimResults = false;
-  //   recognition.lang = 'en-US';
-
-  //   recognitionRef.current = recognition;
-
-  //   recognition.start();
-
-  //   recognition.onresult = (event) => {
-  //     const userAnswer = event.results[0][0].transcript;
-  //     setUserAnswersInFrontend(prev => [...prev, userAnswer]);
-  //   };
-  //   console.log(" user give the answer that save in the frontend ---------------> ",userAnswersInFrontend);
-
-  //   recognition.onerror = (event) => {
-  //     console.error("Speech recognition error:", event.error);
-  //   };
-  // };
-
-
-
-  // useEffect(() => {
-  //   if (!isInterviewStarted || isInterviewEnded || isMicOn) return;
-
-  //   if (currentQuestionIndex < aiQuestionsInFrontend.length) {
-  //     const question = aiQuestionsInFrontend[currentQuestionIndex];
-  //     speakQuestion(question, () => {
-  //       console.log("Question spoken. Waiting for mic to be turned on...");
-  //     });
-  //   } else {
-  //     endInterview();
-  //   }
-  // }, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
-
-
-
-
-  // useEffect(() => {
-  //   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
-
-  //   if (recognitionRef.current === null) {
-  //     startSpeechRecognition();
-  //   }
-  // }, [isMicOn]);
-
-
-
-  // useEffect(() => {
-  //   if (!isInterviewStarted || isInterviewEnded) return;
-
-  //   if (!isMicOn && recognitionRef.current) {
-  //     recognitionRef.current.stop();
-  //     recognitionRef.current = null;
-
-  //     // Save last spoken result here if not already saved
-  //     // Advance to next question
-  //     setCurrentQuestionIndex(prev => prev + 1);
-  //   }
-  // }, [isMicOn]);
-
 
 
   // 1. Question bolne ke liye — sirf ek baar
@@ -192,7 +129,7 @@ const Join = () => {
 
       speakQuestion(question, () => {
         console.log("Question spoken. Now user can turn mic ON.");
-        // ⚠️ Mic ko yahi start mat karo
+        //  Mic ko yahi start mat karo
       });
     } else {
       endInterview();
@@ -225,28 +162,26 @@ const Join = () => {
 
   // 3. Jab mic OFF ho, answer record ho chuka hai, next question pe jao
   useEffect(() => {
-    if (!isInterviewStarted || isInterviewEnded) return;
+  if (!isInterviewStarted || isInterviewEnded) return;
 
-    if (!isMicOn && recognitionRef.current) {
-      console.log("Mic turned off. Stopping recognition and moving to next question...");
-      recognitionRef.current.stop();
-      recognitionRef.current = null;
+  if (!isMicOn && recognitionRef.current) {
+    console.log("Mic turned off. Stopping recognition...");
 
-      // ✅ If no answer captured, push empty string
-      setUserAnswersInFrontend(prev => {
-        if (!hasAnswerCaptured) {
-          return [...prev, ""];
-        }
-        return prev;
-      });
+    recognitionRef.current.stop();
+    recognitionRef.current = null;
 
-      // Reset captured flag
-      setHasAnswerCaptured(false);
-
-      // Go to next question
+    // ✅ If answer was captured, go to next question
+    if (hasAnswerCaptured) {
       setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      // ✅ If no answer, still save empty string
+      setUserAnswersInFrontend(prev => [...prev, ""]);
     }
-  }, [isMicOn]);
+
+    // Reset captured flag
+    setHasAnswerCaptured(false);
+  }
+}, [isMicOn]);
 
 
 
@@ -367,6 +302,8 @@ const Join = () => {
   const endInterview = async () => {
     try {
       setIsLoading(true);
+      const userDuration = Math.floor(secondsElapsed / 60); // you can send this to backend
+      console.log("userDuration ------->", userDuration);
       await endInterviewByIdService(interviewId, { userDuration, status: 'Completed' });
       console.log(' userAnswersInFrontend by user --------> ', userAnswersInFrontend);
       console.log(' userQuestionInFrontend by user --------> ', userQuestionsInFrontend);
@@ -393,10 +330,22 @@ const Join = () => {
   useEffect(() => {
     let timer;
     if (isInterviewStarted && !isInterviewEnded) {
-      timer = setInterval(() => setUserDuration(prev => prev + 1), 1000);
+      timer = setInterval(() => {
+        setSecondsElapsed(prev => prev + 1);
+      }, 1000); // runs every second
     }
+
     return () => clearInterval(timer);
   }, [isInterviewStarted, isInterviewEnded]);
+
+
+  const formatTime = (totalSeconds) => {
+
+    const min = Math.floor(totalSeconds / 60);
+    const sec = totalSeconds % 60;
+    return `${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')}`;
+  };
+
 
   useEffect(() => {
     return () => localStreamRef.current?.getTracks().forEach(track => track.stop());
@@ -408,17 +357,9 @@ const Join = () => {
     }
   }, []);
 
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
-  };
-
   return (
     <div>
       <div className="beforeInterview Div flex flex-col w-screen min-h-screen bg-[#18181B] text-white px-6 py-4 lg:px-2">
-        
-
 
         {togger ? (<div className="w-full flex  bg-[#27272A] py-3 px-6 rounded-lg justify-between items-center my-4">
           <h1>Job Title: {jobTitle}</h1>
@@ -432,7 +373,7 @@ const Join = () => {
             <video
               ref={videoRef}
               autoPlay
-              
+
               // muted={!isMicOn}
               className={`w-full h-full object-cover ${isCameraOn ? 'block' : 'hidden'}`}
             />
@@ -562,7 +503,7 @@ const Join = () => {
 
         <div className="p-1 lg:p-4 bg-[#18181B] flex justify-between items-center">
           <div className="text-gray-300">
-            {isInterviewStarted ? formatTime(userDuration) : "30 :00"}
+            {isInterviewStarted ? formatTime(secondsElapsed) : "30 : 00"}
           </div>
 
           <div className="w-6 h-6">

@@ -2,6 +2,7 @@ import React from 'react'
 import SectionLeft from './SectionLeft'
 import SectionRight from './SectionRight'
 
+
 const Section4 = () => {
   
   return (

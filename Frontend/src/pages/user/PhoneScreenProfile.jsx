@@ -56,7 +56,7 @@ const PhoneScreenProfile = () => {
                 className="profileIcon w-8 h-8 rounded-lg  flex items-center justify-center text-black font-bold cursor-pointer bg-[#BEF264] hover:bg-green-500 transition-colors duration-200"
                 onClick={toggleMenu}
             >
-                 {user.username.slice(0,1)}
+                 {user?.username.slice(0,1)}
             </div>
 
             {/* Dropdown Menu */}

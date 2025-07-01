@@ -5,11 +5,11 @@ import { asyncCurrentUser } from "./store/actions/userAction.jsx";
 
 const App = () => {
   const dispatch = useDispatch();
+
   const {user} = useSelector((state) => state.userReducer);
-  // console.log(userData);
   
   useEffect(() => {
-    !user &&  dispatch(asyncCurrentUser());
+   !user && dispatch(asyncCurrentUser());
   }, [user]);
 
   return (
