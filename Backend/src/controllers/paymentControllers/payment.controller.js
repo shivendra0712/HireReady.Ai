@@ -6,6 +6,7 @@ const { paymentConfirmationTemplate } = require('../../utils/emailTemplate.js');
 const { sendMail } = require('../../utils/email.js');
 
 
+
 exports.processPaymentController = async (req, res, next) => {
   try {
     const { amount } = req.body;
@@ -28,8 +29,8 @@ exports.processPaymentController = async (req, res, next) => {
 
     const user = await req.user;
 
-      user.userPayments.push(payment._id)
-      await user.save();
+    user.userPayments.push(payment._id)
+    await user.save();
 
     res.status(200).json({
       success: true,
@@ -46,15 +47,15 @@ exports.processPaymentController = async (req, res, next) => {
 
 exports.verifyPaymentController = async (req, res, next) => {
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
-    console.log('verify data in backend ----> ', razorpay_order_id, razorpay_payment_id, razorpay_signature)
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, available } = req.body;
+    console.log('verify data in backend ----> ', razorpay_order_id, razorpay_payment_id, razorpay_signature, available)
 
     const hmac = crypto.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET);
     hmac.update(razorpay_order_id + "|" + razorpay_payment_id);
     const generatedSignature = hmac.digest("hex");
 
     const isValid = generatedSignature === razorpay_signature;
-    
+
     let paymentdata;
     if (isValid) {
       paymentdata = await Payment.findOneAndUpdate(
@@ -70,18 +71,22 @@ exports.verifyPaymentController = async (req, res, next) => {
       );
 
       // console.log("paymentdata.totalPrice  --->", paymentdata.totalPrice , "req.user.username ---->" , req.user.username);
-      
+
       const emailTemplate = paymentConfirmationTemplate(
-       req.user.username,
-       paymentdata.totalPrice
-     );
- 
-     await sendMail(
-       "shivendrapatel01250@gmail.com",
-       "Payment Completed",
-       emailTemplate
-     );
-      
+        req.user.username,
+        paymentdata.totalPrice
+      );
+
+      await sendMail(
+        "shivendrapatel01250@gmail.com",
+        "Payment Completed",
+        emailTemplate
+      );
+
+      const user = await req.user;
+      user.available += available;
+      await user.save();
+
 
 
       return res.status(200).json({ data: true, message: "Payment verified successfully" });

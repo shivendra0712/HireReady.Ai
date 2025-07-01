@@ -32,22 +32,6 @@ app.use('/api/question',questionRoutes);
 app.use('/api/interview',interviewRoutes);
 app.use('/api/payment',paymentRoutes);
 
-
-// app.get('/test-mail', async (req, res) => {
-//   try {
-//     await sendMail(
-//       'shivendrapatel01250@gmail.com',
-//       'Test Email',
-//       '<h1>This is a test mail from Nodemailer 🔥</h1>'
-//     );
-//     res.send('Mail sent!');
-//   } catch (err) {
-//     console.log(err);
-//     res.send('Failed to send mail.');
-//   }
-// });
-
-
 app.use(errorHandler);
 
 module.exports = app;

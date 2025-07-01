@@ -31,7 +31,6 @@ const registerController = async (req, res, next) => {
 
         res.status(201).json({ message: 'User created successful', token: token });
 
-
     }
     catch (error) {
         next(new CustomError('error.message', 500));
@@ -92,6 +91,34 @@ const updateController = async (req, res, next) => {
     }
 };
 
+const updateFeedbackController = async (req, res, next) => {
+
+    try {
+
+        const {feedback, email } = req.body;
+
+        if (!email) {
+            return next(new CustomError("Email and username are required", 400));
+        }
+        console.log(email);
+
+        const updatedUser = await User.findOneAndUpdate(
+            { email },
+            { userfeedback:feedback },
+            { new: true }
+        );
+
+        if (!User) {
+            next(new CustomError(error.message, 400));
+        }
+
+        res.status(200).json({ message: "User Feedback Updated Succefully", user: updatedUser });
+    }
+    catch (error) {
+        next(new CustomError(error.message, 500));
+    }
+};
+
 const deleteController = async (req, res, next) => {
     try {
         
@@ -121,14 +148,12 @@ const logoutController = async (req, res, next) => {
     const { token } = req.cookies;
     try {
         if (!token) return next(new CustomError('User unauthorized', 401));
-
         const blocklistToken = await cacheClient.set(
             token,
             'blocklisted',
             'EX',
-            86400
+            3600
         );
-
         res.clearCookie('token');
         res.status(200).json({ message: 'user logged out ' });
 
@@ -150,4 +175,4 @@ const currentUserController = async (req, res, next) => {
 }
 
 
-module.exports = { registerController, loginController, logoutController, currentUserController, updateController, deleteController };
+module.exports = { registerController, loginController, logoutController, currentUserController, updateController,updateFeedbackController, deleteController };

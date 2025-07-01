@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    userfeedback:{
+        type: String,
+    },
     available: {
         type: Number,
         default: 1
@@ -39,7 +42,6 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Payment'
     }],
-
 }, {
     timestamps: true,
 })
