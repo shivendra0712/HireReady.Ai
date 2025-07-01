@@ -50,10 +50,19 @@ export const updateService = async (data) => {
      console.log("Error ----> " , error.response.data.message);
   }
 }
+export const updateFeedbackService = async (data) => {
+  try {
+    const res = await axios.patch('/auth/update-feedback', data);
+    return res;
+  }
+  catch(error) {
+     console.log("Error ----> " , error.response.data.message);
+  }
+}
+
 
 export const deleteService = async (data) => {
   try {
-     console.log("data in delete --->", data);
     const res = await axios.delete('/auth/delete' , {data:data});
     return res;
   }

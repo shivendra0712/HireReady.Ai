@@ -2,7 +2,6 @@ import axios from './axiosConfig.js'
 
 export const processPaymentService = async (data) => {
     try {
-       
         const res = await axios.post('/payment/process', data);
         return res;
     }
@@ -11,10 +10,9 @@ export const processPaymentService = async (data) => {
     }
 }
 
-
 export const verifyPaymentService = async (data) => {
+
     try {
-         console.log('verity data --->', data)
         const res = await axios.post('/payment/verify', data);
         return res;
     }
