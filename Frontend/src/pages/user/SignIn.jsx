@@ -23,11 +23,14 @@ export default function LoginForm() {
     navigateHandler();
   }
 
+ 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#18191B] px-4">
       <div className="w-full max-w-md bg-[#252629] text-white rounded-xl shadow-2xl p-8 space-y-6">
-        <h2 className="text-2xl font-semibold  text-center">Welcome to HireReady.Ai <br /><span  className="text-base font-medium  text-center text-white/70">Login to start your journey with us</span> </h2>
-      
+        <h2 className="text-2xl font-semibold  text-center">Welcome to HireReady.Ai <br /><span className="text-base font-medium  text-center text-white/70">Login to start your journey with us</span> </h2>
+
+
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Email Field */}
           <div>
@@ -71,7 +74,6 @@ export default function LoginForm() {
             Login
           </button>
         </form>
-
         <p className="text-sm text-gray-400 text-center">
           Don't have an account?{" "}
           <button onClick={() => navigate('/signup')} className="text-green-400  font-medium cursor-pointer">

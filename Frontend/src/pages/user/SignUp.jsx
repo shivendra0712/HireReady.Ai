@@ -21,7 +21,6 @@ export default function SignupForm() {
   const onSubmit = (data) => {
     const response =  dispatch(asyncRegister(data));
     navigateHandler();
-    console.log("Signup Data:", data); // Integrate with signup API
   };
 
   return (
