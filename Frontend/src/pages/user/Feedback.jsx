@@ -9,17 +9,12 @@ const Feedback = () => {
     const [interviewData, setInterviewData] = useState(null)
     const navigate = useNavigate();
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
         const feedbackData = async () => {
             try {
                 const { data } = await viewFeedbackByIdService(id); // ✅ calling API
                 setFeedbackdata(data.data);
-                console.log("user interview feedback data -> ", data
-
-                );
-
             } catch (error) {
                 console.error("Error fetching user data:", error);
             }
@@ -28,14 +23,12 @@ const Feedback = () => {
     }, []);
 
     const interviewId = feedbackdata?.interviewId;
-    console.log(interviewId);
-
+   
     useEffect(() => {
         const interviewData = async () => {
             try {
                 const { data } = await viewInterviewByIdService(interviewId); // ✅ calling API
                 setInterviewData(data.data);
-                console.log("user interview data -> ", data);
 
                 // setTotalInterviews(data.totalInterview);
             } catch (error) {
@@ -45,9 +38,6 @@ const Feedback = () => {
         interviewData();
 
     }, [interviewId]);
-
-    console.log(interviewData);
-
 
 
     const interviewFeedback = feedbackdata?.userQuestion?.map((question, index) => (

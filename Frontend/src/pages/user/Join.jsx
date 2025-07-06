@@ -44,7 +44,6 @@ const Join = () => {
         setJobTitle(data.jobTitle);
         setInterviewerName(data.interviewerName);
         setQuestionId(data.interviewQuestion);
-        console.log('created interview ------------------------------------> ', data)
 
         if (data.status === 'in_progress') {
           setIsInterviewStarted(true);
@@ -68,8 +67,6 @@ const Join = () => {
         const response = await viewQuestionByIdService(questionId);
         const { aiQuestion } = response.data.data;
         setAiQuestionsInFrontend(aiQuestion);
-        console.log('aiQuestion  ------>', aiQuestion);
-        console.log("aiQuestionInFrontend --->", response.data.data);
       }
       catch (error) {
         setErrorMessage(error || "Failed to load interview");
@@ -135,17 +132,6 @@ const Join = () => {
       endInterview();
     }
   }, [currentQuestionIndex, isInterviewStarted, isInterviewEnded]);
-
-  // 2. Jab mic ON ho, tabhi start recognition — lekin question dobara mat bolo
-  // useEffect(() => {
-  //   if (!isInterviewStarted || isInterviewEnded || !isMicOn) return;
-
-  //   if (recognitionRef.current === null) {
-  //     console.log("Mic turned on. Starting recognition...");
-  //     startSpeechRecognition();
-  //   }
-  // }, [isMicOn]);
-
 
   useEffect(() => {
     if (isMicOn && recognitionRef.current === null) {
@@ -303,17 +289,13 @@ const Join = () => {
     try {
       setIsLoading(true);
       const userDuration = Math.floor(secondsElapsed / 60); // you can send this to backend
-      console.log("userDuration ------->", userDuration);
       await endInterviewByIdService(interviewId, { userDuration, status: 'Completed' });
-      console.log(' userAnswersInFrontend by user --------> ', userAnswersInFrontend);
-      console.log(' userQuestionInFrontend by user --------> ', userQuestionsInFrontend);
       const response = await updateAnswerByIdService(questionId, { userQuestionsInFrontend, userAnswersInFrontend });
 
       console.log('response by backend userAnswersInFrontend by user --------> ', response.data.data);
       setStatus('Completed');
       setIsInterviewEnded(true);
       setIsInterviewStarted(false);
-      console.log("Interview completed. Final Answers:", userAnswersInFrontend);
       localStreamRef.current?.getTracks().forEach(track => track.stop());
       videoRef.current.srcObject = null;
       localStreamRef.current = null;
