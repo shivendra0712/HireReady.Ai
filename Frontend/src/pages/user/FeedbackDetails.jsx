@@ -22,18 +22,10 @@ const FeedbackDetails = () => {
     navigate(-1);
   };
 
-  // const onSubmit = (data) => {
-  //   // dispatch(asyncLogIn(data));
-  //   console.log('update user', data);
-  //   navigate(-1);
-  // }
-
   const onSubmit = (data) => {
     const {feedback} = data;
-    console.log(feedback);
     dispatch(asyncUpdateFeedback({ feedback, email }));
     navigate(-1);
-    console.log('feedback update user');
   };
 
 
