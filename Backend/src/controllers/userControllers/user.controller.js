@@ -16,7 +16,6 @@ const registerController = async (req, res, next) => {
         });
 
         const token = await user.generateAuthToken();
-        console.log('token inside controller --->', token);
 
         res.cookie('token', token, {
             httpOnly: true,
@@ -26,9 +25,6 @@ const registerController = async (req, res, next) => {
         });
 
         let cookie = req.cookies;
-
-        console.log(cookie)
-
         res.status(201).json({ message: 'User created successful', token: token });
 
     }
@@ -44,18 +40,13 @@ const loginController = async (req, res, next) => {
 
     try {
         const user = await User.authenticateUser(email, password);
-        // console.log("user->", user);
 
         const token = await user.generateAuthToken();
-        // console.log("this way token -> ", token);
-
         res.cookie("token", token, {
             httpOnly: true,
             secure: false,
             sameSite: "lax",
         });
-        console.log("save cookie ")
-        console.log(req.cookies)
 
         res.status(200).json({ message: "User Logged in", token: token });
     } catch (error) {
@@ -72,8 +63,6 @@ const updateController = async (req, res, next) => {
         if (!email || !username) {
             return next(new CustomError("Email and username are required", 400));
         }
-        console.log(username, email);
-
         const updatedUser = await User.findOneAndUpdate(
             { email },
             { username },
@@ -100,7 +89,6 @@ const updateFeedbackController = async (req, res, next) => {
         if (!email) {
             return next(new CustomError("Email and username are required", 400));
         }
-        console.log(email);
 
         const updatedUser = await User.findOneAndUpdate(
             { email },
@@ -123,7 +111,6 @@ const deleteController = async (req, res, next) => {
     try {
         
         const { email } = req.body;
-        console.log('User email', email);
 
         if (!email) {
             return next(new CustomError("Email is required", 400));
@@ -134,7 +121,6 @@ const deleteController = async (req, res, next) => {
         if (!deletedUser) {
             return next(new CustomError("User not found", 404));
         }
-        console.log('User deleted');
         res.status(200).json({ message: "User deleted successfully" });
     }
     catch (error) {
