@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-const SectionLeft = () => {
+const SectionLeft =memo(() => {
   return (
     <div className='w-full  text-white px-6 md:px-12 lg:px-0 py-12 md:py-10'>
         <div className="max-w-3xl mx-auto">
@@ -42,6 +42,6 @@ const SectionLeft = () => {
       </div>
       </div>
   )
-}
+})
 
 export default SectionLeft

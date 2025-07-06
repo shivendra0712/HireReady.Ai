@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { processPaymentService, verifyPaymentService } from "../API/paymentService";
 
-
-
-const PricingCard = (props) => {
+const PricingCard = memo((props) => {
  const { title, subtitle, rupees, interviewNumber } = props;
   const [amount, setamount] = useState(199);
-
   const paymentHandler = async (props) => {
     const res = await processPaymentService({ amount : rupees }); // Example amount
     const { key, orderId, amount } = res.data;
@@ -41,7 +38,7 @@ const PricingCard = (props) => {
 
     const razor = new window.Razorpay(options);
     razor.open();
-  };
+  }
 
   
   return (
@@ -97,7 +94,7 @@ const PricingCard = (props) => {
       </div>
     )
   )
-};
+})
 
 export default PricingCard;
 

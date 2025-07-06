@@ -14,9 +14,6 @@ const DashboardContent = () => {
   const [completedInterviews, setCompletedInterviews] = useState(user.completeInterview);
   const [availableInterviews, setAvailableInterviews] = useState(user.available);
 
-
-console.log(totalInterviews , availableInterviews)
-
 const dispatch = useDispatch();
   
   
