@@ -35,6 +35,7 @@ const Layout = () => (
                 <Route path="/dashboard/profile" element={<Auth><ProfileDetails /></Auth>} />
                 <Route path="/dashboard/feedback-details" element={<Auth><FeedbackDetails /></Auth>} />
                 <Route path="/dashboard/help-details" element={<Auth><HelpDetails /></Auth>} />
+               
             </Routes>   
         </div>
     </div>

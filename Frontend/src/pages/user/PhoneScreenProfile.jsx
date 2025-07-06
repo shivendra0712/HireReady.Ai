@@ -43,8 +43,6 @@ const PhoneScreenProfile = () => {
     const logoutHandler = () => {
         dispatch(asyncLogOut());
         navigate('/');
-        console.log('logout user');
-
     }
      
     return (
