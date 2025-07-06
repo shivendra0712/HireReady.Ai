@@ -2,7 +2,7 @@ import axios from "./axiosConfig"
 
 export const registerService = async (data) => {
   try {
-    const res = await axios.post('/auth/register', data);
+    const res = await axios.post('/authuser/register', data);
     return res;
   }
   catch (error) {
@@ -13,7 +13,7 @@ export const registerService = async (data) => {
 
 export const logInService = async (data) => {
   try {
-    const res = await axios.post('/auth/login', data);
+    const res = await axios.post('/authuser/login', data);
     return res;
   }
   catch(error) {
@@ -23,7 +23,7 @@ export const logInService = async (data) => {
 
 export const currentUserService = async () =>{
   try{
-    const {data} = await axios.get('/auth/current-user');
+    const {data} = await axios.get('/authuser/current-user');
     return data;
   }
   catch(error){
@@ -33,7 +33,7 @@ export const currentUserService = async () =>{
 
 export const logOutService = async () => {
   try {
-    const res = await axios.post('/auth/logout');
+    const res = await axios.post('/authuser/logout');
     return res;
   }
   catch(error) {
@@ -43,7 +43,7 @@ export const logOutService = async () => {
 
 export const updateService = async (data) => {
   try {
-    const res = await axios.patch('/auth/update', data);
+    const res = await axios.patch('/authuser/update', data);
     return res;
   }
   catch(error) {
@@ -52,22 +52,20 @@ export const updateService = async (data) => {
 }
 export const updateFeedbackService = async (data) => {
   try {
-    const res = await axios.patch('/auth/update-feedback', data);
+    const res = await axios.patch('/authuser/update-feedback', data);
     return res;
   }
   catch(error) {
      console.log("Error ----> " , error.response.data.message);
   }
 }
-
 
 export const deleteService = async (data) => {
   try {
-    const res = await axios.delete('/auth/delete' , {data:data});
+    const res = await axios.delete('/authuser/delete' , {data:data});
     return res;
   }
   catch(error) {
      console.log("Error ----> " , error.response.data.message);
   }
 }
-
