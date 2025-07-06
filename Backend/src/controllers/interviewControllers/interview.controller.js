@@ -3,7 +3,7 @@ const Question = require('../../models/questionModels/question.model.js');
 const User = require('../../models/userModels/user.model.js')
 const CustomError = require("../../utils/customError.js");
 
-// Create interview
+
 const createController = async (req, res, next) => {
   try {
     const { jobTitle, interviewType, experience, interviewLevel } = req.body;
@@ -25,11 +25,6 @@ const createController = async (req, res, next) => {
       return next(new CustomError('Error in creating interview', 400));
     }
     const user = await req.user;
-
-
-
-    // const newuser = await User.findById(user._id)
-
     user.userInterviews.push(interview._id)
     await user.save();
 
@@ -47,19 +42,11 @@ const viewAllInterviewsController = async (req, res, next) => {
   try {
 
     const user = await req.user;
-
-    // const newuser = await User.findById(user._id)
-
-    // if (!newuser) {
-    //   return next(new CustomError('user is not found', 404));
-    // }
-
     const interviews = await Interview.find({ userId: user._id });
 
     if (!interviews) {
       return next(new CustomError('user is not give any interview', 404));
     }
-
 
     res.status(200).json({ message: 'user have given Interviews', data: interviews });
 
@@ -71,17 +58,10 @@ const viewAllInterviewsController = async (req, res, next) => {
 // Get interview by ID with related questions
 const viewInterviewController = async (req, res, next) => {
   try {
-    // Extract ID from params, ensuring the colon is handled
+   
     const { id } = req.params;
-    console.log("interview view by id in be ------------->", id)
-
+    
     const user = await req.user;
-    // const newuser = await User.findById(user._id)
-
-    // if (!newuser) {
-    //   return next(new CustomError('user is not found', 404));
-    // }
-
     const interview = await Interview.findById(id);
 
     if (!interview) {
@@ -99,15 +79,7 @@ const viewInterviewController = async (req, res, next) => {
 const startInterviewController = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id)
     const user = await req.user;
-
-    // const newuser = await User.findById(user._id)
-
-    // if (!newuser) {
-    //   return next(new CustomError('user is not found', 404));
-    // }
-
     const { isCameraOn, isMicOn, status } = req.body;
 
     const updated = await Interview.findByIdAndUpdate(
@@ -135,14 +107,9 @@ const startInterviewController = async (req, res, next) => {
 const endInterviewController = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id)
-
     const user = await req.user;
 
     const { status, userDuration } = req.body;
-
-    // console.log("status in be ---->",status)
-
     const updated = await Interview.findByIdAndUpdate(
       id,
       {
@@ -156,16 +123,12 @@ const endInterviewController = async (req, res, next) => {
     if (!updated) {
       return next(new CustomError('Interview not found', 404));
     }
-    console.log("end interview -----> ", user)
-
     user.totalTime += updated.userDuration;
     user.totalInterview += 1;
     user.completeInterview += 1;
     user.available -= 1;
     await user.save();
-
-    console.log("end interview -----> ", user)
-
+    
     res.status(200).json({ message: 'Interview ended successfully', data: updated });
 
   } catch (error) {
