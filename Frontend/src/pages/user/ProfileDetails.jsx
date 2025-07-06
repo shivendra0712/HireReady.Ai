@@ -19,13 +19,11 @@ const ProfileDetails = () => {
     const deleteHandler = () => {
         dispatch(asyncDelete({ email }));
         navigate('/');
-        console.log('delete user');
     };
 
     const updateHandler = () => {
         dispatch(asyncUpdate({ username, email }));
         navigate(-1);
-        console.log('update user');
     };
 
     return (

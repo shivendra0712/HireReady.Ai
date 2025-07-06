@@ -42,7 +42,6 @@ const Interviews = () => {
     fetchInterviewData();
   }, []);
 
-  console.log(interviews);
 
   const timeHandler = (isoDate) => {
     const date = new Date(isoDate).toLocaleDateString('en-CA');

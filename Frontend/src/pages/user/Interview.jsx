@@ -25,17 +25,13 @@ const Interview = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log('Form data:', data);
     const response = await createInterviewService(data);
     let interviewData = {
       interviewId: response.data.data._id
     }
-    console.log(interviewData);
+
     const questionResponse = await createQuestionService(interviewData);
-
-    console.log(questionResponse)
   
-
     navigate(`/interview/join/${response.data.data._id}`);
   };
 
