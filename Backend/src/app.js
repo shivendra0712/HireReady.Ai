@@ -12,7 +12,7 @@ const errorHandler = require('./middlewares/errorHandler.js')
 const cors = require('cors');
 
 app.use(cors({
-    origin:true,
+    origin:process.env.FRONTEND_URL,
     credentials:true,
 }))
 

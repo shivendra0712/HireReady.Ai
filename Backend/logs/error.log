@@ -280,3 +280,185 @@
 2025-06-30T20:19:12.042Z error:500 - Email and username are required - PATCH - /api/auth/update-feedback - ::1
 2025-06-30T20:21:08.033Z error:500 - Email and username are required - PATCH - /api/auth/update-feedback - ::1
 2025-06-30T20:21:35.966Z error:500 - Email and username are required - PATCH - /api/auth/update-feedback - ::1
+2025-07-01T10:14:29.130Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:14:36.365Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:14:59.641Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:15:34.376Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:15:52.303Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:15:56.287Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:23:59.289Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:30:36.273Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:44:12.584Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:50:32.907Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:51:49.018Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:52:09.261Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T10:53:18.031Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:13:21.670Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:13:25.944Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:13:25.961Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:17:28.276Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:17:28.282Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:18:23.600Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:18:23.605Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:48.814Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:48.818Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:54.783Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:54.791Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:57.855Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:20:57.865Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:14.269Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:14.277Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:23.531Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:23.543Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:50.280Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:21:50.287Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:22:28.283Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:22:28.289Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:22:35.940Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:22:35.947Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:23:22.287Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:23:22.296Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:24:11.279Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:24:11.286Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:25:06.738Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:25:06.768Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:27:20.389Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:27:20.399Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:27:23.991Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:27:23.997Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:37:03.887Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:37:03.913Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:38:40.275Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:38:40.282Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:38:59.116Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:38:59.120Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:39:15.275Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:39:15.281Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:39:54.388Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T11:39:54.396Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:00:33.993Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:00:34.017Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::ffff:127.0.0.1
+2025-07-01T12:01:07.251Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:07.261Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:09.233Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:09.242Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:14.233Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:14.238Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:17.239Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:17.244Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:19.237Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:19.242Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:21.240Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:21.244Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:24.235Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:24.239Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:26.237Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:26.244Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:27.552Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:27.557Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:35.902Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:01:35.922Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:07:01.280Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:07:01.285Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:07:01.293Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:08:23.860Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:08:23.864Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:08:23.901Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:11:59.268Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:11:59.274Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:03.259Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:03.277Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:04.251Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:04.263Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:09.249Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:09.257Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:12.258Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:12:12.269Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:16:06.286Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:16:06.313Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:18:45.255Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:18:45.270Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:19:04.262Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:19:04.284Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:48:00.297Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:48:01.301Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:49:57.936Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-01T12:50:42.474Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:15:29.187Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:15:56.546Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:20:20.948Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:27:38.561Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:29:13.354Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:30:31.020Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:30:42.625Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:30:48.196Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T10:57:39.996Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T11:06:44.572Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-07-02T19:46:25.383Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:46:36.516Z error:500 - User not found  - POST - /api/authuser/login - ::1
+2025-07-02T19:46:36.527Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:46:55.345Z error:500 - User not found  - POST - /api/authuser/login - ::1
+2025-07-02T19:46:55.359Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:53:11.545Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:53:54.057Z error:500 - error.message - POST - /api/authuser/register - ::1
+2025-07-02T19:54:06.126Z error:500 - read ECONNRESET - POST - /api/authuser/login - ::1
+2025-07-02T19:54:06.144Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:54:07.171Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:54:09.979Z error:500 - User unauthorized - POST - /api/authuser/logout - ::1
+2025-07-02T19:54:10.020Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:54:21.876Z error:500 - read ECONNRESET - POST - /api/authuser/login - ::1
+2025-07-02T19:54:21.887Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:54:24.354Z error:500 - User not found  - POST - /api/authuser/login - ::1
+2025-07-02T19:54:24.365Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T19:55:31.020Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T20:03:02.316Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-07-02T20:15:31.255Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-02T20:18:10.369Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-03T12:30:10.654Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-03T12:30:55.100Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-07-03T12:30:55.112Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-03T12:32:45.252Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-03T12:45:03.655Z error:500 - read ECONNRESET - GET - /api/authuser/current-user - ::1
+2025-07-03T12:47:50.518Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-07-05T17:23:56.221Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::ffff:172.18.0.1
+2025-07-05T17:24:45.814Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:47.921Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:48.566Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:48.801Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:50.252Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:50.466Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:51.404Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:24:52.652Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:25:01.813Z error:500 - Unauthorized user! - POST - /api/payment/process - ::ffff:172.18.0.1
+2025-07-05T17:27:03.930Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::ffff:172.18.0.1
+2025-07-05T17:27:13.851Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::ffff:172.18.0.1
+2025-07-05T17:27:47.541Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::ffff:172.18.0.1
+2025-07-05T17:29:29.756Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::ffff:172.18.0.1
+2025-07-05T17:30:11.442Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::ffff:172.18.0.1
+2025-07-05T18:39:41.682Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::ffff:172.18.0.1
+2025-07-07T12:10:45.405Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-07T12:10:59.128Z error:500 - User not found  - POST - /api/authuser/login - ::1
+2025-07-07T12:10:59.140Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-08T19:41:51.254Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-18T10:56:58.463Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-18T11:57:18.958Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:24.274Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:27.974Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:30.403Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:30.618Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:30.626Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:34.997Z error:500 - jwt expired - GET - /api/authuser/current-user - ::1
+2025-07-18T11:57:39.796Z error:500 - jwt expired - GET - /api/authuser/current-user - ::1
+2025-07-18T11:57:44.236Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:54.078Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:57:59.782Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T11:58:01.064Z error:500 - jwt expired - POST - /api/payment/process - ::1
+2025-07-18T12:02:36.824Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-07-20T15:58:03.524Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:02:25.950Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:02:38.111Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:11:44.460Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:13:59.059Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:14:16.448Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:15:27.309Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-07-20T16:16:33.549Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1

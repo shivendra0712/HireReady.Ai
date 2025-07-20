@@ -19,8 +19,8 @@ const registerController = async (req, res, next) => {
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false,
-            sameSite: 'lax',
+            secure: true,
+            sameSite: 'none',
 
         });
 
@@ -44,8 +44,8 @@ const loginController = async (req, res, next) => {
         const token = await user.generateAuthToken();
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none",
         });
 
         res.status(200).json({ message: "User Logged in", token: token });

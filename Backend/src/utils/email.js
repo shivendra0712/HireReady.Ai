@@ -18,7 +18,6 @@ exports.sendMail = (to, subject, htmlContent) => {
 
     return transporter.sendMail(mailOptions, (err, info) => {
         if (err) console.log("error in mail->", err);
-        console.log("info->", info);
     });
 };
 
