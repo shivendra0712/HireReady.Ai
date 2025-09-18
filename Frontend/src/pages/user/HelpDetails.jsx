@@ -16,11 +16,11 @@ const HelpDetails = () => {
       <div className="w-full h-full  flex items-center justify-center  py-8 lg:px-20">
         <div className="w-full max-w-md bg-[#242429] rounded-xl shadow-md border border-[#2D2D2D] p-6 sm:p-8 text-white">
 
-          <h2 className="text-lg sm:text-xl font-semibold mb-1">Welcome to iPrep Support</h2>
+          <h2 className="text-lg sm:text-xl font-semibold mb-1">Welcome to HireReady Support</h2>
           <p className="text-sm text-white/60 font-medium mb-4">We would love to help you.</p>
 
           <p className="text-sm/7 font-medium text-white/80 mb-4">
-            iPrep is an innovative AI-powered interview preparation platform designed to help job seekers excel in their interviews.
+            HireReady is an innovative AI-powered interview preparation platform designed to help job seekers excel in their interviews.
           </p>
 
           <p className="text-sm font-semibold">

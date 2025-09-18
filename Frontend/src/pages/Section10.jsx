@@ -5,9 +5,9 @@ const Section10 = () => {
 
   const faqs = [
     {
-      question: 'What is iPrep?',
+      question: 'What is HireReady?',
       answer:
-        'iPrep is an AI-powered platform designed to help users prepare for interviews. It provides personalized practice questions, feedback, and tips to improve your performance based on your skills and the role you\'re targeting.',
+        'HireReady is an AI-powered platform designed to help users prepare for interviews. It provides personalized practice questions, feedback, and tips to improve your performance based on your skills and the role you\'re targeting.',
     },
     {
       question: 'Is it okay to start interview prep from scratch if I have less experience?',
@@ -15,14 +15,14 @@ const Section10 = () => {
         'Absolutely! Everyone starts somewhere. We’ve curated beginner-friendly resources, practice problems, and roadmaps to help you gradually build your skills from basic to advanced.',
     },
     {
-      question: 'How do I balance college academics with interview prep?',
+      question: 'How do I balance college academics with interview HireReady?',
       answer:
         'Effective time management and prioritization is key. Set realistic study goals and use resources that match your current schedule.',
     },
     {
-      question: 'Do I need a technical background to use iPrep?',
+      question: 'Do I need a technical background to use HireReady?',
       answer:
-        'No! iPrep is designed to help both technical and non-technical individuals prepare for interviews in their respective fields.',
+        'No! HireReady is designed to help both technical and non-technical individuals prepare for interviews in their respective fields.',
     },
   ];
 
