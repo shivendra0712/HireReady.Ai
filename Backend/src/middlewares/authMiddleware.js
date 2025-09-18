@@ -6,6 +6,11 @@ const cacheClient = require('../services/cache.services.js')
 
 const authMiddleware = async (req,res,next)=>{
     let {token} = req.cookies;
+    
+    // Also check Authorization header
+    if (!token && req.headers.authorization) {
+        token = req.headers.authorization.replace('Bearer ', '');
+    }
 
     try{
         if(!token) return next(new CustomError('Unauthorized user!',401));

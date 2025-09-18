@@ -14,6 +14,10 @@ export const registerService = async (data) => {
 export const logInService = async (data) => {
   try {
     const res = await axios.post('/authuser/login', data);
+    // Store token in localStorage
+    if (res.data.token) {
+      localStorage.setItem('token', res.data.token);
+    }
     return res;
   }
   catch(error) {
@@ -34,6 +38,8 @@ export const currentUserService = async () =>{
 export const logOutService = async () => {
   try {
     const res = await axios.post('/authuser/logout');
+    // Remove token from localStorage
+    localStorage.removeItem('token');
     return res;
   }
   catch(error) {

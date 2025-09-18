@@ -2,12 +2,19 @@ import { currentUserService, deleteService, logInService, logOutService, registe
 import { loginUser, logoutUser } from "../reducers/userSlice";
 
 export const asyncCurrentUser = () => async (dispatch, getState) => {
-  const { user } = await currentUserService();
-  console.log("curr user->", user)
-  dispatch(loginUser(user));
-  const { userReducer } = getState();
+  try {
+    const { user } = await currentUserService();
+    console.log("curr user->", user)
+    dispatch(loginUser(user));
+    const { userReducer } = getState();
     console.log(userReducer);
-  console.log('Current User');
+    console.log('Current User');
+    return user; // Return user data for promise handling
+  } catch (error) {
+    console.error('Error fetching current user:', error);
+    localStorage.removeItem('token'); // Remove invalid token
+    throw error;
+  }
 }
 
 export const asyncRegister = (data) => async (dispatch, getState) => {
@@ -42,12 +49,13 @@ export const asyncDelete = (data) => async (dispatch, getState) => {
 }
 
 export const asyncLogOut = () => async (dispatch, getState) => {
-  const res = await logOutService();
-  dispatch(logoutUser());
-  console.log('User Logout');
+  try {
+    await logOutService();
+    localStorage.removeItem('token');
+    localStorage.removeItem('currentPath'); // Clear saved path
+    dispatch(logoutUser());
+    console.log('User logged out');
+  } catch (error) {
+    console.error('Logout error:', error);
+  }
 }
-
-
-
-
-
