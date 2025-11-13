@@ -70,8 +70,6 @@ const interviewSchema = new mongoose.Schema(
     interviewDate:{
         type: Date,
     }, 
-    
-    
   },
   {
     timestamps: true,
@@ -81,3 +79,5 @@ const interviewSchema = new mongoose.Schema(
 const Interview = mongoose.model("Interview", interviewSchema);
 
 module.exports = Interview;
+
+

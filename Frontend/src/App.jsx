@@ -16,7 +16,7 @@ const App = () => {
     
     if (token && !user) {
       dispatch(asyncCurrentUser()).then(() => {
-        // Restore the saved path after authentication
+      
         if (savedPath && savedPath !== location.pathname) {
           navigate(savedPath);
           localStorage.removeItem('currentPath');
