@@ -10,7 +10,6 @@ export const registerService = async (data) => {
   catch (error) {
     toast.error(error.response.data.message)
     console.log("Error ----> " , error.response.data.message);
-    
   }
 };
 

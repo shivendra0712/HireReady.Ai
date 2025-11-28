@@ -19,5 +19,5 @@
     }
   );
 
-  export default instance;
+export default instance;
 

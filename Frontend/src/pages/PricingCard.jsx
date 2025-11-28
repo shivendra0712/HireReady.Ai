@@ -1,10 +1,18 @@
 import React, { memo, useState } from "react";
 import { processPaymentService, verifyPaymentService } from "../API/paymentService";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PricingCard = memo((props) => {
  const { title, subtitle, rupees, interviewNumber } = props;
+   const navigate = useNavigate();
+   const { user } = useSelector((state) => state.userReducer);
   const [amount, setamount] = useState(199);
   const paymentHandler = async (props) => {
+    if(!user || !user.email){
+      navigate('/login');
+      return;
+    }
     const res = await processPaymentService({ amount : rupees }); // Example amount
     const { key, orderId, amount } = res.data;
     console.log(res.data);

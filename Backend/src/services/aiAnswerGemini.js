@@ -12,8 +12,8 @@ exports.aiAnswerGemini = async (userQuestion, userAnswer) => {
         contents: userInput,
         config: {
             systemInstruction: `You are a professional interview assistant.
-Give clear, concise, and constructive feedback on the candidate's answer to the question.
-Avoid greetings. Only output the feedback.`
+            Give clear, concise, and constructive feedback on the candidate's answer to the question.
+            Avoid greetings. Only output the feedback.`
         }
     });
     return response.text;
