@@ -19,14 +19,14 @@ export default function SignupForm() {
   }
 
   const onSubmit = (data) => {
-    const response =  dispatch(asyncRegister(data));
+    const response = dispatch(asyncRegister(data));
     navigateHandler();
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#18191B]  px-4">
       <div className="w-full max-w-md bg-[#252629] text-white rounded-xl shadow-2xl p-8 space-y-6">
-          <h2 className="text-2xl font-semibold  text-center">Welcome to HireReady.Ai <br /><span  className="text-base font-medium  text-center text-white/70">Sign Up to start your journey with us</span> </h2>
+        <h2 className="text-2xl font-semibold  text-center">Welcome to HireReady.Ai <br /><span className="text-base font-medium  text-center text-white/70">Sign Up to start your journey with us</span> </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 
           {/* Username Field */}
@@ -37,7 +37,13 @@ export default function SignupForm() {
             <input
               id="username"
               type="text"
-              {...register("username", { required: "Username is required" })}
+              {...register("username", {
+                required: "Username is required",
+                minLength: {
+                  value: 3,
+                  message: "Username must be at least 3 characters long"
+                }
+              })}
               className="w-full px-4 py-2 bg-[#2A2A3B] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
               placeholder="john_doe"
             />
@@ -45,6 +51,7 @@ export default function SignupForm() {
               <p className="text-red-400 text-xs mt-1">{errors.username.message}</p>
             )}
           </div>
+
 
           {/* Email Field */}
           <div>
@@ -54,14 +61,27 @@ export default function SignupForm() {
             <input
               id="email"
               type="email"
-              {...register("email", { required: "Email is required" })}
-              className="w-full px-4 py-2 bg-[#2A2A3B] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
+              {...register("email", {
+                required: "Email is required",
+                minLength: {
+                  value: 5,
+                  message: "Email must be at least 5 characters"
+                },
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Enter a valid email"
+                }
+              })}
+              className="w-full px-4 py-2 bg-[#2A2A3B] border border-gray-600 rounded-lg 
+               focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
               placeholder="you@example.com"
             />
+
             {errors.email && (
               <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
             )}
           </div>
+
 
           {/* Password Field */}
           <div>
@@ -71,7 +91,13 @@ export default function SignupForm() {
             <input
               id="password"
               type="password"
-              {...register("password", { required: "Password is required" })}
+              {...register("password", {
+                required: "Password is required", 
+                minLength: {
+                  value: 4,
+                  message: "password must be at least 4 characters long"
+                }
+              })}
               className="w-full px-4 py-2 bg-[#2A2A3B] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
               placeholder="••••••••"
             />

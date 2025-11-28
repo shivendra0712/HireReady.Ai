@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from "react-router-dom";
+import { Link } from "react-scroll";
+
 
 const Section1 = () => {
   const { user } = useSelector((state) => state.userReducer)
@@ -39,12 +41,13 @@ const Section1 = () => {
           <span className="text-lg md:text-xl font-normal lg:font-medium">HireReady.Ai</span>
         </div>
 
-        {/* Desktop Navigation */}
+
         <div className="hidden md:flex gap-10 lg:gap-14">
-          <NavLink to={'#features'} className="text-base font-medium hover:text-white/90 outline-none">Features</NavLink>
-          <NavLink to={'#pricing'} className="text-base font-medium hover:text-white/90 outline-none">Pricing</NavLink>
-          <NavLink to={'#testimonials'} className="text-base font-medium hover:text-white/90 outline-none">Testimonials</NavLink>
+          <a href="#features" className="text-base font-medium hover:text-white/90">Features</a>
+          <a href="#pricing" className="text-base font-medium hover:text-white/90">Pricing</a>
+          <a href="#testimonials" className="text-base font-medium hover:text-white/90">Testimonials</a>
         </div>
+
 
         {/* Desktop Login/Dashboard Button */}
         <div className='hidden md:block'>
@@ -213,20 +216,20 @@ const Section1 = () => {
           </div>
 
           {/* CTA Button */}
-          {user ?  <button 
+          {user ? <button
             onClick={() => navigate('/dashboard')}
             className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-lg text-sm inline-flex items-center transition-all duration-200 outline-none cursor-pointer"
           >
             Create Interview
             <i className="ri-arrow-right-line text-lg ml-1 mt-1"></i>
-          </button> :  <button 
+          </button> : <button
             onClick={() => navigate('/login')}
             className="bg-[#BEF264] hover:bg-green-500 text-black font-medium py-2 px-4 rounded-lg text-sm inline-flex items-center transition-all duration-200 outline-none cursor-pointer"
           >
             Create Interview
             <i className="ri-arrow-right-line text-lg ml-1 mt-1"></i>
-          </button> }
-         
+          </button>}
+
         </div>
       </div>
     </div>

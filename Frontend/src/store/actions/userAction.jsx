@@ -19,6 +19,10 @@ export const asyncCurrentUser = () => async (dispatch, getState) => {
 
 export const asyncRegister = (data) => async (dispatch, getState) => {
   const res = await registerService(data)
+  if(res.data.token){
+    dispatch(asyncCurrentUser());
+  }
+  console.log('register res ---> ', res)
   console.log('user Registered');
 };
 

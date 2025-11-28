@@ -19,6 +19,7 @@ const dispatch = useDispatch();
   
   useEffect(() => {
       dispatch(asyncCurrentUser());
+      
   }, []);
 
 
