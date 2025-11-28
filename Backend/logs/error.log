@@ -1,0 +1,34 @@
+2025-11-13T08:27:03.026Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-13T08:27:03.897Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:24:42.120Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:24:53.878Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T12:24:53.892Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T12:28:06.631Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:28:07.376Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:28:07.672Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:28:09.304Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:29:31.176Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:31:37.965Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:36:50.703Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:36:50.991Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T12:45:02.474Z error:500 - Unauthorized user! - POST - /api/payment/process - ::1
+2025-11-28T17:14:22.638Z error:500 - user already exist - POST - /api/authuser/register - ::1
+2025-11-28T17:23:07.507Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T17:23:39.425Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T17:23:39.483Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T17:23:46.113Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T17:23:46.129Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T17:26:22.904Z error:500 - User not found  - POST - /api/authuser/login - ::1
+2025-11-28T17:26:22.921Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T17:26:37.495Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T17:26:37.507Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T17:48:33.436Z error:500 - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Interview" - GET - /api/interview/view/undefined - ::1
+2025-11-28T17:48:51.306Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T18:00:54.285Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T18:00:54.317Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T18:01:08.402Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T18:01:08.410Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T18:01:23.301Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T18:01:23.326Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
+2025-11-28T18:01:52.641Z error:500 - incorrect email or password  - POST - /api/authuser/login - ::1
+2025-11-28T18:01:52.697Z error:500 - Unauthorized user! - GET - /api/authuser/current-user - ::1
