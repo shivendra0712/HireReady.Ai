@@ -54,14 +54,14 @@ const Section1 = () => {
           {user ? (
             <button
               onClick={() => navigate('/dashboard')}
-              className="sticky text-base font-medium py-2 px-4 bg-transparent hover:bg-white/10 rounded-lg flex items-center transition-all duration-200 outline-none cursor-pointer"
+              className="dashboard sticky text-base font-medium py-2 px-4 bg-transparent hover:bg-white/10 rounded-lg flex items-center transition-all duration-200 outline-none cursor-pointer"
             >
               Dashboard <i className="ri-arrow-right-line mt-1 ml-1"></i>
             </button>
           ) : (
             <button
               onClick={() => { navigate('login') }}
-              className="sticky text-base font-medium py-2 px-4 bg-transparent hover:bg-white/10 rounded-lg flex items-center transition-all duration-200 outline-none cursor-pointer"
+              className="login sticky text-base font-medium py-2 px-4 bg-transparent hover:bg-white/10 rounded-lg flex items-center transition-all duration-200 outline-none cursor-pointer"
             >
               LogIn <i className="ri-arrow-right-line mt-1 ml-1"></i>
             </button>
