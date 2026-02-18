@@ -1,21 +1,22 @@
-const Redis = require('ioredis');
-const { error } = require('winston');
+// const Redis = require('ioredis');
+// const { error } = require('winston');
 
-const cacheClient = new Redis({
-    host:process.env.REDIS_HOST,
-    port:process.env.REDIS_PORT,
-    password:process.env.REDIS_PASSWORD
-})
+// const cacheClient = new Redis({
+//     host:process.env.REDIS_HOST,
+//     port:process.env.REDIS_PORT,
+//     password:process.env.REDIS_PASSWORD,
+//     tls: {}   
+// })
 
-cacheClient.on('connect',()=>{
-    console.log('redis connected');
-})
+// cacheClient.on('connect',()=>{
+//     console.log('redis connected');
+// })
 
-cacheClient.on('error',(error)=>{
-    console.log(error);
-})
+// cacheClient.on('error',(error)=>{
+//     console.log(error);
+// })
 
-module.exports = cacheClient;
+// module.exports = cacheClient;
 
 
 

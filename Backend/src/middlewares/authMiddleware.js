@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModels/user.model.js');
 const CustomError = require('../utils/customError.js')
-const cacheClient = require('../services/cache.services.js')
-
+// const cacheClient = require('../services/cache.services.js')
 
 const authMiddleware = async (req,res,next)=>{
     let {token} = req.cookies;
@@ -15,10 +14,10 @@ const authMiddleware = async (req,res,next)=>{
     try{
         if(!token) return next(new CustomError('Unauthorized user!',401));
         
-        const isBlacklistToken = await cacheClient.get(token);
-        if(isBlacklistToken){
-            return res.status(401).json({message:"token blacklisted"});
-        }
+        // const isBlacklistToken = await cacheClient.get(token);
+        // if(isBlacklistToken){
+        //     return res.status(401).json({message:"token blacklisted"});
+        // }
 
         const decode = jwt.verify(token ,process.env.Secret_key);
         

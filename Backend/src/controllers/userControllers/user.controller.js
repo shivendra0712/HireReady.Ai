@@ -1,7 +1,7 @@
 const User = require('../../models/userModels/user.model.js');
 const bcrypt = require('bcryptjs');
 const CustomError = require('../../utils/customError.js');
-const cacheClient = require('../../services/cache.services.js');
+// const cacheClient = require('../../services/cache.services.js');
 
 const registerController = async (req, res, next) => {
     const { username, email, password } = req.body;
@@ -134,12 +134,12 @@ const logoutController = async (req, res, next) => {
     const { token } = req.cookies;
     try {
         if (!token) return next(new CustomError('User unauthorized', 401));
-        const blocklistToken = await cacheClient.set(
-            token,
-            'blocklisted',
-            'EX',
-            3600
-        );
+        // const blocklistToken = await cacheClient.set(
+        //     token,
+        //     'blocklisted',
+        //     'EX',
+        //     3600
+        // );
         res.clearCookie('token');
         res.status(200).json({ message: 'user logged out ' });
 
